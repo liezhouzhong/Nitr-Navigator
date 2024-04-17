@@ -1,0 +1,226 @@
+<style>
+    /* Global styles */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+    h1{
+        color: #f5f5f5;
+        font-size: 40px;
+    }
+     h2, h3 {
+        color: #002147;
+        font-size: 40px;
+    }
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    /* Header styles */
+    header {
+        background-color: #1d3d63;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+    /* Navigation styles */
+    nav {
+        display: flex;
+        justify-content: center;
+        background-color: #932c24;
+        padding: 10px 0;
+    }
+    nav a {
+        margin: 0 20px;
+        color: #f5f5f5;
+
+    }
+
+    /* Dropdown menu styles */
+    .navbar {
+        position: relative; /* Ensure the dropdown menu is positioned relative to the navbar */
+    }
+
+    .dropdown-menu {
+        display: none; /* Initially hide the dropdown menu */
+        position: absolute;
+        top: 100%; /* Position the dropdown menu below the "Database" link */
+        left: 20%;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 0;
+        list-style: none;
+        line-height: 2;
+        font-size: 14px;
+        color: #002147; /* Change font color */
+    }
+
+    .dropdown-item {
+        font-family: Helvetica, arial, sans-serif;
+        color: #002147; /* Change font color for dropdown menu items */
+    }
+
+    .dropdown-section {
+        position: relative; /* Ensure the dropdown menu is positioned relative to the "Database" link */
+    }
+
+    .dropdown-section:hover .dropdown-menu,
+    .dropdown-menu:hover {
+        display: block; /* Show the dropdown menu on hover */
+    }
+
+
+
+    /* Main content styles */
+    p {
+        font-family: Lato,Helvetica Neue,Helvetica,Arial,Liberation Sans,sans-serif;
+        margin: 0;
+        padding: 10px;
+        font-size: 16px;
+        height: auto;
+        line-height: 1.5;
+        text-align: justify;
+        text-justify: inter-word;
+        position: relative;
+
+        a:link {
+            font-weight: bold;
+            text-decoration: none;
+            color: #0d8ba1;
+        }
+        a:visited {
+            font-weight: bold;
+            text-decoration: none;
+            color: #1a5952;
+        }
+        a:hover, a:focus, a:active {
+            text-decoration: underline;
+            color: #9685BA;
+        }
+
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+
+    #myInput {
+      background-image: url('');
+      background-position: 10px 11px;
+      background-repeat: no-repeat;
+      width: 90%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+      margin-top: 12px;
+      verflow-x: auto;
+    }
+    /* Table styles */
+    .tableFixHead {
+        font-family: Lato,Helvetica Neue,Helvetica,Arial,Liberation Sans,sans-serif;
+        font-size: 14px;
+        overflow-y: auto;
+        overflow-x: auto;
+        height: 450px;
+    }
+    .tableFixHead thead th {
+            position: sticky;
+            top: 0;
+    }
+    table {
+      border: 1px solid white;
+      border-collapse: collapse;
+      table-layout: auto;
+      width: 98%;
+      border-style:groove;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even){background-color: #f2f2f2}
+    tr:hover {background-color: #ddd;}
+
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #932c24;
+      color: white;
+    }
+
+
+    /* Footer styles */
+    footer {
+        background-color: #333;
+        color: #fff;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    /* Subpage styles */
+    .body-regular {
+        font-family: Playfair Display, Georgia, Times New Roman, "Liberation Serif", serif;
+        font-size: 16px;
+        line-height: 1.5;
+        letter-spacing: 0;
+    }
+    .h2-sub {
+        font-family: Playfair Display, Georgia, Times New Roman, "Liberation Serif", serif;
+        font-size: 1.5 rem;
+        line-height: 1.33;
+        font-weight: 700;
+        display: block;
+        margin-top: 20px;
+        margin-bottom: 24px;
+        letter-spacing: 0;
+    }
+    .topic-page-header {
+        background-color: #ebeef2;
+        color: #1d3d63;
+        margin-bottom: 48px;
+    }
+
+    .code-container {
+        position: relative;
+        display: inline-block;
+        border: 1px solid #ccc;
+        padding: 10px 0 20px 0;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .code {
+        margin: 0;
+        padding: 0;
+        white-space: pre-wrap; /* This will make the code wrap */
+        word-wrap: break-word;
+        text-align: left;
+    }
+    .copy-button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 3px;
+        cursor: pointer;
+        margin-left: 10px; /* Adjust the distance between the button and the code block */
+        position: absolute;
+        bottom: 5px; /* Adjust vertical position */
+        left: 5px;
+    }
+    .copy-button:hover {
+        background-color: #0056b3;
+    }
+
+
+
+
+</style>

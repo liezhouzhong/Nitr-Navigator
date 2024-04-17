@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NitriteTable</title>
+    <link rel="stylesheet" type="text/css" href="nitratexplorer.css">
+</head>
+<body>
+    <header style="padding: 5px;">
+       <h1 style="font-size: 20px;">Nitrate, Nitrite and Nitrosamine Database</h1>
+    </header>
+    <nav class="navbar">
+        <a href="https://liezhouzhong.github.io/NitrateXploer/#" class="dropdown-trigger">Home</a>
+        <div class="dropdown-section">
+            <a href="#" class="dropdown-trigger">Database</a>
+            <ul class="dropdown-menu">
+                <li><a href="#" class="dropdown-item">Nitrate</a></li>
+                <li><a href="#" class="dropdown-item">Nitrite</a></li>
+                <li><a href="#" class="dropdown-item">Nitrosamine</a></li>
+            </ul>
+        </div>
+        <a href="#">Data Insights</a>
+        <a href="#">Knowledge Hub</a>
+        <a href="#">About</a>
+    </nav>
+
+    <div style="background-color: #ebeef2;">
+        <h2 style="padding: 20px 0 0 0; text-align: left;">Aggregated food nitrite content table (as of Apr 2024)</h2>
+        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong; 11 April 2024</p>
+    </div>
+
+    <h2 class="h2-bold">Introduction</h2>
+
+    <p>This nitrite table was extracted using the whole NitrateXplore database, using global data and with the number
+        of unique data sources for each included foods being more than 2.
+    </p>
+
+    <p>The NitrateXplore database contents a series of data fields related to samples, sampling location (city, country,
+        region, continent), sampling time (month, season, year), analytic methods, etc. therefore, it is capable of filtering
+        data and extracting nitrate content based on established protocols. In addition, you could combine several foods
+        together to extract the desired nitrate content. For example, you can combine all data for "Lettuce", "Lettuce,
+        Butterhead", "Lettuce, Iceberg", "Lettuce loose leaf" and "Lettuce, romaine" to extract a generic nitrate content
+        for all lettuce cultivars.
+    </p>
+
+    <p>You are welcome to  <a href="https://doi.org/10.1016/j.foodchem.2022.133411" target="_blank"> CONTACT US  </a>
+        to discuss the data extraction and calculation procedures that can work specifically for your purposes.
+        We have developed a nitrate/nitrite calculator that can automatically and efficiently assign
+        content values to food records while applying multiple protocols.
+    </p>
+
+
+    <input type="text" id="myInput" onkeyup="mySearch()" placeholder="Search for food names.." title="Type in a name">
+
+    <!--https://www.convertsimple.com/convert-csv-to-html-table/-->
+    <div class="tableFixHead" style="height: 600px;">
+        <table id="plant_table">
+            <thead>
+                <tr>
+                    <th>Common food name</th>
+                    <th>Mean ± SD</th>
+                    <th>Median [IQR]</th>
+                    <th>Range</th>
+                    <th style="max-width: 70px;">Number of references</th>
+                    <th style="max-width: 60px;">Sample size</th>
+                    <th style="max-width: 70px;">Number of country of sampling</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Almond</td>
+                    <td>1.79 ± 1.83</td>
+                    <td>1.28 [0.89 - 2.18]</td>
+                    <td>0.17 - 4.41</td>
+                    <td>3</td>
+                    <td>22</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Apple</td>
+                    <td>2.21 ± 4.08</td>
+                    <td>1.08 [0.11 - 1.89]</td>
+                    <td>0.0 - 18.1</td>
+                    <td>8*</td>
+                    <td>324</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>Arugula</td>
+                    <td>6.1 ± 20.42</td>
+                    <td>1.5 [1.36 - 2.5]</td>
+                    <td>0.0 - 170.0</td>
+                    <td>8*</td>
+                    <td>500</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>Asparagus</td>
+                    <td>2.0 ± nan</td>
+                    <td>2.0 [2.0 - 2.0]</td>
+                    <td>2.0 - 2.0</td>
+                    <td>1*</td>
+                    <td>6</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Banana</td>
+                    <td>3.18 ± 4.86</td>
+                    <td>1.11 [0.41 - 3.88]</td>
+                    <td>0.09 - 10.4</td>
+                    <td>4</td>
+                    <td>27</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Barley</td>
+                    <td>0.5 ± 1.1</td>
+                    <td>0.1 [0.1 - 0.1]</td>
+                    <td>0.1 - 3.6</td>
+                    <td>3*</td>
+                    <td>28</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Basil</td>
+                    <td>2.02 ± 2.24</td>
+                    <td>1.0 [0.88 - 2.44]</td>
+                    <td>0.23 - 8.4</td>
+                    <td>4*</td>
+                    <td>33</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Beans, garden, fresh, green or with pods</td>
+                    <td>2.82 ± 4.38</td>
+                    <td>0.42 [0.25 - 3.3]</td>
+                    <td>0.15 - 15.3</td>
+                    <td>8*</td>
+                    <td>248</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Beetroot</td>
+                    <td>15.0 ± 31.2</td>
+                    <td>3.92 [1.12 - 14.25]</td>
+                    <td>0.11 - 204.7</td>
+                    <td>16*</td>
+                    <td>556</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>Beetroot juice</td>
+                    <td>83.39 ± 279.39</td>
+                    <td>1.5 [0.0 - 5.58]</td>
+                    <td>0.0 - 1288.0</td>
+                    <td>3*</td>
+                    <td>36</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Bell pepper</td>
+                    <td>2.97 ± 3.35</td>
+                    <td>1.07 [0.62 - 5.74]</td>
+                    <td>0.2 - 12.5</td>
+                    <td>9*</td>
+                    <td>209</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>Breakfast cereals</td>
+                    <td>9.53 ± 2.47</td>
+                    <td>10.0 [10.0 - 10.0]</td>
+                    <td>2.0 - 12.5</td>
+                    <td>1*</td>
+                    <td>17</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Broccoli</td>
+                    <td>9.63 ± 36.16</td>
+                    <td>1.48 [0.11 - 6.74]</td>
+                    <td>0.03 - 200.0</td>
+                    <td>11*</td>
+                    <td>231</td>
+                    <td>9</td>
+                </tr>
+                <tr>
+                    <td>Brussels sprouts</td>
+                    <td>1.96 ± 1.22</td>
+                    <td>2.28 [1.15 - 2.97]</td>
+                    <td>0.04 - 3.18</td>
+                    <td>4*</td>
+                    <td>49</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Cabbage</td>
+                    <td>4.0 ± 18.47</td>
+                    <td>0.55 [0.13 - 1.69]</td>
+                    <td>0.0 - 135.0</td>
+                    <td>37</td>
+                    <td>944</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Cabbage, conical head</td>
+                    <td>1.27 ± 1.01</td>
+                    <td>1.25 [0.85 - 1.5]</td>
+                    <td>0.02 - 3.3</td>
+                    <td>1*</td>
+                    <td>59</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Cabbage, red</td>
+                    <td>2.93 ± 2.26</td>
+                    <td>2.64 [1.98 - 3.18]</td>
+                    <td>0.14 - 7.7</td>
+                    <td>3</td>
+                    <td>25</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Cabbage, savoy</td>
+                    <td>6.61 ± 4.47</td>
+                    <td>10.0 [1.05 - 10.0]</td>
+                    <td>1.05 - 10.0</td>
+                    <td>2*</td>
+                    <td>77</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Cabbage, white</td>
+                    <td>2.04 ± 3.19</td>
+                    <td>0.88 [0.16 - 1.5]</td>
+                    <td>0.02 - 7.65</td>
+                    <td>5*</td>
+                    <td>138</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Canned vegetable, unspecific</td>
+                    <td>3.94 ± 7.62</td>
+                    <td>1.5 [0.4 - 2.12]</td>
+                    <td>0.15 - 32.58</td>
+                    <td>1*</td>
+                    <td>46</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Carrot</td>
+                    <td>3.27 ± 6.85</td>
+                    <td>0.57 [0.15 - 3.3]</td>
+                    <td>0.0 - 47.84</td>
+                    <td>29*</td>
+                    <td>890</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Carrot juice</td>
+                    <td>0.15 ± 0.0</td>
+                    <td>0.15 [0.15 - 0.15]</td>
+                    <td>0.15 - 0.15</td>
+                    <td>2*</td>
+                    <td>34</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Cauliflower</td>
+                    <td>30.53 ± 170.53</td>
+                    <td>1.53 [0.33 - 4.7]</td>
+                    <td>0.06 - 1053.9</td>
+                    <td>15*</td>
+                    <td>248</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>Celeriac</td>
+                    <td>5.5 ± 5.07</td>
+                    <td>3.3 [3.3 - 8.03]</td>
+                    <td>0.15 - 26.5</td>
+                    <td>2*</td>
+                    <td>155</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Celery</td>
+                    <td>2.2 ± 3.24</td>
+                    <td>0.75 [0.2 - 2.48]</td>
+                    <td>0.03 - 12.6</td>
+                    <td>18*</td>
+                    <td>400</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>Cereal, mixed, unspecific</td>
+                    <td>3.04 ± 6.66</td>
+                    <td>0.35 [0.35 - 1.1]</td>
+                    <td>0.07 - 29.24</td>
+                    <td>5*</td>
+                    <td>94</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Chicory</td>
+                    <td>17.76 ± 29.34</td>
+                    <td>3.66 [2.0 - 19.42]</td>
+                    <td>2.0 - 61.7</td>
+                    <td>3*</td>
+                    <td>39</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Chilli</td>
+                    <td>1.87 ± 1.28</td>
+                    <td>1.6 [1.24 - 2.63]</td>
+                    <td>0.28 - 3.6</td>
+                    <td>5</td>
+                    <td>94</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Chinese cabbage, napa</td>
+                    <td>2.41 ± 2.1</td>
+                    <td>3.08 [1.57 - 3.59]</td>
+                    <td>0.06 - 4.1</td>
+                    <td>3</td>
+                    <td>38</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Chinese cabbages, unspecific</td>
+                    <td>3.1 ± 10.01</td>
+                    <td>0.68 [0.3 - 1.0]</td>
+                    <td>0.03 - 41.9</td>
+                    <td>8*</td>
+                    <td>313</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Chive</td>
+                    <td>6.4 ± 4.46</td>
+                    <td>10.0 [1.88 - 10.0]</td>
+                    <td>0.15 - 10.0</td>
+                    <td>1*</td>
+                    <td>32</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Collards</td>
+                    <td>1.03 ± 0.6</td>
+                    <td>1.5 [0.48 - 1.5]</td>
+                    <td>0.22 - 1.5</td>
+                    <td>1*</td>
+                    <td>7</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Coriander</td>
+                    <td>12.66 ± 21.23</td>
+                    <td>2.3 [1.18 - 12.85]</td>
+                    <td>0.29 - 58.0</td>
+                    <td>6</td>
+                    <td>85</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Courgette</td>
+                    <td>2.63 ± 1.04</td>
+                    <td>2.5 [2.5 - 2.7]</td>
+                    <td>0.53 - 5.0</td>
+                    <td>3*</td>
+                    <td>122</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Cucumber</td>
+                    <td>4.08 ± 4.48</td>
+                    <td>2.5 [0.29 - 7.71]</td>
+                    <td>0.03 - 18.9</td>
+                    <td>24*</td>
+                    <td>823</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>Dill</td>
+                    <td>64.36 ± 266.17</td>
+                    <td>0.5 [0.35 - 1.14]</td>
+                    <td>0.3 - 1163.0</td>
+                    <td>8*</td>
+                    <td>71</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>Eggplant</td>
+                    <td>3.65 ± 3.3</td>
+                    <td>2.7 [0.72 - 5.97]</td>
+                    <td>0.2 - 10.0</td>
+                    <td>13*</td>
+                    <td>253</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Endive</td>
+                    <td>4.01 ± 3.64</td>
+                    <td>2.5 [2.5 - 5.0]</td>
+                    <td>0.3 - 10.0</td>
+                    <td>2*</td>
+                    <td>24</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Fennel</td>
+                    <td>1.52 ± 1.07</td>
+                    <td>1.5 [0.55 - 2.21]</td>
+                    <td>0.3 - 3.1</td>
+                    <td>4*</td>
+                    <td>14</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Fenugreek</td>
+                    <td>1.64 ± 2.14</td>
+                    <td>0.6 [0.4 - 2.35]</td>
+                    <td>0.21 - 4.1</td>
+                    <td>3</td>
+                    <td>31</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Fruit juice, mixed, unspecific</td>
+                    <td>5.33 ± 5.14</td>
+                    <td>3.8 [0.64 - 10.38]</td>
+                    <td>0.01 - 11.82</td>
+                    <td>4</td>
+                    <td>348</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Fruit, mixed, unspecific</td>
+                    <td>0.32 ± 0.42</td>
+                    <td>0.17 [0.08 - 0.48]</td>
+                    <td>0.0 - 0.8</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Garden cress</td>
+                    <td>3.42 ± 3.29</td>
+                    <td>2.58 [1.32 - 4.55]</td>
+                    <td>0.07 - 9.9</td>
+                    <td>4</td>
+                    <td>46</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Garlic</td>
+                    <td>3.51 ± 5.28</td>
+                    <td>2.64 [0.21 - 4.22]</td>
+                    <td>0.0 - 16.77</td>
+                    <td>7</td>
+                    <td>113</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Ginger</td>
+                    <td>5.57 ± 2.84</td>
+                    <td>5.24 [4.14 - 6.67]</td>
+                    <td>2.5 - 9.31</td>
+                    <td>3</td>
+                    <td>9</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Grape</td>
+                    <td>0.77 ± 1.52</td>
+                    <td>0.19 [0.11 - 0.6]</td>
+                    <td>0.06 - 5.0</td>
+                    <td>5*</td>
+                    <td>96</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Herbs, infusion, dry</td>
+                    <td>0.0 ± 0.0</td>
+                    <td>0.0 [0.0 - 0.0]</td>
+                    <td>0.0 - 0.0</td>
+                    <td>2*</td>
+                    <td>5</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Herbs, mixed, unspecific</td>
+                    <td>2.5 ± 0.0</td>
+                    <td>2.5 [2.5 - 2.5]</td>
+                    <td>2.5 - 2.5</td>
+                    <td>2*</td>
+                    <td>8</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Kale</td>
+                    <td>5.16 ± 14.85</td>
+                    <td>2.0 [0.7 - 3.76]</td>
+                    <td>0.14 - 83.8</td>
+                    <td>7*</td>
+                    <td>207</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Kohlrabi</td>
+                    <td>4.03 ± 4.15</td>
+                    <td>2.0 [0.9 - 8.75]</td>
+                    <td>0.03 - 12.5</td>
+                    <td>3*</td>
+                    <td>179</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Lamb’s lettuce</td>
+                    <td>2.33 ± 1.29</td>
+                    <td>2.5 [1.5 - 3.0]</td>
+                    <td>0.42 - 5.1</td>
+                    <td>3*</td>
+                    <td>81</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Leek</td>
+                    <td>2.36 ± 2.88</td>
+                    <td>0.67 [0.46 - 2.78]</td>
+                    <td>0.15 - 9.3</td>
+                    <td>9</td>
+                    <td>384</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Lettuce</td>
+                    <td>47.93 ± 172.94</td>
+                    <td>1.5 [0.5 - 4.08]</td>
+                    <td>0.0 - 982.0</td>
+                    <td>33*</td>
+                    <td>2360</td>
+                    <td>27</td>
+                </tr>
+                <tr>
+                    <td>Lettuce, butterhead</td>
+                    <td>5.68 ± 11.21</td>
+                    <td>2.5 [2.38 - 3.71]</td>
+                    <td>0.4 - 80.99</td>
+                    <td>4*</td>
+                    <td>377</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Lettuce, iceberg</td>
+                    <td>23.14 ± 128.26</td>
+                    <td>1.5 [0.84 - 3.3]</td>
+                    <td>0.1 - 981.0</td>
+                    <td>8*</td>
+                    <td>757</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>Lettuce, romaine</td>
+                    <td>9.17 ± 17.94</td>
+                    <td>2.0 [1.5 - 5.0]</td>
+                    <td>0.04 - 66.5</td>
+                    <td>3*</td>
+                    <td>282</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Mint</td>
+                    <td>2.46 ± 2.99</td>
+                    <td>1.52 [0.54 - 2.7]</td>
+                    <td>0.13 - 8.78</td>
+                    <td>6*</td>
+                    <td>42</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Mushroom</td>
+                    <td>1.1 ± 1.55</td>
+                    <td>0.46 [0.18 - 1.2]</td>
+                    <td>0.0 - 5.0</td>
+                    <td>7*</td>
+                    <td>55</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>New zealand spinach</td>
+                    <td>0.39 ± 0.16</td>
+                    <td>0.3 [0.27 - 0.49]</td>
+                    <td>0.27 - 0.71</td>
+                    <td>3</td>
+                    <td>47</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Okra</td>
+                    <td>1.9 ± 1.73</td>
+                    <td>2.5 [0.05 - 3.4]</td>
+                    <td>0.05 - 3.5</td>
+                    <td>5*</td>
+                    <td>17</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Onion</td>
+                    <td>3.09 ± 3.48</td>
+                    <td>1.72 [0.44 - 4.76]</td>
+                    <td>0.04 - 14.32</td>
+                    <td>18</td>
+                    <td>641</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>Onion, green</td>
+                    <td>1.76 ± 1.35</td>
+                    <td>2.0 [0.37 - 2.74]</td>
+                    <td>0.02 - 4.09</td>
+                    <td>7</td>
+                    <td>137</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Orange</td>
+                    <td>0.16 ± 0.21</td>
+                    <td>0.1 [0.0 - 0.26]</td>
+                    <td>0.0 - 0.45</td>
+                    <td>4</td>
+                    <td>25</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Parsley</td>
+                    <td>10.31 ± 26.46</td>
+                    <td>2.5 [1.05 - 10.0]</td>
+                    <td>0.27 - 191.97</td>
+                    <td>15*</td>
+                    <td>324</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>Pea, fresh</td>
+                    <td>1.99 ± 1.99</td>
+                    <td>0.95 [0.54 - 3.68]</td>
+                    <td>0.0 - 5.2</td>
+                    <td>8*</td>
+                    <td>61</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>Peach</td>
+                    <td>1.6 ± 2.21</td>
+                    <td>0.49 [0.39 - 1.64]</td>
+                    <td>0.06 - 5.4</td>
+                    <td>3</td>
+                    <td>63</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Pear</td>
+                    <td>0.45 ± 0.96</td>
+                    <td>0.11 [0.06 - 0.29]</td>
+                    <td>0.0 - 3.29</td>
+                    <td>4</td>
+                    <td>57</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Potato</td>
+                    <td>3.57 ± 12.25</td>
+                    <td>1.19 [0.46 - 1.5]</td>
+                    <td>0.01 - 99.6</td>
+                    <td>35*</td>
+                    <td>1959</td>
+                    <td>19</td>
+                </tr>
+                <tr>
+                    <td>Potato, fried</td>
+                    <td>1.17 ± 1.75</td>
+                    <td>0.36 [0.23 - 1.13]</td>
+                    <td>0.04 - 5.91</td>
+                    <td>7</td>
+                    <td>101</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Pumpkin</td>
+                    <td>4.35 ± 7.34</td>
+                    <td>0.86 [0.24 - 2.89]</td>
+                    <td>0.05 - 20.3</td>
+                    <td>8*</td>
+                    <td>140</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>Radish</td>
+                    <td>4.55 ± 8.69</td>
+                    <td>2.5 [0.5 - 3.8]</td>
+                    <td>0.02 - 50.0</td>
+                    <td>15*</td>
+                    <td>423</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Radish, leaf</td>
+                    <td>5.35 ± 3.31</td>
+                    <td>3.52 [3.0 - 7.7]</td>
+                    <td>2.54 - 10.0</td>
+                    <td>3*</td>
+                    <td>10</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Radish, white</td>
+                    <td>2.24 ± 3.08</td>
+                    <td>0.68 [0.35 - 2.8]</td>
+                    <td>0.35 - 11.46</td>
+                    <td>5*</td>
+                    <td>75</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Rapeseed</td>
+                    <td>0.1 ± 0.0</td>
+                    <td>0.1 [0.1 - 0.1]</td>
+                    <td>0.1 - 0.1</td>
+                    <td>1*</td>
+                    <td>22</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Rhubarb</td>
+                    <td>1.09 ± 0.62</td>
+                    <td>1.5 [0.82 - 1.5]</td>
+                    <td>0.12 - 1.5</td>
+                    <td>1*</td>
+                    <td>6</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Rice</td>
+                    <td>0.33 ± 0.37</td>
+                    <td>0.09 [0.07 - 0.63]</td>
+                    <td>0.07 - 1.11</td>
+                    <td>5</td>
+                    <td>45</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Rye</td>
+                    <td>0.1 ± 0.0</td>
+                    <td>0.1 [0.1 - 0.1]</td>
+                    <td>0.1 - 0.1</td>
+                    <td>1*</td>
+                    <td>3</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Salad</td>
+                    <td>11.15 ± 22.11</td>
+                    <td>3.3 [1.0 - 10.7]</td>
+                    <td>0.03 - 145.0</td>
+                    <td>3*</td>
+                    <td>71</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Soybean, dry</td>
+                    <td>0.27 ± 0.39</td>
+                    <td>0.1 [0.05 - 0.41]</td>
+                    <td>0.0 - 0.72</td>
+                    <td>3*</td>
+                    <td>23</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Spinach</td>
+                    <td>9.91 ± 33.45</td>
+                    <td>2.34 [1.0 - 5.85]</td>
+                    <td>0.0 - 364.55</td>
+                    <td>48*</td>
+                    <td>1838</td>
+                    <td>33</td>
+                </tr>
+                <tr>
+                    <td>Spinach, baby leaf</td>
+                    <td>65.22 ± 210.28</td>
+                    <td>1.5 [0.51 - 4.52]</td>
+                    <td>0.22 - 949.0</td>
+                    <td>1*</td>
+                    <td>96</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Sprouts, mung bean</td>
+                    <td>27.76 ± 39.41</td>
+                    <td>12.27 [2.1 - 37.92]</td>
+                    <td>1.4 - 85.1</td>
+                    <td>3</td>
+                    <td>38</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Sprouts, soybean</td>
+                    <td>5.32 ± 8.01</td>
+                    <td>1.6 [0.88 - 6.05]</td>
+                    <td>0.8 - 17.3</td>
+                    <td>3</td>
+                    <td>78</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Squash</td>
+                    <td>16.58 ± 35.74</td>
+                    <td>2.45 [1.35 - 6.72]</td>
+                    <td>0.09 - 97.4</td>
+                    <td>4</td>
+                    <td>30</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Strawberry</td>
+                    <td>1.66 ± 2.35</td>
+                    <td>0.6 [0.29 - 1.97]</td>
+                    <td>0.27 - 5.16</td>
+                    <td>3</td>
+                    <td>33</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Sweet potato</td>
+                    <td>1.37 ± 1.28</td>
+                    <td>1.5 [0.33 - 1.5]</td>
+                    <td>0.0 - 3.9</td>
+                    <td>3*</td>
+                    <td>62</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Swiss chard</td>
+                    <td>34.05 ± 132.69</td>
+                    <td>2.0 [1.21 - 3.53]</td>
+                    <td>0.22 - 718.0</td>
+                    <td>12*</td>
+                    <td>246</td>
+                    <td>15</td>
+                </tr>
+                <tr>
+                    <td>Tarragon</td>
+                    <td>3.0 ± 3.38</td>
+                    <td>1.9 [0.54 - 4.36]</td>
+                    <td>0.51 - 7.7</td>
+                    <td>3</td>
+                    <td>32</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>Tomato</td>
+                    <td>3.12 ± 5.62</td>
+                    <td>0.7 [0.22 - 2.75]</td>
+                    <td>0.0 - 26.63</td>
+                    <td>29*</td>
+                    <td>991</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>Turnip</td>
+                    <td>1.95 ± 1.86</td>
+                    <td>1.5 [0.42 - 3.03]</td>
+                    <td>0.08 - 6.45</td>
+                    <td>10*</td>
+                    <td>104</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>Vegetable juice, mixed, unspecific</td>
+                    <td>5.72 ± 8.14</td>
+                    <td>1.5 [1.26 - 6.73]</td>
+                    <td>0.22 - 23.36</td>
+                    <td>2*</td>
+                    <td>9</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Vegetable, fresh, mixed, unspecific</td>
+                    <td>3.24 ± 3.41</td>
+                    <td>2.6 [1.84 - 3.78]</td>
+                    <td>0.02 - 15.0</td>
+                    <td>3*</td>
+                    <td>407</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Watermelon</td>
+                    <td>1.89 ± 2.23</td>
+                    <td>1.24 [0.38 - 2.75]</td>
+                    <td>0.09 - 5.0</td>
+                    <td>4*</td>
+                    <td>31</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Wheat</td>
+                    <td>0.1 ± 0.02</td>
+                    <td>0.1 [0.1 - 0.1]</td>
+                    <td>0.0 - 0.1</td>
+                    <td>2*</td>
+                    <td>39</td>
+                    <td>1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+    <h2 style="background-color: #ebeef2; padding: 5px; text-align: left; font-size: 16px">Cite this work </h2>
+
+    <div class="code-container">
+        <pre class="code"><code id="code">Zhong, L., Blekkenhorst, L. C., Bondonno, N. P., Sim, M., Woodman, R. J., Croft, K. D., . . . Bondonno, C. P. (2022). A food composition database for assessing nitrate intake from plant-based foods. Food Chem, 394, 133411. </code>
+        </pre>
+        <button class="copy-button" onclick="copyCode()">Copy</button>
+    </div>
+
+
+    <footer>
+    <p style="text-align: center;">© Nutrition and Health Innovation Research Institute. All rights reserved.</p>
+</footer>
+
+<script src="scripts.js"></script>
+
+</html>
