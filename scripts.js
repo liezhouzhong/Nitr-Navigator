@@ -1,3 +1,24 @@
+ // the function should be in the right sequence
+$(document).ready(function(){
+    // Show or hide the dropdown menu when clicking on the trigger element
+    $(".dropdown-trigger").click(function(event){
+        event.stopPropagation(); // Prevents the event from bubbling up the DOM tree
+        $(this).next(".dropdown-menu").toggle();
+    });
+
+    // Hide the dropdown menu when clicking anywhere else
+    $(document).click(function(){
+        $(".dropdown-menu").hide();
+    });
+
+    // Prevent the dropdown menu from hiding when clicking on it
+    $(".dropdown-menu").click(function(event){
+        event.stopPropagation();
+    });
+});
+
+
+
 function mySearch() {
 
   // Declare search string
@@ -40,9 +61,13 @@ searchBox.addEventListener('keyup', mySearch);
         const codeElement = document.getElementById('code');
         const code = codeElement.textContent || codeElement.innerText;
         navigator.clipboard.writeText(code).then(function() {
-            alert('Code copied successfully!');
+            alert('Citation copied successfully!');
         }, function(err) {
             console.error('Unable to copy code: ', err);
         });
     }
+
+
+
+
 

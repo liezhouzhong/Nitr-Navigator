@@ -43,34 +43,39 @@
         position: relative; /* Ensure the dropdown menu is positioned relative to the navbar */
     }
 
+    .navbar a:hover {
+        text-decoration: underline;
+        text-decoration-color: #f9f9f9; /* Change the color as needed */
+    }
+
     .dropdown-menu {
         display: none; /* Initially hide the dropdown menu */
+        white-space: nowrap;
         position: absolute;
         top: 100%; /* Position the dropdown menu below the "Database" link */
-        left: 20%;
+        left: 0;
         background-color: #f9f9f9;
         border: 1px solid #ddd;
         padding: 0;
         list-style: none;
         line-height: 2;
         font-size: 14px;
-        color: #002147; /* Change font color */
+        opacity: 0;
+        transition: opacity 0.3s ease;
     }
 
     .dropdown-item {
-        font-family: Helvetica, arial, sans-serif;
+        font-family: Helvetica, Arial, sans-serif;
         color: #002147; /* Change font color for dropdown menu items */
     }
 
     .dropdown-section {
-        position: relative; /* Ensure the dropdown menu is positioned relative to the "Database" link */
+        position: relative;/* Ensure the dropdown menu is positioned relative to the "Database" link */
     }
 
-    .dropdown-section:hover .dropdown-menu,
-    .dropdown-menu:hover {
-        display: block; /* Show the dropdown menu on hover */
+    .dropdown-section:hover .dropdown-menu {
+        opacity: 1;
     }
-
 
 
     /* Main content styles */
@@ -163,7 +168,7 @@
         background-color: #333;
         color: #fff;
         text-align: center;
-        padding: 10px 0;
+        padding: 3px 0;
     }
 
     /* Subpage styles */
