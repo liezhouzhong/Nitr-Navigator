@@ -12,13 +12,13 @@
        <h1 style="font-size: 20px;">Nitrate, Nitrite and Nitrosamine Database</h1>
     </header>
     <nav class="navbar">
-        <a href="https://liezhouzhong.github.io/NitrateXploer/#" class="dropdown-trigger">Home</a>
+        <a href="index">Home</a>
         <div class="dropdown-section">
-            <a href="#" class="dropdown-trigger">Database</a>
-            <ul class="dropdown-menu">
-                <li><a href="#" class="dropdown-item">Nitrate</a></li>
-                <li><a href="#" class="dropdown-item">Nitrite</a></li>
-                <li><a href="#" class="dropdown-item">Nitrosamine</a></li>
+            <a href="#" class="dropdown-trigger">Databases</a>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="no3_table" class="dropdown-item">Nitrate database</a></li>
+                <li><a href="no2_table" class="dropdown-item">Nitrite database</a></li>
+                <li><a href="nocs" class="dropdown-item">Nitrosamine database</a></li>
             </ul>
         </div>
         <a href="#">Data Insights</a>
@@ -33,11 +33,13 @@
 
     <h2 class="h2-bold">Introduction</h2>
 
-    <p>This nitrite table was extracted using the whole NitrateXplore database, using global data and with the number
-        of unique data sources for each included foods being more than 2.
+    <p>This nitrate table was extracted using the whole NitrateXplore database, using global data and with the number
+        of unique data sources for each included foods being more than 2. Therefore, not all the foods included in the
+        database are presented in the table below. The full list of the included foods in the database please see
+        <a href="nocs.html" target="_blank"> the combined food table</a>.
     </p>
 
-    <p>The NitrateXplore database contents a series of data fields related to samples, sampling location (city, country,
+    <p>The NitrateXplore database contains a series of data fields related to samples, sampling location (city, country,
         region, continent), sampling time (month, season, year), analytic methods, etc. therefore, it is capable of filtering
         data and extracting nitrate content based on established protocols. In addition, you could combine several foods
         together to extract the desired nitrate content. For example, you can combine all data for "Lettuce", "Lettuce,
@@ -60,9 +62,9 @@
             <thead>
                 <tr>
                     <th>Common food name</th>
-                    <th>Mean ± SD</th>
-                    <th>Median [IQR]</th>
-                    <th>Range</th>
+                    <th>Mean ± SD (mg/kg)</th>
+                    <th>Median [IQR] (mg/kg)</th>
+                    <th>Range (mg/kg)</th>
                     <th style="max-width: 70px;">Number of references</th>
                     <th style="max-width: 60px;">Sample size</th>
                     <th style="max-width: 70px;">Number of country of sampling</th>
@@ -918,21 +920,28 @@
             </tbody>
         </table>
     </div>
+
+    <p style="font-size: 12px;"> Note: <Br>
+        Sample size was assigned as 1 where publications did not clearly present.<Br>
+        <sup>* </sup>Data extracted from database was considered as ≥ 3 references.<Br>
+        Only subgroups with data derived from ≥ 3 references were included.<Br>
+    </p>
 </body>
 
-    <h2 style="background-color: #ebeef2; padding: 5px; text-align: left; font-size: 16px">Cite this work </h2>
+<h2 style="background-color: #ebeef2; padding: 5px; text-align: left; font-size: 16px">Cite this work </h2>
 
-    <div class="code-container">
-        <pre class="code"><code id="code">Zhong, L., Blekkenhorst, L. C., Bondonno, N. P., Sim, M., Woodman, R. J., Croft, K. D., . . . Bondonno, C. P. (2022). A food composition database for assessing nitrate intake from plant-based foods. Food Chem, 394, 133411. </code>
-        </pre>
-        <button class="copy-button" onclick="copyCode()">Copy</button>
-    </div>
+<div class="code-container">
+    <pre class="code"><code id="code">Zhong, L., Blekkenhorst, L. C., Bondonno, N. P., Sim, M., Woodman, R. J., Croft, K. D., . . . Bondonno, C. P. (2022). A food composition database for assessing nitrate intake from plant-based foods. Food Chem, 394, 133411. </code>
+    </pre>
+    <button class="copy-button" onclick="copyCode()">Copy</button>
+</div>
 
 
-    <footer>
+<footer>
     <p style="text-align: center;">© Nutrition and Health Innovation Research Institute. All rights reserved.</p>
 </footer>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="scripts.js"></script>
 
 </html>
