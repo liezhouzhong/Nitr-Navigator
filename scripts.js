@@ -1,10 +1,9 @@
- // the function should be in the right sequence
+// Show or hide the dropdown menu when clicking on the trigger element
 $(document).ready(function(){
-    // Show or hide the dropdown menu when clicking on the trigger element
-    $(".dropdown-trigger").click(function(event){
+    window.dropdownTrigger = function() {
         event.stopPropagation(); // Prevents the event from bubbling up the DOM tree
         $(this).next(".dropdown-menu").toggle();
-    });
+    };
 
     // Hide the dropdown menu when clicking anywhere else
     $(document).click(function(){
@@ -17,9 +16,39 @@ $(document).ready(function(){
     });
 });
 
+// Location pop-up window
+(function() {
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // After 10 seconds, open the modal if 24 hours have passed since the last display
+    setTimeout(function() {
+        var lastShown = localStorage.getItem('lastShown');
+        if (!lastShown || new Date() - new Date(lastShown) > 24*60*60*1000) {
+            modal.style.display = "block";
+            localStorage.setItem('lastShown', new Date());
+        }
+    }, 10000); // 10000 milliseconds = 10 seconds
+})();
+
 // collapse menu
 (function() {
-    function menuCollapse() {
+    window.menuCollapse = function() {
       var x = document.getElementById("myTopnav");
       if (x.className === "navbar") {
         x.className += " responsive";
@@ -29,11 +58,9 @@ $(document).ready(function(){
     }
 })();
 
-
-
 // table search
 (function() {
-  function mySearch() {
+  window.mySearch = function() {
     // Declare search string
     var filter = searchBox.value.toUpperCase();
 
@@ -73,7 +100,7 @@ $(document).ready(function(){
 
 // Citation copy
 (function() {
-    function copyCode() {
+    window.copyCode = function() {
         const codeElement = document.getElementById('code');
         const code = codeElement.textContent || codeElement.innerText;
         navigator.clipboard.writeText(code).then(function() {
@@ -82,34 +109,4 @@ $(document).ready(function(){
             console.error('Unable to copy code: ', err);
         });
     }
-})();
-
-// Location pop-up window
-(function() {
-    // Get the modal
-    var modal = document.getElementById("myModal");
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
-    // After 10 seconds, open the modal if 24 hours have passed since the last display
-    setTimeout(function() {
-        var lastShown = localStorage.getItem('lastShown');
-        if (!lastShown || new Date() - new Date(lastShown) > 24*60*60*1000) {
-            modal.style.display = "block";
-            localStorage.setItem('lastShown', new Date());
-        }
-    }, 10000); // 10000 milliseconds = 10 seconds
 })();
