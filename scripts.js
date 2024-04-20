@@ -71,18 +71,7 @@ $(document).ready(function(){
   searchBox.addEventListener('keyup', mySearch);
 })();
 
-// Citation copy
-(function() {
-    function copyCode() {
-        const codeElement = document.getElementById('code');
-        const code = codeElement.textContent || codeElement.innerText;
-        navigator.clipboard.writeText(code).then(function() {
-            alert('Citation copied successfully!');
-        }, function(err) {
-            console.error('Unable to copy code: ', err);
-        });
-    }
-})();
+
 
 // Location pop-up window
 (function() {
@@ -112,4 +101,19 @@ $(document).ready(function(){
             localStorage.setItem('lastShown', new Date());
         }
     }, 10000); // 10000 milliseconds = 10 seconds
+})();
+
+
+
+// Citation copy
+(function() {
+    function copyCode() {
+        const codeElement = document.getElementById('code');
+        const code = codeElement.textContent || codeElement.innerText;
+        navigator.clipboard.writeText(code).then(function() {
+            alert('Citation copied successfully!');
+        }, function(err) {
+            console.error('Unable to copy code: ', err);
+        });
+    }
 })();
