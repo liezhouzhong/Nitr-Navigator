@@ -200,13 +200,13 @@
 
     /* Subpage styles */
     .body-regular {
-        font-family: Playfair Display, Georgia, Times New Roman, "Liberation Serif", serif;
+        font-family: Playfair Display, Georgia, Times New Roman, serif;
         font-size: 16px;
         line-height: 1.5;
         letter-spacing: 0;
     }
     .h2-sub {
-        font-family: Playfair Display, Georgia, Times New Roman, "Liberation Serif", serif;
+        font-family: Playfair Display, Georgia, Times New Roman,  serif;
         font-size: 1.5 rem;
         line-height: 1.33;
         font-weight: 700;

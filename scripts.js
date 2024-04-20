@@ -104,8 +104,12 @@ $(document).ready(function(){
         }
     }
 
-    // After 10 seconds, open the modal
+    // After 10 seconds, open the modal if 24 hours have passed since the last display
     setTimeout(function() {
-        modal.style.display = "block";
-    }, 10000); // 20000 milliseconds = 20 seconds
+        var lastShown = localStorage.getItem('lastShown');
+        if (!lastShown || new Date() - new Date(lastShown) > 24*60*60*1000) {
+            modal.style.display = "block";
+            localStorage.setItem('lastShown', new Date());
+        }
+    }, 10000); // 10000 milliseconds = 10 seconds
 })();
