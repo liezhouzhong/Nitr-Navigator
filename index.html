@@ -4,33 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NitrateXplorer</title>
-    <link rel="stylesheet" type="text/css" href="nitratexplorer.css">
+    <link rel="stylesheet" type="text/css" href="home_css.css">
 </head>
+
 <body>
     <header>
         <h1>Nitrate, Nitrite and Nitrosamine Database</h1>
         <p style="font-size: 20px; font-family: Playfair Display, Georgia, Times New Roman, serif; text-align: center;">Data and research to answer the nitrate debate.</p>
     </header>
-    <nav class="navbar">
-        <a href="index">Home</a>
-        <div class="dropdown-section">
-            <a href="#" class="dropdown-trigger">Databases</a>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="no3_table" class="dropdown-item">Nitrate database</a></li>
-                <li><a href="no2_table" class="dropdown-item">Nitrite database</a></li>
-                <li><a href="nocs" class="dropdown-item">Nitrosamine database</a></li>
-            </ul>
-        </div>
-        <a href="#">Data Insights</a>
-        <a href="#">Knowledge Hub</a>
-        <a href="#">About</a>
-    </nav>
 
+    <section class="top-nav">
+        <div style="font-family: Playfair Display, Georgia, Times New Roman, serif;">
+          NHIRI
+        </div>
+        <input id="menu-toggle" type="checkbox" />
+        <label class='menu-button-container' for="menu-toggle">
+        <div class='menu-button'></div>
+      </label>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="no3_table.html">Database</a></li>
+          <li><a href="#">Data Insights</a></li>
+          <li><a href="#">Knowledge Hub</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </section>
 
     <div class="container">
         <div class="text-block">
-            <h2 class="body-regular" style="font-size: 20px;">Our Story</h2>
-            <p class="body-regular">We are working hard to make this database more functional and friendly.</p>
+            <h2 style="font-size: 20px; text-align: left;">Our Story</h2>
+            <p style="font-family: Playfair Display, Georgia, Times New Roman, serif;">We are working hard to make this database more functional and friendly.</p>
             <p>In 2017 our team at Edith Cowan University built the first version of plant based food
                 nitrate content, which was published in mnfr. From 2021, we started to expand the database by including animal-based foods,
                 followed by an update of the plant based food nitrate database. The databases have supported a series of funded nitrate/nitrite-related
@@ -40,46 +43,151 @@
         </div>
 
         <div class="slideshow-container">
-            <h2 class="body-regular" style="font-size: 16px;">Highlights</h2>
+            <h2 class="body-regular" style="font-size: 16px; text-align: left;">Highlights</h2>
             <p></p>
             <div class="mySlides fade">
-              <div class="numbertext">1 / 3</div>
-                <img src="assets/img/41573_2008_Article_BFnrd2466_Fig2_HTML.PNG" style="width:80%">
-              <div class="text">The entero-salivary circulation of nitrate in humans</div>
+                <div class="numbertext">1 / 3</div>
+                <!-- Wrap the img tag in an a tag -->
+                <a target="_blank" href="https://www.nature.com/articles/nrd2466">
+                    <img class="slide-img" src="assets/img/PMID18167491_Fig2.png" style="width:100%">
+                </a>
+                <div class="text">The entero-salivary circulation of nitrate in humans</div>
+            </div>
+
+            <!-- Repeat for the other slides -->
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <a href="page2.html">
+                    <img class="slide-img" src="assets/img/no-cGMP.png" style="width:100%">
+                </a>
+                <div class="text">Inorganic nitrate in human health</div>
             </div>
 
             <div class="mySlides fade">
-              <div class="numbertext">2 / 3</div>
-                <img src="assets/img/41573_2008_Article_BFnrd2466_Fig5_HTML.PNG" style="width:80%">
-              <div class="text">Inorganic nitrate in human health</div>
-            </div>
-
-            <div class="mySlides fade">
-              <div class="numbertext">3 / 3</div>
-                <img src="assets/img/Plant food database structure.png" style="width:80%">
-              <div class="text">Database structure</div>
+                <div class="numbertext">3 / 3</div>
+                <a href="data_structure.html">
+                    <img class="slide-img" src="assets/img/Plant food database structure.png" style="width:100%">
+                </a>
+                <div class="text">Database structure</div>
             </div>
 
             <a class="prev" onclick="plusSlides(-1)">❮</a>
             <a class="next" onclick="plusSlides(1)">❯</a>
 
             <div style="text-align:center">
-              <span class="dot" onclick="currentSlide(1)"></span>
-              <span class="dot" onclick="currentSlide(2)"></span>
-              <span class="dot" onclick="currentSlide(3)"></span>
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
             </div>
+        </div>
+
+    </div>
+
+    <div class="container_pg">
+        <ul class="table_pg">
+            <li><a href="food_table.html"><picture>
+                <source srcset="assets/img/food_table_icon_square_small.png" media="(max-width: 530px)">
+                <source srcset="assets/img/food_table_icon_square_small.png" media="(max-width: 767px)">
+                <source srcset="assets/img/food_table_icon_square.png">
+              <img src="assets/img/food_table_icon_square.png" class="img-responsive"></picture></a>
+            </li><li><a href="no3_table.html"><picture>
+              <source srcset="assets/img/nitrate_icon_small.png" media="(max-width: 530px)">
+              <source srcset="assets/img/nitrate_icon_small.png" media="(max-width: 767px)">
+              <source srcset="assets/img/nitrate_icon.png" media="(max-width: 1100px)">
+              <source srcset="assets/img/nitrate_icon.png">
+              <img src="assets/img/nitrate_icon.png" class="img-responsive"></picture></a>
+            </li><li><a href="no2_table.html"><picture>
+              <source srcset="assets/img/nitrite_icon_small.png" media="(max-width: 530px)">
+              <source srcset="assets/img/nitrite_icon_small.png" media="(max-width: 767px)">
+              <source srcset="assets/img/nitrite_icon.png" media="(max-width: 1100px)">
+              <source srcset="assets/img/nitrite_icon.png">
+              <img src="assets/img/nitrite_icon.png" class="img-responsive"></picture></a></li>
+        </ul>
+
+        <p class="feedback"><a id="contactLink" href=""> Questions, want to submit your own data? Please <strong>Contact us</strong>.</a></p>.</a></p>
+    </div>
+
+        <!-- The Modal -->
+    <div id="myModal_link" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">×</span>
+
+            <!-- Embed Google Form Here -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdd8dPGFZqZeQ9NvhNtyqaDlmb-GKlmuh817pUeKjLugqD2rA/viewform?embedded=true" width="600" height="719" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
         </div>
     </div>
 
-    <p><br><br><br><br><br><br><br><br><br><br><br></p>
+    <p><br><br></p>
 
-</body>
+
 
 <footer>
     <p style="text-align: center;">© Nutrition and Health Innovation Research Institute. All rights reserved.</p>
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    // Slide show
+
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+    showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+    showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    }
+
+    (function() {
+        // Get the modal
+        var modal = document.getElementById("myModal_link");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Get the "Contact us" link
+        var link = document.getElementById("contactLink");
+
+        // When the user clicks on the link, open the modal
+        link.onclick = function(event) {
+            event.preventDefault(); // Prevent the link from being followed
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    })();
+</script>
 <script src="scripts.js"></script>
+
+</body>
 
 </html>

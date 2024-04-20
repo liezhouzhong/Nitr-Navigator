@@ -17,72 +17,63 @@ $(document).ready(function(){
     });
 });
 
-let slideIndex = 1;
-showSlides(slideIndex);
+// collapse menu
+(function() {
+    function menuCollapse() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "navbar") {
+        x.className += " responsive";
+      } else {
+        x.className = "navbar";
+      }
+    }
+})();
 
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
 
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
 
-function showSlides(n) {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
-}
+// table search
+(function() {
+  function mySearch() {
+    // Declare search string
+    var filter = searchBox.value.toUpperCase();
 
-function mySearch() {
+    // Loop through first tbody's rows
+    for (var rowI = 0; rowI < trs.length; rowI++) {
 
-  // Declare search string
-  var filter = searchBox.value.toUpperCase();
+      // define the row's cells
+      var tds = trs[rowI].getElementsByTagName("td");
 
-  // Loop through first tbody's rows
-  for (var rowI = 0; rowI < trs.length; rowI++) {
+      // hide the row
+      trs[rowI].style.display = "none";
 
-    // define the row's cells
-    var tds = trs[rowI].getElementsByTagName("td");
+      // loop through row cells
+      for (var cellI = 0; cellI < tds.length; cellI++) {
 
-    // hide the row
-    trs[rowI].style.display = "none";
+        // if there's a match
+        if (tds[cellI].innerHTML.toUpperCase().indexOf(filter) > -1) {
 
-    // loop through row cells
-    for (var cellI = 0; cellI < tds.length; cellI++) {
+          // show the row
+          trs[rowI].style.display = "";
 
-      // if there's a match
-      if (tds[cellI].innerHTML.toUpperCase().indexOf(filter) > -1) {
-
-        // show the row
-        trs[rowI].style.display = "";
-
-        // skip to the next row
-        continue;
+          // skip to the next row
+          continue;
+        }
       }
     }
   }
-}
 
-// declare elements
-const searchBox = document.getElementById('myInput');
-const table = document.getElementById("plant_table");
-const trs = table.tBodies[0].getElementsByTagName("tr");
+  // declare elements
+  const searchBox = document.getElementById('myInput');
+  const table = document.getElementById("plant_table");
+  const trs = table.tBodies[0].getElementsByTagName("tr");
 
-// add event listener to search box
-searchBox.addEventListener('keyup', mySearch);
+  // add event listener to search box
+  searchBox.addEventListener('keyup', mySearch);
+})();
 
- function copyCode() {
+// Citation copy
+(function() {
+    function copyCode() {
         const codeElement = document.getElementById('code');
         const code = codeElement.textContent || codeElement.innerText;
         navigator.clipboard.writeText(code).then(function() {
@@ -91,8 +82,30 @@ searchBox.addEventListener('keyup', mySearch);
             console.error('Unable to copy code: ', err);
         });
     }
+})();
 
+// Location pop-up window
+(function() {
+    // Get the modal
+    var modal = document.getElementById("myModal");
 
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
 
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
 
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
 
+    // After 10 seconds, open the modal
+    setTimeout(function() {
+        modal.style.display = "block";
+    }, 10000); // 20000 milliseconds = 20 seconds
+})();
