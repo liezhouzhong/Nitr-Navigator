@@ -159,7 +159,7 @@
     dots[slideIndex-1].className += " active";
     }
 
-    (function() {
+    window.onload = function() {
         // Get the modal
         var modal = document.getElementById("myModal_link");
 
@@ -186,7 +186,7 @@
                 modal.style.display = "none";
             }
         }
-    })();
+    };
 
 
 </script>

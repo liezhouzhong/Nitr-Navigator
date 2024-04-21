@@ -42,8 +42,8 @@ $(document).ready(function(){
         if (!lastShown || new Date() - new Date(lastShown) > 24*60*60*1000) {
             modal.style.display = "block";
             localStorage.setItem('lastShown', new Date());
-        }
-    }, 10000); // 10000 milliseconds = 10 seconds
+            }
+        }, 10000); // 10000 milliseconds = 10 seconds
 })();
 
 // collapse menu
