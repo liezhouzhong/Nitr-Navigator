@@ -57,6 +57,7 @@
       margin: 0 1rem;
       overflow: hidden;
       transition: background-color 0.3s ease;
+      position: relative:
     }
     .menu > li:hover {
       background-color: #555;
@@ -159,13 +160,17 @@
       }
     }
 
-
-
     .container {
         display: flex; /* This will make the direct children of .container align in a row */
         justify-content: space-between; /* This will put some space between the slideshow and the text block */
         text-align: center;
         padding: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+      }
     }
 
     /* Main content styles */
@@ -208,10 +213,23 @@
       max-height: 500pxl;
       overflow: auto"
     }
+
+    @media (max-width: 600px) {
+      .slideshow-container {
+        width: 100%;
+      }
+    }
     .text-block {
         width: 50%;
         margin-right: 20px;
     }
+
+    @media (max-width: 600px) {
+      .text-block {
+        width: 100%;
+      }
+    }
+
     .slide-img {
       width: 300px;  /* you can set the width */
       height: 300px;  /* you can set the height */

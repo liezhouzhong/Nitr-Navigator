@@ -11,20 +11,29 @@
     <header style="padding: 5px;">
        <h1 style="font-size: 20px;">Nitrate, Nitrite and Nitrosamine Database</h1>
     </header>
-    <nav class="navbar">
-        <a href="index.html">Home</a>
-        <div class="dropdown-section">
-            <a href="#" class="dropdown-trigger">Databases</a>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="no3_table.html" class="dropdown-item">Nitrate database</a></li>
-                <li><a href="no2_table.html" class="dropdown-item">Nitrite database</a></li>
-                <li><a href="nocs.html" class="dropdown-item">Nitrosamine database</a></li>
-            </ul>
+
+    <section class="top-nav" style="padding: 5px;">
+        <div style="font-family: Playfair Display, Georgia, Times New Roman, serif;">
+          NHIRI
         </div>
-        <a href="#">Data Insights</a>
-        <a href="#">Knowledge Hub</a>
-        <a href="#">About</a>
-    </nav>
+        <input id="menu-toggle" type="checkbox" />
+        <label class='menu-button-container' for="menu-toggle">
+        <div class='menu-button'></div>
+      </label>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#dbs">Databases</a>
+              <ul class="submenu">
+                  <li><a href="no3_table.html">Nitrate database</a></li>
+                  <li><a href="no2_table.html">Nitrite database</a></li>
+                  <li><a href="nocs.html">NOCs database</a></li>
+              </ul>
+          </li>
+          <li><a href="#">Data Insights</a></li>
+          <li><a href="#">Knowledge Hub</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </section>
 
 
     <div style="background-color: #ebeef2;">
