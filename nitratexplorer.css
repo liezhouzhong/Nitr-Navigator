@@ -67,6 +67,11 @@
       overflow: hidden;
       background-color: #fff; /* menu background*/
     }
+
+    nav .m-menu a:hover {
+        text-decoration: underline;
+    }
+
     nav .m-menu__overlay {
       background-color: rgba(103, 103, 103, 0.5); /* color outside the menu*/
       position: absolute;
