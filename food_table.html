@@ -12,28 +12,97 @@
        <h1 style="font-size: 20px;">Nitrate, Nitrite and Nitrosamine Database</h1>
     </header>
 
-    <section class="top-nav" style="padding: 5px;">
-        <div style="font-family: Playfair Display, Georgia, Times New Roman, serif;">
-          NHIRI
-        </div>
-        <input id="menu-toggle" type="checkbox" />
-        <label class='menu-button-container' for="menu-toggle">
-        <div class='menu-button'></div>
-      </label>
-        <ul class="menu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#dbs">Databases</a>
-              <ul class="submenu">
-                  <li><a href="no3_table.html">Nitrate database</a></li>
-                  <li><a href="no2_table.html">Nitrite database</a></li>
-                  <li><a href="nocs.html">NOCs database</a></li>
-              </ul>
-          </li>
-          <li><a href="#">Data Insights</a></li>
-          <li><a href="#">Knowledge Hub</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </section>
+    <!-- Nav menu -->
+    <div class="wrapper">
+        <nav>
+            <input type="checkbox" id="menu" name="menu" class="m-menu__checkbox">
+            <label class="m-menu__toggle" for="menu">
+                <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="butt" stroke-linejoin="arcs"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            </label>
+            <label class="m-menu__overlay" for="menu"></label>
+
+            <div class="m-menu">
+                <div class="m-menu__header">
+                    <label class="m-menu__toggle" for="menu">
+                        <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="butt" stroke-linejoin="arcs">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </label>
+                    <span>NHIRI</span>
+                </div>
+                <!-- 1st layer -->
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li>
+                        <label class="a-label__chevron" for="item-2">Databases</label>
+                        <input type="checkbox" id="item-2" name="item-2" class="m-menu__checkbox">
+                        <div class="m-menu">
+                            <div class="m-menu__header">
+                                <label class="m-menu__toggle" for="item-2">
+                                    <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="butt" stroke-linejoin="arcs">
+                                        <path d="M19 12H6M12 5l-7 7 7 7"/>
+                                    </svg>
+                                </label>
+                                <!-- 2nd layer; a 3rd lay are capable-->
+                                <span>Databases</span>
+                            </div>
+                            <ul>
+                                <li><a href="no3_table.html">Nitrate database</a></li>
+                                <li><a href="no2_table.html">Nitrite database</a></li>
+                                <li><a href="nocs.html">NOCs database</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li><label>Data Insights</label></li>
+
+                    <li>
+                        <label class="a-label__chevron" for="item-3">Knowledge Hub</label>
+                        <input type="checkbox" id="item-3" name="item-3" class="m-menu__checkbox">
+                        <div class="m-menu">
+                            <div class="m-menu__header">
+                                <label class="m-menu__toggle" for="item-3">
+                                    <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="butt" stroke-linejoin="arcs">
+                                        <path d="M19 12H6M12 5l-7 7 7 7"/>
+                                    </svg>
+                                </label>
+                                <!-- 2nd layer; a 3rd lay are capable-->
+                                <span>Knowledge Hub</span>
+                            </div>
+                            <ul>
+                                <li><a href="">The Great Debate</a></li>
+                                <li><a href="no-history.html">Historic use of NO</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li>
+                        <label class="a-label__chevron" for="item-4">About Us</label>
+                        <input type="checkbox" id="item-4" name="item-4" class="m-menu__checkbox">
+                        <div class="m-menu">
+                            <div class="m-menu__header">
+                                <label class="m-menu__toggle" for="item-4">
+                                    <svg width="35" height="35" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="butt" stroke-linejoin="arcs">
+                                        <path d="M19 12H6M12 5l-7 7 7 7"/>
+                                    </svg>
+                                </label>
+                                <!-- 2nd layer; a 3rd lay are capable-->
+                                <span>About Us</span>
+                            </div>
+                            <ul>
+                                <li><a href="">NitrateXplorer</a></li>
+                                <li><a href="https://nhiri.ecu.edu.au/about/meet-the-team/" target="_blank">Our team</a></li>
+                            </ul>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
