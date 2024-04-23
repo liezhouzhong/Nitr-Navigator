@@ -184,6 +184,18 @@
       position: static;
     }
 
+    .img {
+        width: 40%;
+        height: auto;
+    }
+
+    /* For screens smaller than 600px */
+    @media only screen and (max-width: 600px) {
+        .img {
+            width: 88%;
+            height: auto;
+        }
+    }
 
     #myInput {
       background-image: url('');
@@ -337,6 +349,18 @@
         color: #000;
         text-decoration: none;
         cursor: pointer;
+    }
+
+    .container {
+        display: flex; /* This will make the direct children of .container align in a row */
+        justify-content: space-between; /* This will put some space between the slideshow and the text block */
+        text-align: center;
+        padding: 10px;
+    }
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+      }
     }
 
 
