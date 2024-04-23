@@ -40,7 +40,14 @@
       -webkit-align-items: center;
       align-items: center;
       /* fade in checked menu */
+      justify-content: space-between;
     }
+
+    #nhiri {
+        color: #fff; /* Adjust color as needed */
+        align-self: center; /* Center vertically */
+    }
+
     nav .m-menu__checkbox {
       display: none;
     }
@@ -176,11 +183,6 @@
       background-color: #fff;
       position: static;
     }
-
-
-
-
-
 
 
     #myInput {
