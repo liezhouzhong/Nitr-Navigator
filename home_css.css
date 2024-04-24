@@ -232,15 +232,21 @@
     .slideshow-container {
       width: 100%;
       position: relative;
-      margin-left: 20px;
+      margin-left: 0px;
       height: 400px;
       min-height:300px;
       max-height: 500pxl;
-      overflow: auto"
+      overflow: auto;
     }
     .text-block {
-        width: 100%;
+        width: 70%;
         margin-right: 10px;
+        border-right: 1px solid #ebeef2;
+    }
+    @media (max-width: 600px) {
+      .text-block {
+        width: 100%;
+      }
     }
     .slide-img {
       width: 300px;  /* you can set the width */
@@ -285,7 +291,7 @@
       font-family: Lato,Helvetica Neue,Helvetica,Arial,Liberation Sans,sans-serif;
       font-size: 15px; /*  background-color: #f9f9f9; */
       padding: 8px 12px;
-      position: absolute;
+      position: relative;
       bottom: 10px;
       width: 100%;
       text-align: center;
@@ -306,7 +312,7 @@
       cursor: pointer;
       height: 15px;
       width: 15px;
-      margin: 20px 2px 0;
+      margin: 0 2px 0;
       background-color: #bbb;
       border-radius: 50%;
       display: inline-block;
@@ -340,6 +346,8 @@
         padding: 20px;
         flex-direction: column;
         align-items: center;
+        border-bottom: 1px solid #ebeef2;
+        border-left: 1px solid #ebeef2;
     }
 
 
@@ -401,12 +409,6 @@
         text-align: center;
         padding: 3px 0;
     }
-
-    /* Footer styles */
-    * {box-sizing: border-box}
-    body {font-family: Verdana, sans-serif; margin:0}
-    .mySlides {display: none}
-    img {vertical-align: middle;}
 
 
     /* The Modal (background) */
