@@ -1,0 +1,6900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Combined foods table(v2.1)_nox database</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+h1 {
+    margin: 1em 0 0 0;
+    color: #2e484c;
+    background-color: #EEEEEE;
+    font-family: Helvetica, arial, sans-serif;
+    font-size: 1.8em;
+    text-transform: capitalize;
+    padding: 11px 0;
+}
+h2 {
+    margin: 1em 0 0 0;
+    color: #000080;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.2em
+}
+a:link {
+    font-weight: bold;
+    text-decoration: none;
+    color: #0d8ba1;
+}
+a:visited {
+    font-weight: bold;
+    text-decoration: none;
+    color: #1a5952;
+}
+a:hover, a:focus, a:active {
+    text-decoration: underline;
+    color: #9685BA;
+}
+p {
+    font: "Libre Baskerville", sans-serif;
+    text-align: justify;
+    text-justify: inter-word;
+    width: 98%;
+
+}
+
+#myInput {
+  background-image: url('');
+  background-position: 10px 11px;
+  background-repeat: no-repeat;
+  width: 94%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  margin-top: 12px;
+}
+.tableFixHead {
+        overflow-y: auto;
+        height: 450px;
+}
+.tableFixHead thead th {
+        position: sticky;
+        top: 0;
+}
+table {
+  border: 1px solid white;
+  border-collapse: collapse;
+  table-layout: auto;
+  width: 98%;
+  border-style:groove;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+tr:hover {background-color: #ddd;}
+
+th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #932c24;
+  color: white;
+}
+
+</style>
+
+<!--First section-->
+<div style="background-color:#932c24; background-size: cover;
+height:85; padding-top:3px; padding-bottom:3px;">
+   <figure>
+        <img src="https://pbs.twimg.com/media/FVrUk1UVsAAzbVi?format=jpg&name=large"
+             width="550" height="75" style="vertical-align:middle">
+    </figure>
+</div>
+
+<body>
+<h1>Combined Food Table for Nitrate and Nitrite Content Databases (V2.1) - 11April2024</h1>
+<p>
+The plant-based food nitrate and nitrite database is developed
+    by <a href="https://doi.org/10.1016/j.foodchem.2022.133411" target="_blank">Liezhou Zhong, Catherine P Bondonno,
+    Jonathan M Hodgson,  et al.</a> in 2022.
+</p>
+<p>
+The animal sourced food nitrate and nitrite database is developed
+    by <a href="https://doi.org/10.1002/mnfr.202100272" target="_blank">Liezhou Zhong, Alex Liu, Catherine P Bondonno,
+    Jonathan M Hodgson,  et al.</a> in 2021.
+    This web is developed by <a href="https://orcid.org/0000-0002-6847-4240" target="_blank"> LZ Zhong </a>.
+</p>
+<input type="text" id="myInput" onkeyup="mySearch()" placeholder="Search for food names.." title="Type in a name">
+
+<!--https://www.convertsimple.com/convert-csv-to-html-table/-->
+<div class="tableFixHead">
+<table id="plant_table">
+    <tr>
+        <th>Common vegetable name</th>
+        <th>Botanic family</th>
+        <th>Botanic family common name</th>
+        <th>Latin name_sub-category</th>
+        <th>Other names_food examples</th>
+        <th>Food category_old</th>
+    </tr>
+    <tr>
+        <td>5 - years</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Abura-age</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Acai berry</td>
+        <td>Arecaceae</td>
+        <td>Palm family</td>
+        <td></td>
+        <td>açaí palm</td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Acai juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Adzuki bean, dry</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td></td>
+        <td>Pulses</td>
+    </tr>
+    <tr>
+        <td>Age-senbei</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Ajwain</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Trachyspermum ammi</td>
+        <td>Ajwain, ajowan, ajowan caraway, omam (in Tamil), thymol seeds, bishop's weed, or carom; seed-like fruits </td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Alcoholic beverage, except wine and beers</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Alcoholic drinks</td>
+    </tr>
+    <tr>
+        <td>Almond</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td></td>
+        <td>nut</td>
+        <td>Nuts</td>
+    </tr>
+    <tr>
+        <td>Almond milk</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Aloe vera juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Amaranth</td>
+        <td>Amaranthaceae</td>
+        <td>Amaranth family</td>
+        <td>Amaranthus tricolor</td>
+        <td> bireum in Korea; tampala, tandaljo, or tandalja bhaji in India; callaloo in the Caribbean; and Joseph's coat; xiàncài (simplified Chinese: 苋菜; traditional Chinese: 莧菜) </td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Amphibia</td>
+        <td></td>
+        <td></td>
+        <td>Amphibia</td>
+        <td></td>
+        <td>Reptiles, amphibia and insects</td>
+    </tr>
+    <tr>
+        <td>Animal fat</td>
+        <td></td>
+        <td></td>
+        <td>Animal fat</td>
+        <td>Buffalo fat; Camel fat; Cattle fat (Tallow); Goat fat; Horse fat; Pig fat (lard); Rabbit fat; Sheep fat; Exclude milk fat;</td>
+        <td>Animal fat</td>
+    </tr>
+    <tr>
+        <td>Anise</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Pimpinella anisum</td>
+        <td>aniseed or rarely anix</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Apple</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Apple juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Apple sauce</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Apple, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruit, processed</td>
+    </tr>
+    <tr>
+        <td>Apricot</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Arare</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Artichoke</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Cynara scolymus</td>
+        <td>alcachofas francesas [SPANISH], ong gong kwi [KOREAN], French artichoke</td>
+        <td>Flower vegetable</td>
+    </tr>
+    <tr>
+        <td>Artichoke, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Arugula</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Eruca sativa</td>
+        <td>garden rocket, regula; Eruca; Roquette</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Asafoetida</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Dried latex (gum oleoresin) exuded from the rhizome or tap root of several species of Ferula, perennial herbs</td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Asparagus</td>
+        <td>Asparagaceae</td>
+        <td>Asparagus family</td>
+        <td>Asparagus officinalis</td>
+        <td>esparrago [SPANISH]</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Asparagus bean, fresh</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Vigna unguiculata ssp. Sesquipedalis</td>
+        <td>Yard-long bean, long bean, snake bean</td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Asparagus lettuce</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Lactuca sativa var. angustana</td>
+        <td>asparagus lettuce, celtuce, Spargelsalat [GERMAN], stem lettuce; “leaf-use” types such as youmaicai (Chinese: 油麥菜; pinyin: yóumàicài) or shengcai (生菜/唐生菜)</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Asparagus, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Asparagus, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Asteraceae leafy vegetables</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Mixed, pooled</td>
+    </tr>
+    <tr>
+        <td>Atriplex</td>
+        <td>Amaranthaceae</td>
+        <td>Amaranth family</td>
+        <td></td>
+        <td>Orache; Saltbush</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Avocado</td>
+        <td>Lauraceae</td>
+        <td>Laurel family</td>
+        <td>Persea americana</td>
+        <td>aguacate [SPANISH], alligator pear, calavo [SPANISH], palta</td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Bacon</td>
+        <td></td>
+        <td></td>
+        <td>Bacon</td>
+        <td>Bacon</td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Baked beans</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Bamboo shoots</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td>Bambusa spp.</td>
+        <td>choke-sun [CHINESE], palmillo de bambu [SPANISH], take-noko [JAPANESE]</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Bamboo shoots, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Bamboo shoots, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Banana</td>
+        <td>Musaceae</td>
+        <td>Banana family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Barley</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td></td>
+        <td></td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Basil</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Ocimum spp.</td>
+        <td>albahaca [SPANISH], hoary basil, holy basil, oregano falso [SPANISH], rau que [VIETNAMESE], sweet basil</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Basil, dry</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Ocimum spp.</td>
+        <td></td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Bean juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Bean, dry, mixed, unspecific</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td></td>
+        <td>Pulses</td>
+    </tr>
+    <tr>
+        <td>Bean, fresh, mixed, unspecific</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td></td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Bean, garden, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Bean, garden, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Beans, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Beans, garden, fresh, green or with pods</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Phaseolus vulgaris</td>
+        <td>French bean, green bean, haricot bean, string bean,  beans with pods;Phaseolus spp.: kidney, haricot bean (Ph. vulgaris); lima, butter bean (Ph. lunatus); adzuki bean (Ph. angularis); mungo bean, golden, green gram (Ph. aureus); black gram, urd (Ph. mungo); scarlet runner bean (Ph. coccineus); rice bean (Ph. calcaratus); moth bean (Ph. aconitifolius); tepary bean (Ph. acutifolius)</td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Beef and veal</td>
+        <td></td>
+        <td></td>
+        <td>Beef and veal</td>
+        <td>Beef and veal; cow; ox; bull fresh meat; Including mined beef meat</td>
+        <td>Red meat</td>
+    </tr>
+    <tr>
+        <td>Beer</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Alcoholic drinks</td>
+    </tr>
+    <tr>
+        <td>Beet, leaves</td>
+        <td>Chenopodiaceae</td>
+        <td>Goosefoot family</td>
+        <td>Beta vulgaris var. vulgaris</td>
+        <td>Mangel, , remolacha [SPANISH], beetroot;</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Beetroot</td>
+        <td>Chenopodiaceae</td>
+        <td>Goosefoot family</td>
+        <td>Beta vulgaris var. vulgaris</td>
+        <td>Mangel, , remolacha [SPANISH], beetroot</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Beetroot juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Beetroot, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Beetroot, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Belgian endive</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Cichorium intybus</td>
+        <td>witloof; Common chicory; witlof, white leaf, chicory leaves</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Bell pepper</td>
+        <td>Solanaceae</td>
+        <td>Nightshade family</td>
+        <td>Capsicum annuum</td>
+        <td>Hot capsicums; aji picante [SPANISH], cayenne pepper, cherry pepper, chile [SPANISH], chili pepper, garden pepper, Hungarian pepper, Italian sweet pepper, mango pepper, paprika pepper, pimento, pimentó [SPANISH], pimiento [SPANISH], pimentón dulce [SPANISH], pimentón picante [SPANISH], pimiento [SPANISH], red pepper,sweet red pepper; jalapeño, peperoncini, and peperoncito; </td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Bell pepper, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Beverage, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Biscuit</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Bitter leaf</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Vernonia amygdalina</td>
+        <td></td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Bitter melon</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Momordica charantia</td>
+        <td>"balsam pear, balsamino (IN PUERTO RICO], bitter cucumber, bitter gourd, Chinese cucumber, cundeamor [SPANISH], karaili [HINDI] ; Sopropos "</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Bitterblad</td>
+        <td>Solanaceae</td>
+        <td>Nightshade family</td>
+        <td>Cestrum tenuiflorum</td>
+        <td>Bitter greens, bita wiwiri, bitterblad; bitawiri</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Black gram, dry</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Phaseolus mungo roxb</td>
+        <td>Pulses; legumes; Vigna mungo; bean; Black gram (dry seeds) or Urd bean (dry)</td>
+        <td>Pulses</td>
+    </tr>
+    <tr>
+        <td>Black pepper</td>
+        <td>Piperaceae</td>
+        <td>Pepper family</td>
+        <td>Piper nigrum</td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Black radish Juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Black tea</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Black tea for infusions, dry</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Black tea, prepared</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Blackberry</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Blackcurrant juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Blessed thistle</td>
+        <td></td>
+        <td></td>
+        <td>Cnicus benedictus</td>
+        <td>St. Benedict's thistle, blessed thistle, holy thistle or spotted thistle</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Blue mallow</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Blueberry</td>
+        <td>Ericaceae</td>
+        <td>Heath family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Borage</td>
+        <td>Boraginaceae</td>
+        <td>Borage family</td>
+        <td>Borago officinalis</td>
+        <td>borraja [SPANISH]</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Bottle gourd</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Lagenaria siceraria</td>
+        <td>Calabash gourd; bottle gourd, white-flowered gourd, long melon, New Guinea bean; Tasmania bean</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Bottle water</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Brassica, mixed, unspecific</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td></td>
+        <td></td>
+        <td>Mixed, pooled</td>
+    </tr>
+    <tr>
+        <td>Bread</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Breadfruit</td>
+        <td>Moraceae</td>
+        <td>Mulberry family</td>
+        <td>Artocarpus altilis</td>
+        <td>fruta de pan [SPANISH], lanqka, pana [SPANISH], ulu, breadfruit nangka [INDONESIAN]</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Breakfast cereals</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Broccoli</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var. italica</td>
+        <td></td>
+        <td>Flower vegetable</td>
+    </tr>
+    <tr>
+        <td>Broccoli sprouts</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var. Italica</td>
+        <td>asparagus broccoli</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Brussels sprouts</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var.gemmifera</td>
+        <td>col de bruselas [SPANISH]</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Brussels sprouts, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Brussels sprouts, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Buckwheat</td>
+        <td>Polygonaceae</td>
+        <td>Buckwheat family</td>
+        <td></td>
+        <td></td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Bulb vegetable, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>Burdock</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Arctium lappa</td>
+        <td>Arctium; </td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Butter</td>
+        <td></td>
+        <td></td>
+        <td>Butter</td>
+        <td>Butter</td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Buttermilk</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Butternut squash</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>butternut pumpkin or gramma</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Cabbage</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var.capitata</td>
+        <td>berza [SPANISH], col [SPANISH], repollo chino [SPANISH], savoy cabbage</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Cabbage, conical head</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var.capitata</td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Cabbage, oxheart</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var.capitata</td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Cabbage, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Cabbage, red</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var.capitata</td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Cabbage, red, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Cabbage, red, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Cabbage, savoy</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var.capitata</td>
+        <td>Cabbage yellow or Cabbage green</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Cabbage, sweetheart</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td></td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Cabbage, white</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var.capitata</td>
+        <td>berza [SPANISH], col [SPANISH], repollo chino [SPANISH], savoy cabbage</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Cabbage, York</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td></td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Cakes and similar prepared</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Calamus</td>
+        <td>Acoraceae</td>
+        <td></td>
+        <td></td>
+        <td>sweet flag, sway or muskrat root</td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Camomile</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Canned apple</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Canned beans</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td></td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Canned coffee</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Canned cranberry</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Canned fish</td>
+        <td></td>
+        <td></td>
+        <td>Canned fish</td>
+        <td>Canned/tinned fish; Canned salmon; Cannon sardines; Canned tuna; Canned mackerel; Canned cod; Canned herring</td>
+        <td>Fish and seafood products </td>
+    </tr>
+    <tr>
+        <td>Canned fruit, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Canned peas</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td></td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Canned pineapple</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Canned tea</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Canned vegetable, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Caper</td>
+        <td>Capparaceae</td>
+        <td></td>
+        <td></td>
+        <td>Acidified products</td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Caper, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Capsicum, dry</td>
+        <td>Solanaceae</td>
+        <td>Nightshade family</td>
+        <td></td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Caramel</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Miscellaneous</td>
+    </tr>
+    <tr>
+        <td>Cardamom</td>
+        <td>Zingiberaceae</td>
+        <td>Ginger family</td>
+        <td>Elettaria cardamomum</td>
+        <td>cardamum</td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Cardoon</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Cynara cardunculus</td>
+        <td>artichoke thistle; edible burdock, gobo</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Carrot</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Daucus carota ssp. Sativus</td>
+        <td>dang gun [KOREAN], zanahoria [SPANISH]</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Carrot juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Carrot, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Carrot, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Cashew</td>
+        <td>Anacardiaceae</td>
+        <td>Cashew family</td>
+        <td>Anacardium occidentale</td>
+        <td></td>
+        <td>Nuts</td>
+    </tr>
+    <tr>
+        <td>Cassava root</td>
+        <td>Euphorbiaceae</td>
+        <td>Spurge/Castor Bean family</td>
+        <td></td>
+        <td>Cassava roots or Cassava Bitter or Manioc or Cassava Sweet or Tapioca</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Cauliflower</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var. botrytis</td>
+        <td>coliflor [SPANISH]</td>
+        <td>Flower vegetable</td>
+    </tr>
+    <tr>
+        <td>Cauliflower, green</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var. botrytis</td>
+        <td>broccoflower</td>
+        <td>Flower vegetable</td>
+    </tr>
+    <tr>
+        <td>Cauliflower, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>CCM, except frankfurter</td>
+        <td></td>
+        <td></td>
+        <td>Cooked cured comminuted products other than frankfurter (CCM (except frankfurter))</td>
+        <td>Hot dog; Wiener [A026D]; Vienna (Würstel or Würstl, Wurstel); Saveloy; Mortadella [A025Q]; Kielbasa; Meatloaf;  Kofta; Bologna (baloney) [A025R]; Lyoner; Liver sausage (Liverwurst, Leberwurst); Blood sausage (Blood pudding); Liver pâté; Ham sausage; White sausages; Kielbasa; Wiejska; Krakowska; Andouille; Andouillette; Boterhamworst; Strasbourg sausage; beerwurst; weisswurst; Braunschweiger [A025M]; teewurst; Other cooked comminuted fermented meat products (like A026A]; Fresh smoked sausages which do not require any further cooking before consumption</td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Celeriac</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Apium graveolens var. rapaceum</td>
+        <td>apio [SPANISH], knob celery, turnip-rooted celery; Celery root</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Celeriac, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Celery</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Apium graveolens var. dulce</td>
+        <td>apio [SPANISH], knob celery, turnip-rooted celery</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Celery juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Celery, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Celery, Chinese</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Apium graveolens var. secalinum</td>
+        <td>Leaf celery</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Celery, dwarf </td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Apium graveolens </td>
+        <td></td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Celery, slender</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Apium leptophyllum</td>
+        <td>Wild celery</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Cellophane noodles</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Cereal bar</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Cereal, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Chamomile</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Anthemis  spp</td>
+        <td>camomila [SPANISH]; German Camomile or Scented Camomile or Scented mayweed or Roman or Noble camomile or Chamomile</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Chamomile</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td></td>
+        <td>Chamomile; camomile; German chamomile, Hungarian chamomile (kamilla), wild chamomile, blue chamomile, or scented mayweed</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Chayote</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Sechium edule</td>
+        <td>mirliton; choko</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Cheese and cheese products, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td>Cheese and cheese products, others</td>
+        <td>Cheese stick; processed cheese</td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Cheese, sheep/goat</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Cherry</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Cherry jam</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Cherry juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Cherry tomato</td>
+        <td>Solanaceae</td>
+        <td>Nightshade family</td>
+        <td>Solanum lycopersicum var. cerasiform</td>
+        <td></td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Chervil</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Anthriscus cerefolium</td>
+        <td>French parsley or garden chervil </td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Chervil, root</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Chaerophyllum bulbosum</td>
+        <td>turnip-rooted chervil, tuberous-rooted chervil, bulbous chervil, and parsnip chervil; Root chervil</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Chicken meat</td>
+        <td></td>
+        <td></td>
+        <td>Chicken meat</td>
+        <td>Chicken fillet; Chicken legs/wings; Chicken breast</td>
+        <td>Poultry and feathered game meat products</td>
+    </tr>
+    <tr>
+        <td>Chickpea, dry</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Cicer arietinum</td>
+        <td>Pulses; Chickpeas (dry) or Bengal gram (dry) or Gram (dry); Garbanzo bean</td>
+        <td>Pulses</td>
+    </tr>
+    <tr>
+        <td>Chicory</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Cichorium intybus L. </td>
+        <td></td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Chilli</td>
+        <td>Solanaceae</td>
+        <td>Nightshade family</td>
+        <td>Capsicum annuum</td>
+        <td>"Hot capsicums; bell chillies; the hthe hot varieties are collectively called "chile"/"chiles", "chili"/"chilies", or "chili"/"chile peppers"(one L only), "hot peppers", or named as a specific variety (e.g., banana pepper).</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Chilli, dry</td>
+        <td>Solanaceae</td>
+        <td>Nightshade family</td>
+        <td>Capsicum annuum</td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Chilli, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Chinese cabbage, napa</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica rapa subsp. pekinensis</td>
+        <td>bae chu [KOREAN], celery cabbage, hukusai, Peking cabbage or Wong bok, wong nga pak, wong nga baak; Nappa cabbage; Napa cabbage; Kimchi cabbage</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Chinese cabbage, pak-choi</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td></td>
+        <td>Bok choy, buk choy, pak choy, pak choi, baak choi; Shanghai bok choy; Chinese white cabbage; Pac-Choy; Shanghai cabbage; Qing geng cai (chingensai)</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Chinese cabbage, leaves</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Chinese cabbage, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Chinese cabbage, stalk</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Chinese cabbages, unspecific</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td></td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Chinese kale</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var. alboglabra</td>
+        <td>Gai lan, kai-lan, Chinese broccoli, Chinese kale, or jie lan</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Chinese mustard</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica juncea (L.) Czern.</td>
+        <td>Brown mustard, Chinese mustard, Indian mustard, leaf mustard, Oriental mustard and vegetable mustard</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Chinese spinach</td>
+        <td>Amaranthaceae</td>
+        <td>Amaranth family</td>
+        <td>Amaranthus tricolor</td>
+        <td>Chinese spinach, Espinaca China [SPANISH], tampala, African spinach; Chinese amaranth leaves or Chinese spinach</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Chin-gent-sai</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica campestris L.</td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Chive</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium schoenoprasum</td>
+        <td>cebolleta [SPANISH], cebollin [SPANISH], cebollino [SPANISH]</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Chives stem</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Chocolate</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Chomolia</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>African kale</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Chorizo</td>
+        <td></td>
+        <td></td>
+        <td>Chorizo</td>
+        <td>Chorizo</td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Choy sum</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica rapa subsp.chinensis var. parachinensis</td>
+        <td>Chinese flowering cabbage, choy sum, choi sum; False pak-choi</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Chrysanthemum greens</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Chrysanthemum coronarium (syn. Glebionis coronarium)</td>
+        <td>garland chrysanthemum, hwa hwan guk hwa [KOREAN], Crown daisy, Chrysanthemum;  tong ho (choy),tónghāo (cài)</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Cider</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Cinnamon, dry</td>
+        <td>Lauraceae</td>
+        <td>Laurel family</td>
+        <td>Cinnamomum aromaticum</td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Citrus</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Clary</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Salvia sclarea</td>
+        <td>clary sage</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Clementine</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Cloudberry</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Clove</td>
+        <td>Myrtaceae</td>
+        <td>Myrtaceae</td>
+        <td>Syzygium aromaticum</td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Cocoa drink</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Coconut</td>
+        <td>Arecaceae</td>
+        <td>Palm tree family</td>
+        <td>Cocos nucifera</td>
+        <td>nut</td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Coconut milk</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Coconut milk powder</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Coffee bean</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Coffee drink</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Coffee, instant, powder</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Coffee, instant, prepared</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Coffee, liquid</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Espresso liquid coffee</td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Coffee, liquid, with milk</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Latte, long white, </td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Coffee, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Cola</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Collards</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea</td>
+        <td>Collards or Collards greens or Curly kales or Portuguese kales or Cow cabbages or Borecoles</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Common bean, dry</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Phaseolus vulgaris</td>
+        <td>kidney bean, navy bean, pinto bean, red bean, common bean, snap bean</td>
+        <td>Pulses</td>
+    </tr>
+    <tr>
+        <td>Common bean, with pods</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td></td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Common millets</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td></td>
+        <td>Finger Millet, Foxtail Millet, Pearl Millet, Proso Millet, Little Millet and Sorghum Millet</td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Common purslane</td>
+        <td>Portulacaceae</td>
+        <td></td>
+        <td></td>
+        <td>little hogweed, or pursley</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Condensed milk</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Condiment, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Condiments</td>
+    </tr>
+    <tr>
+        <td>Congee</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Cooked cured meat cuts</td>
+        <td></td>
+        <td></td>
+        <td>Cooked cured meat in whole cut or pieces (non-communicated) other than cooked bacon and ham (Cooked cured meat cuts)</td>
+        <td>Pastrami; Cooked beef; Luncheon (cold cuts, cooked meats, sliced meats, cold meats, and deli meats);  Rullepølse (Rolled sausage); Camp pie; Canned meat (cooked and nitrite nitrate added); Canned corned beef, cooked [A0B9G] (assumed as cooked except clearly presented as uncooked in this database); </td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Coriander</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Coriandrum sativum</td>
+        <td>Chinese parsley, coriander, coriander greens, leaf coriander, cilantro</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Coriander seed</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td></td>
+        <td>Coriander; </td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Corn starch</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Miscellaneous</td>
+    </tr>
+    <tr>
+        <td>Cornflake</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Courgette</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Cucurbita pepo L. Zucchini Group</td>
+        <td>calabaza [IN PUERTO RICO], courgettes, shen-gua [CHINESE], winter squash, zapallo [SPANISH], zucchini; Summer squashes or Zucchini or Pâtissons or Pattypan squashes or Marrow or White Bush; Courgettes or Zucchetti or Zucchini.</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Cow pea, dry</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Vigna catjang</td>
+        <td>Pulses; legumes; Bean; Cow pea; Black eyed peas (dry) or Cowpeas (dry)</td>
+        <td>Pulses</td>
+    </tr>
+    <tr>
+        <td>Cowpea</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td></td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Cranberry</td>
+        <td>Ericaceae</td>
+        <td>Heath family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Cranberry juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Cranberry, dry</td>
+        <td>Ericaceae</td>
+        <td>Heath family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Cream</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Creamed spinach</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Croquette</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Crustacea</td>
+        <td></td>
+        <td></td>
+        <td>Crustacea</td>
+        <td>Shrimp; Crab; Loberster</td>
+        <td>Fish and seafood products </td>
+    </tr>
+    <tr>
+        <td>Cucumber</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Cucumis sativus</td>
+        <td>pepinillo</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Cumin seed</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Cuminum cyminum</td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Currants</td>
+        <td>Grossulariaceae</td>
+        <td>Gooseberry</td>
+        <td></td>
+        <td>black current (cassis), red, pink, or white currant is a type of winter squash </td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Curry</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Curryleaf</td>
+        <td>Rutaceae</td>
+        <td>Rue family</td>
+        <td>Bergera koenigii (Rutaceae)</td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Dairy products, others</td>
+        <td></td>
+        <td></td>
+        <td>Other milk-based products, pooled, unspecified (Dairy products, others)</td>
+        <td>Buttermilk; Casein powder; quark</td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Dandelion</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Taraxacum officinale</td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Dates</td>
+        <td>Arecaceae</td>
+        <td>Palm family</td>
+        <td>Phoenix dactylifera</td>
+        <td>Date palm</td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Dessert</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Dill</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Anethum graveolens</td>
+        <td>eneldo [SPANISH], shepu, sowa</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Dill, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Dill, whole plant</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td></td>
+        <td></td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Dominican sage</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Salvia dominica</td>
+        <td></td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Dough</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Dried meat</td>
+        <td></td>
+        <td></td>
+        <td>Dried meat</td>
+        <td>Dried meat strips or flat pieces (Biltong; Beef jerkey); Kabano; Meat floss (pork or yuk sung; Rousong); kolbasz; ciccioli</td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Echinoderms</td>
+        <td></td>
+        <td></td>
+        <td>Echinoderms</td>
+        <td>Sea urchins; Sea cucumbers</td>
+        <td>Fish and seafood products </td>
+    </tr>
+    <tr>
+        <td>Edamame</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Cooked green soybean (with pods)</td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Eddoe</td>
+        <td>Araceae</td>
+        <td>Arum family</td>
+        <td>Colocasia antiquorum</td>
+        <td>eddo </td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Edible flowers</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Lime flower</td>
+        <td>Edible flowers</td>
+    </tr>
+    <tr>
+        <td>Eggplant</td>
+        <td>Solanaceae</td>
+        <td>Nightshade family</td>
+        <td>Solanum melongena</td>
+        <td>Aubergine, brinjal</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Eggplant, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Eggs, chicken</td>
+        <td></td>
+        <td></td>
+        <td>Eggs, chicken</td>
+        <td></td>
+        <td>Eggs</td>
+    </tr>
+    <tr>
+        <td>Eggs, others</td>
+        <td></td>
+        <td></td>
+        <td>Eggs, others</td>
+        <td>Eggs, duck; Eggs, goose; Eggs, bird</td>
+        <td>Eggs</td>
+    </tr>
+    <tr>
+        <td>Elderberry</td>
+        <td>Adoxaceae</td>
+        <td>Moschatel family</td>
+        <td></td>
+        <td>Sambucus berries (elderberries)</td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Endive</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Cichorium endivia subsp. Endivia</td>
+        <td>endibia [SPANISH], escarola [SPANISH]; escarole (broad-leaved Batavian endive, grumolo, scarola, and scarole); Frisée (curly endive or chicory)</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Energy drink</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>European black nightshade</td>
+        <td>Solanaceae</td>
+        <td></td>
+        <td></td>
+        <td>black nightshade or blackberry nightshade</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Faba bean, dry</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Vicia fab</td>
+        <td>broadbean, haba [SPANISH], habichuel ancha [SPANISH], horsebean, silkworm bean, windsor bean</td>
+        <td>Pulses</td>
+    </tr>
+    <tr>
+        <td>Feathered game meat</td>
+        <td></td>
+        <td></td>
+        <td>Feathered game meat</td>
+        <td>Meat derived from birds such as grouse, partridge, pheasant, plover, quail, snipe, squab, wild ducks, wild geese, wild turkey, woodcock</td>
+        <td>Poultry and feathered game meat products</td>
+    </tr>
+    <tr>
+        <td>Fennel</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Foeniculum vulgare</td>
+        <td>eneldo [IN PUERTO RICO], hinojo [SPANISH], finocchio [SPANISH], Finocchio [ITALIAN], enelds [IN PUERTO RICO],</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Fennel seed</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Fennel, dry</td>
+        <td>Umbelliferae</td>
+        <td>Carrot/Parsley family</td>
+        <td></td>
+        <td></td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Fenugreek</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Trigonella foenum-graecum</td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Fenugreek leaf</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Trigonella foenum-graecum</td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Fig</td>
+        <td>Moraceae</td>
+        <td>Mulberry family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Fig, dry</td>
+        <td>Moraceae</td>
+        <td>Mulberry family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Finfish, fresh, frozen</td>
+        <td></td>
+        <td></td>
+        <td>Finfish, fresh, frozen</td>
+        <td></td>
+        <td>Fish and seafood products </td>
+    </tr>
+    <tr>
+        <td>Finger millet</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td>Eleusine coracana</td>
+        <td>Finger millet grain or African millet grain or Koracan</td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Fish and seafood meals, mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Surimi; fish cake; Chikuwa; Fish paté; fish terrine</td>
+        <td>Fish and seafood products </td>
+    </tr>
+    <tr>
+        <td>Fish and seafood products, others</td>
+        <td></td>
+        <td></td>
+        <td>Other sea and freshwater foods, pooled, unspecified (Fish and seafood products, others)</td>
+        <td></td>
+        <td>Fish and seafood products </td>
+    </tr>
+    <tr>
+        <td>Flavouring</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Flour, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Mixed, pooled</td>
+    </tr>
+    <tr>
+        <td>Flower vegetable, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Flower vegetable</td>
+    </tr>
+    <tr>
+        <td>Fluted pumpkin</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Telfaria occidentalis</td>
+        <td>fluted gourd, fluted pumpkin, ugu (in the Igbo language), and ikong-ubong (in the Efik and Ibibio languages)</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Food additives</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Food for infants and small children</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Baby food</td>
+        <td>Miscellaneous</td>
+    </tr>
+    <tr>
+        <td>Food supplements and similar preparations</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Formula, cow, powder</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Infant formulae and foods </td>
+    </tr>
+    <tr>
+        <td>FPM, except fresh sausage</td>
+        <td></td>
+        <td></td>
+        <td>Fresh industrial processed meat products, other than fresh sausages (FPM (except fresh sausage))</td>
+        <td>Kebab; Patties; Souflaki; Shashlik; Meatball (including Frikadeller); porchetta; aspic</td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Frankfurter</td>
+        <td></td>
+        <td></td>
+        <td>Frankfurter</td>
+        <td>Frankfurter</td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>French bean</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Phaseolus vulgaris</td>
+        <td>French Bean; String Bean; Haricot Bean</td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Fresh sausages</td>
+        <td></td>
+        <td></td>
+        <td>Fresh sausages</td>
+        <td>Bratwurst; Longaniza; Chorizo criollo; Merguez; Breakfast sausage; Boerwors; Chipolata; Diot; Boudin noir; Boudin blanc; Thuringian sausage; bockwurst</td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Fruit infusion</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Fruit juice, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>fruit juice blend; </td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Fruit nectar</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Fruit pie</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Fruit smoothies</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Fruit tea</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Fruit tea, infusion, dry</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Fruit vegetable, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Fruit, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Fumitory</td>
+        <td>Papaveraceae</td>
+        <td>Poppy family</td>
+        <td>Fumaria officinalis</td>
+        <td>common fumitory, drug fumitory or earth smoke; Fumitory infusion leaves</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Ganmodoki</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Garden cress</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Lepidium sativum</td>
+        <td>creson [SPANISH], cress; gaurly cress</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Garlic</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium sativum</td>
+        <td>ajo [SPANISH], ma nul [KOREAN], seer</td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>Garlic bolt</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td></td>
+        <td>Garlic sstems,  tops, bolts</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Garlic chive</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium tuberosum</td>
+        <td>Chinese chives</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Garlic chive, yellow</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium tuberosum</td>
+        <td>Chinese chives</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Garlic spears</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td></td>
+        <td>Garlic Scapes</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Gherkin</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Cucumis sativus</td>
+        <td>gherkin, pepinillo, Cornichon</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Ginger</td>
+        <td>Zingiberaceae</td>
+        <td>Ginger family</td>
+        <td>Zingiber officinale</td>
+        <td>jengibre [SPANISH], saeng kang puri [KOREAN]</td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Ginger, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Ginkgo nut</td>
+        <td>Ginkgoaceae </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Nuts</td>
+    </tr>
+    <tr>
+        <td>Glasswort</td>
+        <td>Amaranthaceae</td>
+        <td>Amaranth family</td>
+        <td>Salicornia europaea</td>
+        <td></td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Goji</td>
+        <td>Solanaceae</td>
+        <td>Nightshade family</td>
+        <td> Lycium chinense Mill </td>
+        <td>Wolfberry</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Goosefoot</td>
+        <td>Amaranthaceae</td>
+        <td>Amaranth family</td>
+        <td>Chenopodium album</td>
+        <td>lamb's quarters, melde, goosefoot, manure weed, wild spinach and fat-hen; Bathua</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Grain flour, mixed</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Grape</td>
+        <td>Vitaceae</td>
+        <td>Grape family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Grape juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Grapefruit</td>
+        <td>Rutaceae</td>
+        <td>Rue family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Grapefruit juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Green beans, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Green tea</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Green tea for infusions, dry</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Green tea, bottled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Green tea, prepared</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Guar beans, dry </td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Cyamopsis tetragonoloba</td>
+        <td>Guar</td>
+        <td>Pulses</td>
+    </tr>
+    <tr>
+        <td>Gyoza</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Ham</td>
+        <td></td>
+        <td></td>
+        <td>Ham</td>
+        <td>Parma Ham; San Daniele Ham; Jinhua Ham; Jamon Serrano;Jambon Savoie; Virginia Ham; Cured/smoked pork loin and breakfast ham; Prosciutto; Including pork ham [A022T] and beef ham [A023C]; </td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Hamburger</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Hamburgers; Burger; </td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Hash brown</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Head mustard</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica juncea.integrifolia</td>
+        <td>"""head mustard"", ""Swatow mustard"", and ""heart mustard"", and ""dai gai choy (大芥菜)""."</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Herbal tea</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Herbal tea, prepared</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Herbs, dry, mixed</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Herbs, fresh, mixed</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Herbs, infusion, dry</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Peppermint infusion</td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Herbs, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Honewort</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td></td>
+        <td>Honewort (mitsuba); East Asian wildparsley, Japanese cryptotaenia, Japanese honewort, white chervil mitsuba, Japanese wild parsley, stone parsley, honeywort, san ip, trefoil, and san ye qin (from Chinese: 三叶芹; pinyin: sānyè qín)</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Honey</td>
+        <td></td>
+        <td></td>
+        <td>Honey</td>
+        <td>Honey</td>
+        <td>Reptiles, amphibia and insects</td>
+    </tr>
+    <tr>
+        <td>Horse</td>
+        <td></td>
+        <td></td>
+        <td>Horse</td>
+        <td>Horse fresh meat</td>
+        <td>Red meat</td>
+    </tr>
+    <tr>
+        <td>Horseradish</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td></td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Huckleberry</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Human breast milk</td>
+        <td></td>
+        <td></td>
+        <td>Human breast milk</td>
+        <td></td>
+        <td>Infant formulae and foods </td>
+    </tr>
+    <tr>
+        <td>Ice cream</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Indian lettuce</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Lactuca indica</td>
+        <td>foo mak ts’oi [CHINESE]</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Indian pennywort</td>
+        <td>Apiaceae</td>
+        <td></td>
+        <td></td>
+        <td>Asiatic pennywort</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Infant formula, prepared</td>
+        <td></td>
+        <td></td>
+        <td>Infant formula, prepared</td>
+        <td></td>
+        <td>Infant formulae and foods </td>
+    </tr>
+    <tr>
+        <td>Infant meals, mixed</td>
+        <td></td>
+        <td></td>
+        <td>Infant meat-based foods</td>
+        <td></td>
+        <td>Infant formulae and foods </td>
+    </tr>
+    <tr>
+        <td>Insects</td>
+        <td></td>
+        <td></td>
+        <td>Insects</td>
+        <td>Edible insects/bugs</td>
+        <td>Reptiles, amphibia and insects</td>
+    </tr>
+    <tr>
+        <td>Instant coffee</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Ivy gourd</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Coccinia grandis</td>
+        <td>hong gua [CHINESE], kabarekindi, kovai fruit, kundree, kundri, little gourd, pepasan, pepino cimarroon [SPANISH], scarlet-fruited gourd, scarlet gourd, scharlachranke [GERMAN], tam lung, telacucha, tindola, tindora, tindori, yasai karasuuri [JAPANESE] </td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Jackfruit</td>
+        <td>Moraceae</td>
+        <td>Mulberry family</td>
+        <td>Artocarpus heterophyllus</td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Java waterdropwort</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Oenanthe javanica</td>
+        <td>Oenanthe javanica, commonly Java waterdropwort, water celery,  water dropwort,Chinese celery,and Japanese (flat leaf) parsley</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Jelly</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Kaffir lime leaf</td>
+        <td>Rutaceae</td>
+        <td>Rue family</td>
+        <td>Citrus hystrix</td>
+        <td>kaffir lime or makrut lime</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Kale</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var. alboglabra</td>
+        <td>Chinese kale, jie lan [CHINESE], Kai-lan</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Karinto</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Kasutera</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Kenaf</td>
+        <td>Malvaceae</td>
+        <td>Mallow/Cotton family</td>
+        <td>Hibiscus cannabinus, L. </td>
+        <td>Deccan hemp and Java jute</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Kimchi</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fermented products</td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Kiwi</td>
+        <td>Actinidiaceae</td>
+        <td>Actinidia family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Kohlrabi</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var. gongylodes</td>
+        <td>colinabo [SPANISH], stem turnip, German turnip</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Kohlrabi leaves</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var. gongylodes</td>
+        <td>colinabo [SPANISH], stem turnip, German turnip</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Kohlrabi stems</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var. gongylodes</td>
+        <td>colinabo [SPANISH], stem turnip, German turnip</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Komatsuna</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica rapa var. perviridis</td>
+        <td>Komatsuna [JAPANESE]; Mustard spinach</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Komatsuna</td>
+        <td></td>
+        <td></td>
+        <td>Brassica rapa var. perviridis</td>
+        <td>Japanese mustard spinach</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Konjac</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Kori-dofu</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Kudzu</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Pueraria lobata</td>
+        <td>Chinese yam, hard yam, legume</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Kurrat</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium ampeloprasum L. (Kurrat Group)</td>
+        <td>Egyptian leek, Salad leek; Wild leek; Kurrat</td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>Kurrat, leaves</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td></td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Lamb and mutton</td>
+        <td></td>
+        <td></td>
+        <td>Lamb and mutton</td>
+        <td>Lamb and mutton fresh meat, including goat fresh meat [A01RL]</td>
+        <td>Red meat</td>
+    </tr>
+    <tr>
+        <td>Lamb’s lettuce</td>
+        <td>Valerianaceas</td>
+        <td>Valerian family</td>
+        <td>Valerianella spp.</td>
+        <td>lamb’s lettuce, mache; cornsalad</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Land molluscs</td>
+        <td></td>
+        <td></td>
+        <td>Land molluscs</td>
+        <td>Snail</td>
+        <td>Reptiles, amphibia and insects</td>
+    </tr>
+    <tr>
+        <td>Laurel</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Leaf mustard, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Leafy vegetable, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Leek</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium ampeloprasum</td>
+        <td>cebollin [SPANISH], puerro [SPANISH]</td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>Leek, green</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium ampeloprasum</td>
+        <td>cebollin [SPANISH], puerro [SPANISH]</td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>Leek, white</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium ampeloprasum</td>
+        <td>cebollin [SPANISH], puerro [SPANISH]</td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>legume, fresh, mixed</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Legume, fresh, mixed, unspecific</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td></td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Legumes, unspecific</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td></td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Legumes, unspecific, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Lemon</td>
+        <td>Rutaceae</td>
+        <td>Rue family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Lemon balm</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Melissa officinalis</td>
+        <td></td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Lemon grass</td>
+        <td>Panicoideae</td>
+        <td>Panicoideae</td>
+        <td>Cymbopogon spp</td>
+        <td>cytronella, hierba de limon [SPANISH], limoncillo, sa [VIETNAMESE], xa [VIETNAMESE]; barbed wire grass, silky heads, Cochin grass, Malabar grass, oily heads or fever grass</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Lemon juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Lemonade</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Lentil, dry</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Lens culinaris</td>
+        <td>Lenteja [SPANISH]</td>
+        <td>Pulses</td>
+    </tr>
+    <tr>
+        <td>Lettuce</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Lactuca sativa</td>
+        <td>lechuga [SPANISH], romaine, sang chi [KOREAN]</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Lettuce, Butterhead</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Lactuca sativa L.  (Capitata Group)  (Butterhead type)</td>
+        <td>Boston, Bibb</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Lettuce, Iceberg</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Lactuca sativa L.  (Capitata Group)(Crisphead type)</td>
+        <td>crisphead, crisp; Batavian crisp, French crisp; Crisp lettuces or Iceberg lettuces or Lollo bionda or Lollo rosso; including Frillice lettuce</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Lettuce, loose leaf</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Lactuca sativa L.  (Secalina Group)</td>
+        <td>Cutting lettuces or Cutting lettuce or crinkly lettuce or oak leaf lettuce; Lettuce, Dubacek; Batavia Lettuce</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Lettuce, mixed</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Lactuca sativa </td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Lettuce, romaine</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Lactuca sativa L.  (Longifolia Group)</td>
+        <td>Romaines or Cos lettuces; Little Gem ('Sucrine' or 'Sugar Cos')</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Lime</td>
+        <td>Rutaceae</td>
+        <td>Rue family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Lime juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Lingonberry</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Liquorice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Lobster</td>
+        <td></td>
+        <td>Nephropidae</td>
+        <td></td>
+        <td></td>
+        <td>Fish and seafood products </td>
+    </tr>
+    <tr>
+        <td>Lotus root</td>
+        <td>Nymphaeceae</td>
+        <td>Water Lily family</td>
+        <td>Nelumbo nucifera</td>
+        <td>East Indian lotus, lily root, raiz de lotus [SPANISH], sacred lotus, waterlily root, yonpuri [KOREAN] </td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Luffa</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Luffa acutangula</td>
+        <td>leng-si-gua; Luffa; Ridge Gourd (Torai)</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Macadamia nut</td>
+        <td>Proteaceae</td>
+        <td></td>
+        <td></td>
+        <td>Queensland nut, bush nut, maroochi nut, bauple nut, Hawaii nut</td>
+        <td>Nuts</td>
+    </tr>
+    <tr>
+        <td>Macadimia milk</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Maize</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td></td>
+        <td>corn (dry)</td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Maize bran</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Malabar spinach</td>
+        <td>Basellaceae</td>
+        <td>Basella family</td>
+        <td>Basella alba</td>
+        <td>Ceylon spinach, climbing spinach, gui, acelga trapadora, bratana, libato, vine spinach and Malabar nightshade</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Mango</td>
+        <td>Anacardiaceae</td>
+        <td>Cashew family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Mango juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Mango, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruit, processed</td>
+    </tr>
+    <tr>
+        <td>Margarine</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Marinated meat</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Marjoram, dry</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Origanum majorana</td>
+        <td>sweet marjoram; knotted marjoram</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Marula</td>
+        <td>Anacardiaceae</td>
+        <td>Cashew family</td>
+        <td>Sclerocarya birrea</td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Mayonnaise</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Condiments</td>
+    </tr>
+    <tr>
+        <td>Meals, mixed</td>
+        <td>Meal</td>
+        <td>Meal</td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Meat products, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Miscellaneous</td>
+    </tr>
+    <tr>
+        <td>Meat sauce</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Meat spread</td>
+        <td></td>
+        <td></td>
+        <td>Meat spread</td>
+        <td>Meat spread, including other meat based spreadable textured specialities [A036K]</td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Meat terrine</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Head cheese</td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Medlar</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td>Mespilus germanica</td>
+        <td>Common medlar</td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Melon_Fruit</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Melon_Vegetable</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Melons, unspecific</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>MGM</td>
+        <td></td>
+        <td></td>
+        <td>Mammalian game meats (MGM)</td>
+        <td>Kangaroo; Buffalo; Antelope; Camel; Yak; Rabbit; Reindeer; Boar; Hare; moufflon;  Other fresh meat products in Mammals meat [A0EYE0], such as rabbit.</td>
+        <td>Red meat</td>
+    </tr>
+    <tr>
+        <td>Milk imitates</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Milk, cow, fluid, skim</td>
+        <td></td>
+        <td></td>
+        <td>Milk, cow, fluid, skim</td>
+        <td></td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Milk, cow, fluid, whole</td>
+        <td></td>
+        <td></td>
+        <td>Milk, cow, fluid, whole</td>
+        <td></td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Milk, cow, powder, skim</td>
+        <td></td>
+        <td></td>
+        <td>Milk, cow, powder, skim</td>
+        <td></td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Milk, cow, powder, whole</td>
+        <td></td>
+        <td></td>
+        <td>Milk, cow, powder, whole</td>
+        <td></td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Milk, other, fluid</td>
+        <td></td>
+        <td></td>
+        <td>Milk, other, fluid</td>
+        <td>Sheep milk; goat milk; camel milk</td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Milk, other, powder</td>
+        <td></td>
+        <td></td>
+        <td>Milk, other, powder</td>
+        <td></td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Mineral water</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Mint</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Persicaria odorata</td>
+        <td>Laksa leaf, Vietnamese coriander</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Mint, dry</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Persicaria odorata</td>
+        <td>Laksa leaf, Vietnamese coriander</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Mirabelle plum</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td>Prunus domestica subsp. syriaca</td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Mirin</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Miscellaneous</td>
+        <td></td>
+        <td></td>
+        <td>Miscellaneous</td>
+        <td>Miscellaneous</td>
+        <td>Miscellaneous</td>
+    </tr>
+    <tr>
+        <td>Miso</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Miso;</td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Mixed dishes</td>
+        <td></td>
+        <td></td>
+        <td>Mixed dishes</td>
+        <td>Pie; Sandwiches; Lasagne; Soup; Cassoulet; Galantine</td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Mixed herbs and spices, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Mixed, pooled</td>
+    </tr>
+    <tr>
+        <td>Mizuna</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica rapa subsp. Nipposinica</td>
+        <td>Mizuna [JAPANESE], ri ben shui cai [CHINESE], shui cai [CHINESE], Mibuna [Japanese]; Mizuna; kyona, Japanese mustard greens, or spider mustard; Potherb mustard; Cut-leaf mustard</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Molluscs</td>
+        <td></td>
+        <td></td>
+        <td>Molluscs</td>
+        <td>Shellfish; Squid; Mussel; Octopus; Clams</td>
+        <td>Fish and seafood products </td>
+    </tr>
+    <tr>
+        <td>Morogo</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>African spinach</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Mosses liverworts</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>icelandic mosses</td>
+        <td>Mosses, liverworts</td>
+    </tr>
+    <tr>
+        <td>Multishoot mustard</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica juncea</td>
+        <td>chicken mustard, multishoot mustard, nine-head mustard</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Multitude</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Mung bean, dry</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Phaseolus aureus roxb</td>
+        <td>Pulses; legumes; Bean; Mung beans (dry) or Green gram (dry)</td>
+        <td>Pulses</td>
+    </tr>
+    <tr>
+        <td>Mushroom</td>
+        <td>Mushroom</td>
+        <td>Mushroom</td>
+        <td>Basidiomycetes and Ascomycetes</td>
+        <td>Shiitake, raw; Enokitake</td>
+        <td>Mushroom</td>
+    </tr>
+    <tr>
+        <td>Mushroom, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Mushroom, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Muskmelon</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Mustard greens</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica juncea.integrifolia</td>
+        <td>"Japanese giant red mustard; leaf mustard:  ""bamboo mustard"", ""small gai choy"" (小芥菜), and ""mustard cabbage"".; (タカナ, 高菜); snow mustard (雪里蕻): ""red-in-snow mustard"", ""green-in-snow mustard"" and ""xuělǐhóng / hsueh li hung""; curled-leaf mustard: ""curled mustard"", ""American mustard"", ""Southern mustard"", ""Texas mustard"", and ""Southern curled mustard"". baby mustard, Chinese leaf mustard, Indian mustard, mostaza [SPANISH], Gai choy"</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Mustard seed</td>
+        <td></td>
+        <td></td>
+        <td>Brassica nigra</td>
+        <td>nut</td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Mustard, condiment</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Mustard, tuber</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica spp</td>
+        <td>mostaza [SPANISH]</td>
+        <td>Tuber vegetable</td>
+    </tr>
+    <tr>
+        <td>Mustard, unspecific</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica spp</td>
+        <td>mostaza [SPANISH]</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Mustard, wild</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica rapa subsp. rapa</td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Myrtus </td>
+        <td>Myrtaceae</td>
+        <td></td>
+        <td></td>
+        <td>myrtle; common myrtle</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Natto</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Nectar</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Nectarine</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td></td>
+        <td>Nectarines or Fuzzy-less peach or Juicy peach or Brazilian peach</td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>New Zealand spinach</td>
+        <td>Aizoaceae</td>
+        <td>Carpetweed family</td>
+        <td>Tetragonia tetragonoides</td>
+        <td>everbearing spinach, everlasting spinach, perpetual spinach, warrigal-cabbage, warrigal-greens, warrigal-spinach</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>New Zealand Spinach, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Noodles, wheat, raw</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Udon; Sōmen, somyeon, or sùmiàn; </td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Nozawana</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica rapa L. var. hakabura</td>
+        <td>野沢菜</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Nozawana, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Nutmeg </td>
+        <td></td>
+        <td></td>
+        <td>Myristica fragrans</td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Nuts, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td>nut</td>
+        <td>Nuts</td>
+    </tr>
+    <tr>
+        <td>Oat</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td></td>
+        <td></td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Oat milk</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Oat porridge</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Offal</td>
+        <td></td>
+        <td></td>
+        <td>Offal</td>
+        <td>blood; brain; scrotum; small intestine; heart; kidney; liver; testicle; tongue; tripe; stomach; spleen; foie gras; tripes à la mode de Caen</td>
+        <td>Offal</td>
+    </tr>
+    <tr>
+        <td>Oil</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Oilseed</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Oil-seed mustard</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica juncea</td>
+        <td>"Oil seed cultivars of B. juncea subsp. juncea, along with oil seed cultivars of the related species B. napus and B. rapa, are referred to as canola. Other common names include ""brown mustard"", ""Indian mustard"", and ""oilseed mustard"". The mustard plant is called rai or raya in India."</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Okra</td>
+        <td>Malvaceae</td>
+        <td>Mallow/Cotton family</td>
+        <td>Abelmoschus esculentus</td>
+        <td>molondrones, quingombo [SPANISH], o ku ra [KOREAN], ladys finger</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Olive</td>
+        <td>Oleaceae</td>
+        <td>Olive family</td>
+        <td>Olea europaea</td>
+        <td></td>
+        <td>Oilseed</td>
+    </tr>
+    <tr>
+        <td>Onion</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium cepa</td>
+        <td>Bermuda onion, cebolla [SPANISH], chalota [SPANISH], scallion, shallot, yang pa [KOREAN]</td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>Onion, dry</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium cepa</td>
+        <td>Bermuda onion, cebolla [SPANISH], chalota [SPANISH], scallion, shallot, yang pa [KOREAN]</td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>Onion, green</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium fistulosum</td>
+        <td>bunching onion, ciboule, green bunching onion, scallion, Welsh onion</td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>Onion, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Onion, red</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium cepa</td>
+        <td>Bermuda onion, cebolla [SPANISH], chalota [SPANISH], scallion, shallot, yang pa [KOREAN]</td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>Onion, white</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium cepa</td>
+        <td>Bermuda onion, cebolla [SPANISH], chalota [SPANISH], scallion, shallot, yang pa [KOREAN]</td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>Onion, yellow</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium cepa</td>
+        <td>Bermuda onion, cebolla [SPANISH], chalota [SPANISH], scallion, shallot, yang pa [KOREAN]</td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>Oolong tea</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Oolong tea, bottled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Oolong tea, prepared</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Orange</td>
+        <td>Rutaceae</td>
+        <td>Rue family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Orange juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Orange marmalade</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Orange, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruit, processed</td>
+    </tr>
+    <tr>
+        <td>Oregano</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Origanum vulgare</td>
+        <td>origanum or wild marjoram</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Oregano, dry</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Origanum vulgare</td>
+        <td>origanum or wild marjoram</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Oriental pickling melon</td>
+        <td></td>
+        <td></td>
+        <td>Cucumis melo Conomon Group</td>
+        <td>Oriental pickling melon; wolgwa; shirouri (シロウリ; 白瓜)</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Oriental pickling melon, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Other poultry meat</td>
+        <td></td>
+        <td></td>
+        <td>Other poultry meat</td>
+        <td>Turkey; Broiler; Goose; Quail; Other poultry fresh meat (muscle meat) [A01SN]; </td>
+        <td>Poultry and feathered game meat products</td>
+    </tr>
+    <tr>
+        <td>Others</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Palm cabbage</td>
+        <td>Arecaceae</td>
+        <td>Palm family</td>
+        <td></td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Papaya</td>
+        <td>Caricaceae</td>
+        <td></td>
+        <td></td>
+        <td>pawpaw</td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Paprika</td>
+        <td>Solanaceae</td>
+        <td>Nightshade family</td>
+        <td>Capsicum annuum</td>
+        <td>Spice</td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Parsley</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Petroselinum crispum</td>
+        <td>perejil [SPANISH], pa sul ri [KOREAN], persil</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Parsley, leaves</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Petroselinum crispum</td>
+        <td></td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Parsley, root</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Petroselinum crispum</td>
+        <td></td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Parsnip</td>
+        <td>Apiaceae</td>
+        <td>Carrot/Parsley family</td>
+        <td>Pastinaca sativa</td>
+        <td>chirivia [SPANISH]</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Pasta</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Spaghetti (Buitoni); </td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Pea juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Pea shoot</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Pisum sativum</td>
+        <td></td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Pea, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Pea, dry</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Pisum sativum</td>
+        <td></td>
+        <td>Pulses</td>
+    </tr>
+    <tr>
+        <td>Pea, fresh</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Pisum sativum</td>
+        <td>arveja [SPANISH], garden pea, guisante [SPANISH], snowpea, wan du (kong) [KOREAN]</td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Pea, with pods</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td></td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Peach</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Peach, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruit, processed</td>
+    </tr>
+    <tr>
+        <td>Peanut</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Arachis hypogaea</td>
+        <td>Peanut; groundnut, goober (US), pindar (US) or monkey nut (UK)</td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Peanut butter</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Peanut chutney</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Pear</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Pear juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Pear, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruit, processed</td>
+    </tr>
+    <tr>
+        <td>Pearl millet</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td>Pennisetum tryphoideum</td>
+        <td>Pearl millet grain or Bulrush millet or Cat-tail millet or Cattail millet or Pearl Millet or Spiked millet</td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Pepper Paste</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Peppermint</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Mentha piperita L.</td>
+        <td>Mentha balsamea Wild</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Perilla</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Perilla frutescens</td>
+        <td>deulkkae, perilla or Korean perilla; perilla mint, beefsteak plant, purple perilla, Chinese basil, wild basil, blueweed, Joseph's coat, wild coleus and rattlesnake weed</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Persian melon</td>
+        <td></td>
+        <td></td>
+        <td>Cucumis melo</td>
+        <td>Odessa melons; a type of muskmelon</td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Persimmon</td>
+        <td>Ebenaceae</td>
+        <td>Ebony family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Pickled mustard</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Zha Cai (榨菜); Cha Tsai;cha tsai, tsa tsai, jar choy, jar choi, ja choi, ja choy, or cha tsoi. In English, it is commonly known as Sichuan vegetable, Szechwan vegetable, or Chinese pickled vegetable</td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Pigeon peas, dry</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Cajanus cajan</td>
+        <td>Pulses; legumes; Bean; Pigeonpea</td>
+        <td>Pulses</td>
+    </tr>
+    <tr>
+        <td>Pineapple</td>
+        <td>Bromeliaceae</td>
+        <td>Pineapple family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Pineapple juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Pineapple, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruit, processed</td>
+    </tr>
+    <tr>
+        <td>Pinto bean, dry</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td>Common bean (Phaseolus vulgaris)</td>
+        <td>Pulses</td>
+    </tr>
+    <tr>
+        <td>Pistachio</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td></td>
+        <td>nut</td>
+        <td>Nuts</td>
+    </tr>
+    <tr>
+        <td>Pizza</td>
+        <td></td>
+        <td></td>
+        <td>Mixed dishes</td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Pizza sauce</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Plant oil</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Oliver oil; </td>
+        <td>Oil</td>
+    </tr>
+    <tr>
+        <td>Plum</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Plum jam</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Plum tomato</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Plum, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruit, processed</td>
+    </tr>
+    <tr>
+        <td>Pomegranate</td>
+        <td>Punicaceae</td>
+        <td>Pomegranate family</td>
+        <td></td>
+        <td>Granate apples or Pomegranates</td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Pomegranate juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Pomelo</td>
+        <td>Rutaceae</td>
+        <td>Rue family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Poppy seed</td>
+        <td>Papaveraceae</td>
+        <td>Poppy family</td>
+        <td>Papaver spp.</td>
+        <td>amapola</td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Pork</td>
+        <td></td>
+        <td></td>
+        <td>Pork</td>
+        <td>Pork fresh meat</td>
+        <td>Red meat</td>
+    </tr>
+    <tr>
+        <td>Potato</td>
+        <td>Convolvulaceae</td>
+        <td>Morning Glory family</td>
+        <td>Solanum tuberosum</td>
+        <td>papa [SPANISH], patata [SPANISH] gam ja [KOREAN]</td>
+        <td>Tuber vegetable</td>
+    </tr>
+    <tr>
+        <td>Potato chips/crisps</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Potato, fried</td>
+        <td>Convolvulaceae</td>
+        <td>Morning Glory family</td>
+        <td>Solanum tuberosum</td>
+        <td>Potato chips</td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Potato, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Potato, purple</td>
+        <td>Convolvulaceae</td>
+        <td>Morning Glory family</td>
+        <td>Solanum tuberosum</td>
+        <td></td>
+        <td>Tuber vegetable</td>
+    </tr>
+    <tr>
+        <td>Poultry & feathered game products, others</td>
+        <td></td>
+        <td></td>
+        <td>Other poultry and feathered game products, unspecific (Poultry & feathered game products, others)</td>
+        <td>Bird nest</td>
+        <td>Poultry and feathered game meat products</td>
+    </tr>
+    <tr>
+        <td>Preserved or processed animal fat</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Cured fat (e.g., lardo, salo, lardon); Ciccioli</td>
+        <td>Animal fat</td>
+    </tr>
+    <tr>
+        <td>Processed cheese</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Processed eggs</td>
+        <td></td>
+        <td></td>
+        <td>Processed eggs</td>
+        <td>Salted egg; Century egg</td>
+        <td>Eggs</td>
+    </tr>
+    <tr>
+        <td>Processed fish, except canned fish</td>
+        <td></td>
+        <td></td>
+        <td>Cured, fermented, smoked, dried fish and products other than canned fish (Processed fish (except canned fish))</td>
+        <td></td>
+        <td>Fish and seafood products </td>
+    </tr>
+    <tr>
+        <td>Processed meat, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td>Processed or preserved meat products, pooled, unspecified (Processed meat, mixed, unspecific)</td>
+        <td></td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Processed MGM</td>
+        <td></td>
+        <td></td>
+        <td>Processed mammalian game meats (Processed MGM)</td>
+        <td></td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Processed or preserved vegetables and similar</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Processed or preserved vegetables and similar</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Processed poultry meat products</td>
+        <td></td>
+        <td></td>
+        <td>Processed poultry meat products</td>
+        <td>Processed duck/turkey; Chicken nugget; Chicken sausage; Dried/pressed duck and bird meat (including  Turkey meat, dried [A022Q])</td>
+        <td>Poultry and feathered game meat products</td>
+    </tr>
+    <tr>
+        <td>Prune</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Dried plum</td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Pudding</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Pumpkin</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Cucurbita maxima var. maxima, Cucurbita mixta, Cucurbita moschata, and Cucurbita pepo"</td>
+        <td>ho bak [KOREAN]</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Pumpkin seed</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Pepita</td>
+        <td>Nuts</td>
+    </tr>
+    <tr>
+        <td>Puntarelle</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td></td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Purslane</td>
+        <td>Portulacacea</td>
+        <td>Purslane family</td>
+        <td>Portulaca oleracea</td>
+        <td>verdolaga [SPANISH]; duckweed, little hogweed, or pursley</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Quinoa</td>
+        <td>Amaranthaceae</td>
+        <td>Amaranth family</td>
+        <td>Chenopodium quinoaWilld.</td>
+        <td></td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Radicchio</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Cichorium intybus var. foliosum</td>
+        <td>red chicory; Red-leafed chicory</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Radish</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Raphanus sativus</td>
+        <td>Chinese turnip, rabano [SPANISH], mu u [KOREAN]</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Radish, black</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Raphanus sativus</td>
+        <td>Black Spanish radish or Erfurter radish;  Black radishes or Winter radishes or 'Gros noir d'hiver'</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Radish, leaf</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Raphanus sativus</td>
+        <td></td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Radish, small</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Raphanus sativus</td>
+        <td>Small radishes</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Radish, white</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Raphanus sativus var. longipinnatus</td>
+        <td>Chinese radish, daikon [JAPANESE], Japanese radish, mu li [CHINESE], white radish, long white radish; Oriental radish</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Radish, white, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Radish, wild</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Raphanus sativus</td>
+        <td>Chinese turnip, rabano [SPANISH], mu u [KOREAN]</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Ramsons</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium ursinum</td>
+        <td>wild garlic, ramsons, wild cowleek, cowlic, buckrams, broad-leaved garlic, wood garlic, bear leek or bear's garlic</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Rape</td>
+        <td>Jujube</td>
+        <td>Chinese date, red date</td>
+        <td>Brassica napus var. napus</td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Rapeseed</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td></td>
+        <td>Rapeseeds or Canola seeds or Colza</td>
+        <td>Oilseed</td>
+    </tr>
+    <tr>
+        <td>Rappini</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica rapa subsp. rapa</td>
+        <td>nabo [SPANISH], turnip, sun mu [KOREAN]</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Raspberry</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Raw cured meat cuts, except bacon & ham</td>
+        <td></td>
+        <td></td>
+        <td>Raw cured meat in whole cut or pieces (non-communicated) other than bacon and ham (Cured meat cuts (except bacon & ham))</td>
+        <td>Raw cured beef; Silverside; Salted pork; tiroler speck; spalla cotta; Pancetta; Raw corned beef, uncooked [A023D]; </td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Red current juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Red meat, minced, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td>Minced mixed meat, unspecified red meat (Red meat, others)</td>
+        <td>Mixed mince;</td>
+        <td>Red meat</td>
+    </tr>
+    <tr>
+        <td>Reptiles</td>
+        <td></td>
+        <td></td>
+        <td>Reptiles</td>
+        <td></td>
+        <td>Reptiles, amphibia and insects</td>
+    </tr>
+    <tr>
+        <td>Rhubarb</td>
+        <td>Polygonaceae</td>
+        <td>Buckwheat family</td>
+        <td>Rheum rhabarbarum</td>
+        <td>ruibarbo [SPANISH], jang gun pul [KOREAN]</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Rice</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td></td>
+        <td></td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Rice cake</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Rice flour</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Rice noodle</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Rockmelon</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Roe</td>
+        <td></td>
+        <td></td>
+        <td>Roe</td>
+        <td>Roe</td>
+        <td>Fish and seafood products </td>
+    </tr>
+    <tr>
+        <td>Rolled oat</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Romanesco broccoli</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td></td>
+        <td>Roman cauliflower, Broccolo Romanesco, Romanesque cauliflower, or simply Romanesco</td>
+        <td>Flower vegetable</td>
+    </tr>
+    <tr>
+        <td>Rooibo</td>
+        <td>Fabaceae</td>
+        <td></td>
+        <td></td>
+        <td>rooibos (especially in Southern Africa), bush tea, red tea, or redbush tea (predominantly in Great Britain). </td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Root mustard</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica juncea</td>
+        <td>"mostaza [SPANISH];  ""root mustard"", ""large-root mustard"", ""tuberous-root mustard"", and ""turnip-root mustard""."</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Root vegetable, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Roselle</td>
+        <td>Malvaceae</td>
+        <td>Mallow/Cotton family</td>
+        <td>Hibiscus cannabinus</td>
+        <td>Roselle leaves, gogu; rosella fruit </td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Rosemary</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Rosmarinus officinalis</td>
+        <td>Salvia rosmarinus</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Rosemary</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Rosemary, dry</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Rosmarinus officinalis</td>
+        <td>Salvia rosmarinus</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Roti</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Ruby mustard</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica juncea</td>
+        <td>Ruby Streaks Mustard</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Rye</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td></td>
+        <td></td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Rye bread</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Sage</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Salvia officinalis</td>
+        <td>salvia [SPANISH]; garden sage, common sage, or culinary sage</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Sage, dry</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Salvia officinalis</td>
+        <td>salvia [SPANISH]; garden sage, common sage, or culinary sage</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Sake</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Alcoholic drinks</td>
+    </tr>
+    <tr>
+        <td>Sakekasu</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Salad</td>
+        <td>Salad</td>
+        <td>Salad</td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Salad dressing</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Salami</td>
+        <td></td>
+        <td></td>
+        <td>Salami</td>
+        <td>Saucisson (French salami)</td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Salsa</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Salsify</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Tragopogon porrifolius</td>
+        <td>oyster plant, vegetable-oyster</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Salsify, black</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Scorzonera hispanica</td>
+        <td>Spanish salsify; Black salsify; Scorzonera</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Salsify, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Salt</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Condiments</td>
+    </tr>
+    <tr>
+        <td>Saluyot jute</td>
+        <td>Malvaceae</td>
+        <td>Mallow/Cotton family</td>
+        <td>Corchorus olitorius</td>
+        <td>Jews-mallow, molokheya, nalta jute, tussa (tossa) jute, jute mallow</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Sauerkraut</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea var.capitata</td>
+        <td>berza [SPANISH], col [SPANISH], repollo chino [SPANISH], savoy cabbage;sour cabbage</td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Sausage, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td>Sausage, unspecified</td>
+        <td></td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Savory</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Satureja hortensis (SUMMER); Satureja montana (WINTER)"</td>
+        <td>ajedrea [SPANISH]; Summer savory</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Savoury sauce</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Scallion</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td>Allium cepa</td>
+        <td>salad onion, multiplier onion ; Spring onion</td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>Scallion, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Scartlet runner bean</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Phaseolus coccineus</td>
+        <td>runner bean; scarlet runner bean, multiflora bean</td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Scrambled egg</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Screwpine, leaf</td>
+        <td>Pandanaceae</td>
+        <td>Screwpine (leaf)</td>
+        <td>Pandanus odoratissimus</td>
+        <td>hala, pandan</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Sea beet</td>
+        <td>Chenopodiaceae</td>
+        <td>Goosefoot family</td>
+        <td>Beta vulgaris subsp. maritima </td>
+        <td>Wild Spinach; </td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Seasoning, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Mixed, pooled</td>
+    </tr>
+    <tr>
+        <td>Sea-squirts and other tunicates</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fish and seafood products </td>
+    </tr>
+    <tr>
+        <td>Seaweed</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>seaweed; algae</td>
+        <td>Algae</td>
+    </tr>
+    <tr>
+        <td>Seeds - coffee, cocoa and similar - used for infusions or hot drinks</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Mixed, pooled</td>
+    </tr>
+    <tr>
+        <td>Semi-hard/hard cheese</td>
+        <td></td>
+        <td></td>
+        <td>Semi-hard/hard cheese</td>
+        <td>Cheddar; Swiss (Alpine cheeses); Colby; brick; Parmesan; Gruyere; Kasseri; Emmenthal; Edam; Parmigiano-Reggiano (hard cheese); Pecorino; Romano; asiago; Provolone; Cooper; maasdam; cheese, tilsit; emmental; raclette; appenzeller; Monterey Jack</td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Semi-soft cheese</td>
+        <td></td>
+        <td></td>
+        <td>Semi-soft cheese</td>
+        <td>Gouda; Havarti; Mozzarella; Esrom (or Danish Port Salut cheese); Taleggio; Manchego; Halloumi; Jarlsberg; butterkase (butter cheese); danbo;</td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Sesame seed</td>
+        <td>Pedaliaceae</td>
+        <td>Sesame/pedalium family</td>
+        <td></td>
+        <td>Benne; </td>
+        <td>Oilseed</td>
+    </tr>
+    <tr>
+        <td>Shallot</td>
+        <td>Amaryllidaceae</td>
+        <td>Amaryllis family</td>
+        <td></td>
+        <td></td>
+        <td>Bulb vegetable</td>
+    </tr>
+    <tr>
+        <td>Shio-senbei</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Shiso</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Perilla frutescens var. crispa</td>
+        <td>"Chinese as zǐsū (紫蘇 ""purple perilla""); Vietnamese name tía tô; also called huíhuísū (回回蘇 ""Muslim perilla"") in Chinese. In Korean, it is known as soyeop (소엽). In English, it is sometimes called the ""beefsteak plant"""</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Shumai</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Sickle senna</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td>sickle senna or sickle wild sensitive-plant; sickle pod, tora, coffee pod and foetid cassia</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Sissoo spinach</td>
+        <td>Amaranthaceae</td>
+        <td></td>
+        <td>Alternanthera sessilis</td>
+        <td>sissoo spinach, Brazilian spinach, sessile joyweed, dwarf copperleaf</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Snack</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Mixed, pooled</td>
+    </tr>
+    <tr>
+        <td>Snake gourd</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Trichosanthes cucumerina var. anguina</td>
+        <td>calabaza anguina [SPANISH], calabaza de culebra [SPANISH], club gourd, gauda bean, Indian snakegourd, Nepalese serpent cucumber, serpent gourd, she gua [CHINESE], snakegourd, viper/viper’s gourd</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Snow pea</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Pisum sativum var. macrocarpon</td>
+        <td>edible-podded sugar pea; Sugar snap pea; Garden peas or Green peas or Mangetout or Sugar peas or Snow peas or Wrinkled pea</td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Soft cheese</td>
+        <td></td>
+        <td></td>
+        <td>Soft cheese</td>
+        <td>Blue mould cheese (danablu, Roquefort, gorgonzola); feta (including Cotija;); Brie; ricotta; Cream cheese; Camembert, Chevre; Mascarpone;  Cottage cheese; Limburger; Quark; munster; </td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Soft drink</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>chinotto; </td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Solids</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Sorghum</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td>Sorghum vulgare</td>
+        <td></td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Sorrel</td>
+        <td>Polygonaceae</td>
+        <td>Buckwheat family</td>
+        <td>Rumex spp.</td>
+        <td>acedera [SPANISH], dock</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Soup</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Sour cherry</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td>Prunus cerasus</td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Soy milk</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Soy milk powder</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Soy protein powder</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Soy sauce</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Condiments</td>
+    </tr>
+    <tr>
+        <td>Soybean, dry</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Glycine max</td>
+        <td>soy, soya</td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Soybean, green</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td>Soyabeans (with pods)</td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Spaghetti</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Spaghetti, ready-to-serve</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Spearmint</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td></td>
+        <td>garden mint, common mint, lamb mint and mackerel mint</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Spice, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Spinach</td>
+        <td>Chenopodiaceae</td>
+        <td> Goosefoot family</td>
+        <td>Spinacia oleracea</td>
+        <td>espinaca [SPANISH], shi gum chi [KOREAN]</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Spinach, baby leaf</td>
+        <td>Chenopodiaceae</td>
+        <td> Goosefoot family</td>
+        <td>Spinacia oleracea</td>
+        <td>espinaca [SPANISH], shi gum chi [KOREAN]</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Spinach, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Spiny amaranth</td>
+        <td>Amaranthaceae</td>
+        <td></td>
+        <td>Amaranthus spinosus</td>
+        <td>spiny amaranth, spiny pigweed, prickly amaranth or thorny amaranth;  phak khom (Thai: ผักขม)</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Spirit</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Gin; Ram; bai jiu;</td>
+        <td>Alcoholic drinks</td>
+    </tr>
+    <tr>
+        <td>Spring greens</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea</td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Sprouts, barley</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Sprouts, bean</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td></td>
+        <td>Bean shoot</td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Sprouts, garden cress</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Sprouts, lentil</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Sprouts, mung bean</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Vigna radiata</td>
+        <td>Green gram sprouts</td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Sprouts, radish</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Sprouts, shoots and similar</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Mixed, pooled</td>
+    </tr>
+    <tr>
+        <td>Sprouts, soybean</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Glycine max</td>
+        <td></td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Sprouts, sunflower</td>
+        <td></td>
+        <td></td>
+        <td>Helianthus annuus</td>
+        <td></td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Sprouts, turnip</td>
+        <td></td>
+        <td></td>
+        <td>Brassica rapa subsp. rapa</td>
+        <td> nabo [SPANISH], rappini, sun mu[KOREAN]</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Sprouts, wheat</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Squash</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Cucurbita spp.</td>
+        <td></td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Star anise</td>
+        <td>Schisandraceae</td>
+        <td></td>
+        <td>Illicium verum</td>
+        <td>star anise, staranise, star anise seed, star aniseed, star of anise, Chinese star anise, or badian</td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Steamed buns</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Stem mustard</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica juncea</td>
+        <td>"Previously identified as B. juncea subsp. tsatsai var. tumida. The mustard plant with knobby, fist-sized, swollen green stem is known as ""big-stem mustard"" or ""swollen-stem mustard""."</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Stem vegetable, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Stock, liquid, beef</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Stock, liquid, chicken</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Stock, liquid, vegetable</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Stock, powder, beef</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Stock, powder, chicken </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Stock, powder, vegetable</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Strawberry</td>
+        <td>Rosaceae</td>
+        <td>Rose family</td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Strawberry jam</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Suancai</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fermented products</td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Sugar</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Condiments</td>
+    </tr>
+    <tr>
+        <td>Sugar plants</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Sultana</td>
+        <td>Vitaceae</td>
+        <td>Grape family</td>
+        <td></td>
+        <td>Raisin</td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Sumac</td>
+        <td>Anacardiaceae</td>
+        <td>Cashew family</td>
+        <td></td>
+        <td>sumach</td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Sumac </td>
+        <td>Anacardiaceae</td>
+        <td>Cashew family</td>
+        <td>Rhus coriaria</td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Sunflower seed</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Nuts</td>
+    </tr>
+    <tr>
+        <td>Sushi, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Swede</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica napus var. napobrassica</td>
+        <td>Swedes; Rutabagas or Rutabaga Turnip; Swedish Turnip</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Sweet corn</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td>Zea mays</td>
+        <td>maiz [SPANISH], maize</td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Sweet corn, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Sweet corn, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Sweet potato</td>
+        <td>Convolvulaceae</td>
+        <td>Morning Glory family</td>
+        <td>Ipomoea batatas</td>
+        <td>batata [SPANISH], boniato [SPANISH], camote, kumara [NEW ZEALAND], go gu ma [KOREAN]; Tao (satsumaimo )</td>
+        <td>Tuber vegetable</td>
+    </tr>
+    <tr>
+        <td>Sweet potato, vine</td>
+        <td>Convolvulaceae</td>
+        <td>Morning Glory family</td>
+        <td>Ipomoea batatas</td>
+        <td>batata [SPANISH], boniato [SPANISH], camote, kumara [NEW ZEALAND], go gu ma [KOREAN]</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Swiss chard</td>
+        <td>Chenopodiaceae</td>
+        <td>Goosefoot family</td>
+        <td>Beta vulgaris var. cicla</td>
+        <td>gun dae [KOREAN], chard, silverbeet; Swiss chard, silverbeet, bright lights, seakale beet, white beet, strawberry spinach, leaf beet, Sicilian beet, Chilian beet, Roman kale, spinach beet, crab beet, perpetual spinach, or mangold</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Syrup</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Molasses and other syrups</td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Tabasco capsicum</td>
+        <td>Solanaceae</td>
+        <td>Nightshade family</td>
+        <td>Capsicum frutescens L</td>
+        <td></td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Talinum </td>
+        <td>Talinaceae </td>
+        <td></td>
+        <td></td>
+        <td>flameflower</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Tamarind bean pod, pulp</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Tamarindus indica</td>
+        <td>tamarindo [SPANISH]</td>
+        <td>Legume/seed vegetable</td>
+    </tr>
+    <tr>
+        <td>Tamarind pulp</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Tangerine</td>
+        <td>Rutaceae</td>
+        <td>Rue family</td>
+        <td></td>
+        <td>Orange; Clementine</td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Tansy, dry</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Tanacetum vulgare</td>
+        <td>common tansy, bitter buttons, cow bitter, or golden buttons</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Tap water</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Taro</td>
+        <td>Araceae</td>
+        <td>Arum family</td>
+        <td>Colocasia esculenta</td>
+        <td>Dasheen, Dalo [Fijian]; Satoimo (里芋), taro roots, or Japanese sweet taro</td>
+        <td>Tuber vegetable</td>
+    </tr>
+    <tr>
+        <td>Tarragon</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Artemisia dracunculus</td>
+        <td>estragon [SPANISH]</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Tatsoi</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica rapa subsp. narinosa</td>
+        <td>broad-beak mustard, Chinese savoy, rosette pakchoi, ta ge cai [CHINESE], taasai [JAPANESE], tai koo choi [CHINESE], Tat soi, Tatsoi (spinach mustard or spoon mustard; tat choy), Tahtsai; Tat soi – Japanese name, Rosette bok choy, taai goo choi; Taiwanese cabbage, also called flat cabbage or Taiwan cabbage, is a variety of Chinese cabbage commonly used in Taiwanese, Japanese, and Korean cuisine. it’s called 高麗菜 (Gāolí cài) in Taiwan</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Tea, infusion, dry</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Tee bag</td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Tea, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>teiu potato</td>
+        <td></td>
+        <td></td>
+        <td>Jatropha elliptica (Pohl) Oken</td>
+        <td></td>
+        <td>Others</td>
+    </tr>
+    <tr>
+        <td>Thickener</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Thumbai</td>
+        <td>Lamiaceae</td>
+        <td></td>
+        <td>Leucas aspera</td>
+        <td>Thumba</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Thyme</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>"Thymus vulgaris</td>
+        <td>tilo, tomillo [SPANISH]</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Thyme, dry</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Thymus vulgaris</td>
+        <td></td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Tinda</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Praecitrullus fistulosus</td>
+        <td> Tinda, also called Indian squash, round melon, Indian round gourd or apple gourd or Indian baby pumpkin</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Toddler formula, prepared</td>
+        <td></td>
+        <td></td>
+        <td>Toddler formula, prepared</td>
+        <td></td>
+        <td>Infant formulae and foods </td>
+    </tr>
+    <tr>
+        <td>Tofu</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Tomato</td>
+        <td>Solanaceae</td>
+        <td>Nightshade family</td>
+        <td>Solanum lycopersicum var. lycopersicum</td>
+        <td>tomate [SPANISH]</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Tomato juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Tomato paste/puree</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Tomato sauce</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Tomato ketchup</td>
+        <td>Condiments</td>
+    </tr>
+    <tr>
+        <td>Tomato, canned</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Tomato, dry</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Sun dried tomato</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Tomato, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Topi Tambo</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Touna</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td></td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Traditional verjuice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Tronchuda</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica oleracea L. (Tronchuda group)</td>
+        <td>Sea-kale cabbage, Braganza cabbage, couve tronchuda; Portuguese kales or Tronchuda kales or Portuguese cabbages or Braganza or Poruguese kales or Bedford cabbage</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Turmeric</td>
+        <td>Zingiberaceae</td>
+        <td>Ginger family</td>
+        <td>Curcuma longa</td>
+        <td>tumeric</td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>Turnip</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica rapa subsp. rapa</td>
+        <td>nabo [SPANISH], rappini, sun mu [KOREAN]</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Turnip, tops</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Brassica rapa subsp. rapa</td>
+        <td>nabo [SPANISH], rappini, sun mu [KOREAN]; Turnip tops or Turnip greens or Namenia or Tendergreen</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>UCFM, except salami & chorizo</td>
+        <td></td>
+        <td></td>
+        <td>Uncooked comminuted fermented meat products other than salami and chorizo (UCFM (except salami & chorizo))</td>
+        <td>Pepperoni; Cervelats; Mettwurst; Summer sausage; Naem; Droë wors; Sucuk; Dry sausages and semi-dry sausages (Summer sausage); Linguica [A025D]; Snack sausaged (like Cabanos and landjager) [A025E];</td>
+        <td>Processed meat</td>
+    </tr>
+    <tr>
+        <td>Vegemite</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Vegetable and fruit juice, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Vegetable and/or fruit compote, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Vegetable and/or fruit jam, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Vegetable and/or fruit puree</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Vegetable fern</td>
+        <td>Athyriaceae</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Edible fern</td>
+    </tr>
+    <tr>
+        <td>Vegetable juice, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Vegetable, dry, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Vegetable, fresh, mixed, unspecific</td>
+        <td>Mixed</td>
+        <td>Mixed</td>
+        <td></td>
+        <td></td>
+        <td>Mixed, pooled</td>
+    </tr>
+    <tr>
+        <td>Vine leaves</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Vinegar</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Condiments</td>
+    </tr>
+    <tr>
+        <td>Wall rocket</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Diplotaxis tenuifolia</td>
+        <td>wild rocket; perennial wall-rocke; White Rocket and Sylvetta</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Walnut</td>
+        <td>Juglandaceae</td>
+        <td>Walnut family</td>
+        <td></td>
+        <td>nut</td>
+        <td>Nuts</td>
+    </tr>
+    <tr>
+        <td>Walnut, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Processed plant food, generic</td>
+    </tr>
+    <tr>
+        <td>Wasabi</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Eutrema japonicum</td>
+        <td>Japanese horseradish</td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Water</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>Water chestnut</td>
+        <td>Cyperaceae</td>
+        <td>Sedge family</td>
+        <td>Trapa natans var. natans</td>
+        <td>Saligot, Singhara nut, Jesuit nut, water caltrop</td>
+        <td>Root vegetable</td>
+    </tr>
+    <tr>
+        <td>Water spinach</td>
+        <td>Convolvulaceae</td>
+        <td>Morning Glory family</td>
+        <td>Ipomoea aquatica</td>
+        <td>kankun [TAGALOG], swamp cabbage; Ong choi; Morning glory or Chinese convolvolus or Water convolvolus or Kangkung or Water spinach</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Watercress</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>Nasturtium officinale</td>
+        <td>berro [SPANISH], rorripa, yang gat naeng i [KOREAN]</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Waterleaf</td>
+        <td>Talinaceae</td>
+        <td></td>
+        <td>Talinum fruticosum </td>
+        <td>Ceylon spinach, waterleaf, cariru, Gbure, Surinam purslane, Philippine spinach, Florida spinach, potherb fameflower, Lagos bologi, and sweetheart</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Watermelon</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Citrulluslanatus</td>
+        <td></td>
+        <td>Fruits</td>
+    </tr>
+    <tr>
+        <td>Watermelon, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruit, processed</td>
+    </tr>
+    <tr>
+        <td>Wax gourd</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Benincasa hispida</td>
+        <td>Wax gourd of India, wax gourd, hairy gourd, ash gourd, winter melon</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Wheat</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td></td>
+        <td></td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Wheat flour</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td></td>
+        <td>Wheat; Flour</td>
+        <td>Cereals</td>
+    </tr>
+    <tr>
+        <td>Wheat flour products</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td></td>
+        <td></td>
+        <td>Mixed, pooled</td>
+    </tr>
+    <tr>
+        <td>Whey powder</td>
+        <td></td>
+        <td></td>
+        <td>Whey</td>
+        <td>Whey</td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>White cabbage juice</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Drinks</td>
+    </tr>
+    <tr>
+        <td>White mustard</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td></td>
+        <td></td>
+        <td>Condiments</td>
+    </tr>
+    <tr>
+        <td>White pepper</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Spices</td>
+    </tr>
+    <tr>
+        <td>White-seed melon</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Cucumeropsis mannii</td>
+        <td>egusi in Yoruba ; Elegushi in Igbo and agushi in Hausa. In English  Mann's cucumeropsis and white-seed melon</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Wild radish</td>
+        <td>Brassicaceae</td>
+        <td>Cabbage family</td>
+        <td>R. raphanistrum</td>
+        <td>sea radish, wild radish, white charlock or jointed charlock</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Wine, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Rice wine; Sake; Shelly</td>
+        <td>Alcoholic drinks</td>
+    </tr>
+    <tr>
+        <td>Wine, red</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Rose wine; </td>
+        <td>Alcoholic drinks</td>
+    </tr>
+    <tr>
+        <td>Wine, white</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Alcoholic drinks</td>
+    </tr>
+    <tr>
+        <td>Winter savory</td>
+        <td>Lamiaceae</td>
+        <td>Mint family</td>
+        <td>Satureja montana</td>
+        <td>Satureja montana</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Winter squash</td>
+        <td>Cucurbitaceae</td>
+        <td>Gourd family</td>
+        <td>Cucurbita spp.</td>
+        <td>calabaza [IN PUERTO RICO], courgettes, shen-gua [CHINESE], winter squash, zapallo [SPANISH], zucchini; Winter squashes or Red kuri squashes or Marrows (late varieties)</td>
+        <td>Fruit vegetable</td>
+    </tr>
+    <tr>
+        <td>Worcester sauce</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Condiments</td>
+    </tr>
+    <tr>
+        <td>Wormwood</td>
+        <td>Asteraceae</td>
+        <td>Sunflower family</td>
+        <td>Artemisia absinthium</td>
+        <td>wormwood, grand wormwood, absinthe, absinthium, absinthe wormwood, mugwort, wermout, wermud, wormit, wormod; Alsem</td>
+        <td>Herbs</td>
+    </tr>
+    <tr>
+        <td>Yakult</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Composite food</td>
+    </tr>
+    <tr>
+        <td>Yam</td>
+        <td>Araceae</td>
+        <td>Arum family</td>
+        <td>Dioscorea alata</td>
+        <td>Chinese yam, asiatic/white yam, potato yam, winged yam</td>
+        <td>Tuber vegetable</td>
+    </tr>
+    <tr>
+        <td>Yam bean</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Pachyrhizus ahipa, Pachyrhizus erosus, and Pachyrhizus tuberosus</td>
+        <td></td>
+        <td>Tuber vegetable</td>
+    </tr>
+    <tr>
+        <td>Yam bean, leaf</td>
+        <td>Fabaceae</td>
+        <td>Legume family</td>
+        <td>Pachyrhizus ahipa, Pachyrhizus erosus, and Pachyrhizus tuberosus</td>
+        <td>Pachyrhizus leaf</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Yoghurt</td>
+        <td></td>
+        <td></td>
+        <td>Yoghurt</td>
+        <td>Yoghurt</td>
+        <td>Dairy products</td>
+    </tr>
+    <tr>
+        <td>Yokan</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Zenmai</td>
+        <td>Osmundaceae</td>
+        <td></td>
+        <td>Osmunda japonica </td>
+        <td>Asian royal fern; Flowering fern; juecai; 蕨菜; Fiddlehead</td>
+        <td>Leafy vegetable</td>
+    </tr>
+    <tr>
+        <td>Zizania latifolia</td>
+        <td>Poaceae</td>
+        <td>Grass family</td>
+        <td>Zizania latifolia</td>
+        <td>Manchurian wild rice (Chinese: 菰; pinyin: gū); Its sterm name is Chinese: 茭白; pinyin: jiāobái </td>
+        <td>Stem & shoot vegetable</td>
+    </tr>
+    <tr>
+        <td>Unripe melon</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Cucumber, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Rock samphire, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Silver onion, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Cherry pepper, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Vegetable, pickled, mixed, unspecific</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Cabbage, white, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Garlic, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Beans, green, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Vegetable, processed</td>
+    </tr>
+    <tr>
+        <td>Unripe melon, pickled</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Fruit, processed</td>
+    </tr>
+    <tr>
+        <td>Soybean and products</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Wild leafy vegetables </td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Maize tassels</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Greengrocery</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Fukujin-zuke</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Bleach-Celery</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Laos</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Unspecified food item and/or missing info on processing</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Ready-meals</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Lactic acid bacteria beverage</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Smoked meat products</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Meat, poultry or eggs</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Frozen Meat sample</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Jelly powders</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Meatloaf (pork and beef)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Shiitake and spinach</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Gan BIan Si Ji Doufu</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Braised spareribsVdaikon</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Idli</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Spinach dali</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Composite food (including frozen products)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Other foods (foods which cannot be included in any other group)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Sukiyaki taste beef</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Boiled pork, ginger taste</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Sweet-and-sourpork (subuta)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Yellowtail brodiled with soy (buri -teriyaki )</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Chicken broiled with soy (tori -teriyaki)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Shrimp au gratin</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Fried mince meat and lotus root (renkon-hasamiage)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Fried shrimp with chili sauce</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Boiled vegetables and chicken, soy sauce taste (chikuzen-ni)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Boiled chicke nand hijiki, soy sauce taste</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Shrimpshaomai</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Friede ggplant with meat sauce (nasu-soboroankake)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Seasoned bean-curd refuse (uno -hana  orokara)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Boiled hijiki, soy sauce taste</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Kidney bean dressed with sesami sauce (ingen-goma-ae)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Chopped burdock root cooked in soy and sesameoil (kinpira-gobou)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Boiled kelp,soy sauce taste (konbu-ni)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Boiledspinachwithsoysauce (ohitashi)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Japanesechowder (kenchinjiru)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Well water</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>PET-bottled mixed tea</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Alimentary yam paste (konnyaku)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Eggplant seasoned in rice-bran paste  (nasu-nukazu-ke)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Japanese radish seasoned in rice-bran paste (daikon-nukazuke)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Cucumber seasoned in rice-bran paste (kyuuri -nukazuke)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>fermented bean curd</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Pickled pepper fungus</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Pepper Sauce</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Dried grinded pepper</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Fu</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Frozen Entrees</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Liquid drink bases (including concentrates and home-made preparations)</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Drink mixes</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Gages</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Herbs, vegetables and oil sauces</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Processing aids</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Meat and dairy imitates</td>
+        <td>Low</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+</div>
+
+<h2>Main References: </h2>
+
+<p>
+	1. Food Standards Australia New Zealand (FSANZ). AUSNUT 2011–13 food and dietary supplement classification system. 2020
+	[cited 2020 16 October].
+</p>
+<p>
+	2. International Agency for Research on Cancer (IARC). (2003). Fruit and Vegetables. IARC Handbooks of Cancer Prevention (Vol. 8). Lyon, France: IARC.
+</p>
+<p>
+	3. Ioannidou, S. (2019). EFSA Catalogue Browser User Guide. EFSA Supporting Publications, 16(11). https://doi.org/10.2903/sp.efsa.2019.en-1726.
+</p>
+<p>
+	4. Blekkenhorst, L. C., Prince, R. L., Ward, N. C., Croft, K. D., Lewis, J. R., Devine, A., . . . Bondonno, C. P. (2017). Development of a reference database for assessing dietary nitrate in vegetables. Mol Nutr Food Res, 61(8). https://doi.org/10.1002/mnfr.201600982. .
+</p>
+
+<script>
+function mySearch() {
+
+  // Declare search string
+  var filter = searchBox.value.toUpperCase();
+
+  // Loop through first tbody's rows
+  for (var rowI = 0; rowI < trs.length; rowI++) {
+
+    // define the row's cells
+    var tds = trs[rowI].getElementsByTagName("td");
+
+    // hide the row
+    trs[rowI].style.display = "none";
+
+    // loop through row cells
+    for (var cellI = 0; cellI < tds.length; cellI++) {
+
+      // if there's a match
+      if (tds[cellI].innerHTML.toUpperCase().indexOf(filter) > -1) {
+
+        // show the row
+        trs[rowI].style.display = "";
+
+        // skip to the next row
+        continue;
+      }
+    }
+  }
+}
+
+// declare elements
+const searchBox = document.getElementById('myInput');
+const table = document.getElementById("plant_table");
+const trs = table.tBodies[0].getElementsByTagName("tr");
+
+// add event listener to search box
+searchBox.addEventListener('keyup', mySearch);
+
+</script>
+
+</body>
+</html>
