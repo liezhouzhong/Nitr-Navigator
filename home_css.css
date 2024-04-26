@@ -28,6 +28,16 @@
         text-align: center;
     }
 
+    .logo {
+        width: 70px; /* default size for large screens */
+    }
+
+    @media (max-width: 600px) {
+        .logo {
+            width: 30px; /* smaller size for screens up to 600px wide */
+        }
+    }
+
     /* Navigation styles */
     /* https://alvarotrigo.com/blog/hamburger-menu-css/ */
     nav {
