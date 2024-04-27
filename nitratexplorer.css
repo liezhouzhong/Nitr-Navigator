@@ -211,7 +211,7 @@
     }
     /* Table styles */
     .tableFixHead {
-        font-family: Lato,Helvetica Neue,Helvetica,Arial,Liberation Sans,sans-serif;
+        font-family: Lato, Helvetica Neue, Helvetica, Arial, Liberation Sans, sans-serif;;
         font-size: 14px;
         overflow-y: auto;
         overflow-x: auto;
