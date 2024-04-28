@@ -243,9 +243,9 @@
       width: 100%;
       position: relative;
       margin-left: 0px;
-      height: 400px;
-      min-height:300px;
-      max-height: 500pxl;
+      height: 430px;
+      min-height: 300px;
+      max-height: 600px;
       overflow: auto;
     }
     .text-block {
@@ -259,7 +259,7 @@
       }
     }
     .slide-img {
-      width: 300px;  /* you can set the width */
+      width: 750px;  /* you can set the width */
       height: 300px;  /* you can set the height */
       object-fit: cover;  /* this will make sure that the aspect ratio is preserved */
     }
@@ -322,7 +322,7 @@
       cursor: pointer;
       height: 15px;
       width: 15px;
-      margin: 0 2px 0;
+      margin: 0;
       background-color: #bbb;
       border-radius: 50%;
       display: inline-block;

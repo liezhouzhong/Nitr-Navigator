@@ -11,9 +11,13 @@
         color: #f5f5f5;
         font-size: 40px;
     }
-     h2, h3 {
+     h2{
         color: #002147;
         font-size: 40px;
+    }
+    h3 {
+        font-size: 20px;
+        color: #002147;
     }
     a {
         color: #007bff;
