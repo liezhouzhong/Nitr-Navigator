@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/NitrateXplorer.iml" filepath="$PROJECT_DIR$/.idea/NitrateXplorer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Nitr-Navigator.iml" filepath="$PROJECT_DIR$/.idea/Nitr-Navigator.iml" />
     </modules>
   </component>
 </project>
