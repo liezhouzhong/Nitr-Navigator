@@ -303,7 +303,7 @@
       margin-left: 0px;
       font-size: 35px;
       font-weight: 700;
-      line-height: 20px;
+      line-height: 25px;
       color: #002147;  /* rgb(0, 135, 177); */
       margin: 0 0 10px 0;
     }
@@ -374,7 +374,7 @@
       .section-head-text {
         text-align: center;
         font-size: 25px;
-        line-height: 25px;
+        line-height: 30px;
       }
     }
 
