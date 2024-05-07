@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYQG6CPM1L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CYQG6CPM1L');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About NNND</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/site.webmanifest">
+    <link rel="stylesheet" type="text/css" href="style css/team_css.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+          $("#nav-placeholder").load("../nav.html");
+        });
+    </script>
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header style="padding: 5px;">
+       <h1 style="font-size: 20px;">Nitrate, Nitrite and Nitrosamine Database</h1>
+    </header>
+
+    <!-- Nav menu -->
+    <div id="nav-placeholder" style="font-family: Playfair Display, Georgia, Times New Roman, serif; "></div>
+
+    <div style="background-color: #ebeef2;">
+        <h2 style="padding: 20px 0 0 0; text-align: left;">NNND Statistics</h2>
+        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong; 7 May 2024</p>
+    </div>
+
+    <h2 style="font-size: 24px;">Overview</h2>
+    <p>The Nitrate, Nitrite, Nitrosamine Database (NNND) is the most comprehensive database for nitrate (NO<sub>3</sub>), nitrite (NO<sub>2</sub>) and nitrosamines in foods and drinks.
+        Currently, the NNND contains over 129,000 nitrate values in more than 800 foods and drinks (except tap water but including packaged water);
+        more than 22,000 nitrite content data in around 400 foods and drinks. The data are from over 80 countries.
+        The nitrosamine content in foods, drinks and drugs, nitrate content in tap water will be included in the future updates.
+    </p>
+    <p>The NNND database contains a series of <a href="data_structure.html">data fields </a>related to samples,
+        sampling location (city, country, region, continent), sampling time (month, season, year), analytic methods, etc.
+        As such, it possesses the capability to filter data and extract nitrate content based on established protocols.
+    </p>
+    <p>
+        Our team has developed a nitrate/nitrite calculator (as Jupyter Notebook, access through team)
+        that can automatically and efficiently assign content values to food records while applying multiple protocols,
+        and a <a href="nitrixplorer.html">NNND data portal (NitriXplorer)</a> that can filter and visualize data.
+    </p>
+
+</body>
+</html>
