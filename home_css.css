@@ -249,7 +249,7 @@
       overflow: auto;
     }
     .text-block {
-        width: 70%;
+        width: 80%;
         margin-right: 10px;
         border-right: 1px solid #ebeef2;
     }
@@ -282,11 +282,11 @@
 
     /* Position the "next button" to the right */
     .next {
-      right: 15px;
+      right: 60px;
       border-radius: 3px 0 0 3px;
     }
     .prev {
-      left: 15px;
+      left: 60px;
       border-radius: 3px 0 0 3px;
     }
 
@@ -300,7 +300,7 @@
       color: #002147;
       font-family: Lato,Helvetica Neue,Helvetica,Arial,Liberation Sans,sans-serif;
       font-size: 15px; /*  background-color: #f9f9f9; */
-      padding: 8px 12px;
+      padding: 16px 0 0 0;
       position: relative;
       bottom: 10px;
       width: 100%;
