@@ -69,7 +69,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      max-width: 200px;
+      max-width: 260px;  /*  menu block size*/
       width: calc(100vw - 30px);
       height: 100%;
       -moz-transform: translate3d(-450px, 0, 0);
