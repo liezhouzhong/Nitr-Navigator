@@ -282,11 +282,11 @@
 
     /* Position the "next button" to the right */
     .next {
-      right: 60px;
+      right: 30px;
       border-radius: 3px 0 0 3px;
     }
     .prev {
-      left: 60px;
+      left: 30px;
       border-radius: 3px 0 0 3px;
     }
 
