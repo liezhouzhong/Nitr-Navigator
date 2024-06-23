@@ -1,467 +1,464 @@
-<style>
-    /* Global styles */
-    body {
-        font-family: Playfair Display, Georgia, Times New Roman, serif;
-        background-color: #f5f5f5;
-        margin: 0;
-        padding: 0;
-    }
-    h1{
-        font-family: Playfair Display, Georgia, Times New Roman, serif;
-        color: #f5f5f5;
-        font-size: 40px;
-    }
-     h2, h3 {
-        font-family: Playfair Display, Georgia, Times New Roman, serif;
-        color: #002147;
-        font-size: 40px;
-    }
-    a {
-        color: #007bff;
-        text-decoration: none;
-    }
-    /* Header styles */
-    header {
-        background-color: #1d3d63;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-    }
 
+/* Global styles */
+body {
+    font-family: Playfair Display, Georgia, Times New Roman, serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+}
+h1{
+    font-family: Playfair Display, Georgia, Times New Roman, serif;
+    color: #f5f5f5;
+    font-size: 40px;
+}
+ h2, h3 {
+    font-family: Playfair Display, Georgia, Times New Roman, serif;
+    color: #002147;
+    font-size: 40px;
+}
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+/* Header styles */
+header {
+    background-color: #1d3d63;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    width: 70px; /* default size for large screens */
+}
+
+@media (max-width: 600px) {
     .logo {
-        width: 70px; /* default size for large screens */
+        width: 30px; /* smaller size for screens up to 600px wide */
     }
+}
 
-    @media (max-width: 600px) {
-        .logo {
-            width: 30px; /* smaller size for screens up to 600px wide */
-        }
-    }
+/* Navigation styles */
+/* https://alvarotrigo.com/blog/hamburger-menu-css/ */
+nav {
+  background: linear-gradient(to left, #008000, #932c24);
+  height: auto;
+  padding: 0 16px;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  /* fade in checked menu */
+  justify-content: space-between;
+}
 
-    /* Navigation styles */
-    /* https://alvarotrigo.com/blog/hamburger-menu-css/ */
-    nav {
-      background: linear-gradient(to left, #008000, #932c24);
-      height: auto;
-      padding: 0 16px;
-      display: -ms-flexbox;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-align-items: center;
-      align-items: center;
-      /* fade in checked menu */
-      justify-content: space-between;
-    }
+#nhiri {
+    color: #fff; /* Adjust color as needed */
+    align-self: center; /* Center vertically */
+}
 
-    #nhiri {
-        color: #fff; /* Adjust color as needed */
-        align-self: center; /* Center vertically */
-    }
+nav .m-menu__checkbox {
+  display: none;
+}
+nav label.m-menu__toggle { /*  hamburger symbol*/
+  cursor: pointer;
+}
+nav .m-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 260px;  /*  menu block size*/
+  width: calc(100vw - 30px);
+  height: 100%;
+  -moz-transform: translate3d(-450px, 0, 0);
+  -o-transform: translate3d(-450px, 0, 0);
+  -ms-transform: translate3d(-450px, 0, 0);
+  -webkit-transform: translate3d(-450px, 0, 0);
+  transform: translate3d(-450px, 0, 0);
+  -moz-transition: transform 0.35s;
+  -o-transition: transform 0.35s;
+  -webkit-transition: transform 0.35s;
+  transition: transform 0.35s;
+  z-index: 1;
+  overflow: hidden;
+  background-color: #fff; /* menu background*/
+}
 
-    nav .m-menu__checkbox {
-      display: none;
-    }
-    nav label.m-menu__toggle { /*  hamburger symbol*/
-      cursor: pointer;
-    }
-    nav .m-menu {
-      position: absolute;
-      top: 0;
-      left: 0;
-      max-width: 260px;  /*  menu block size*/
-      width: calc(100vw - 30px);
-      height: 100%;
-      -moz-transform: translate3d(-450px, 0, 0);
-      -o-transform: translate3d(-450px, 0, 0);
-      -ms-transform: translate3d(-450px, 0, 0);
-      -webkit-transform: translate3d(-450px, 0, 0);
-      transform: translate3d(-450px, 0, 0);
-      -moz-transition: transform 0.35s;
-      -o-transition: transform 0.35s;
-      -webkit-transition: transform 0.35s;
-      transition: transform 0.35s;
-      z-index: 1;
-      overflow: hidden;
-      background-color: #fff; /* menu background*/
-    }
+nav .m-menu a:hover {
+    text-decoration: underline;
+}
 
-    nav .m-menu a:hover {
-        text-decoration: underline;
-    }
+nav .m-menu__overlay {
+  background-color: rgba(103, 103, 103, 0.5); /* color outside the menu*/
+  position: absolute;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  z-index: 1;
+  display: none;
+}
+nav .m-menu__header {
+  padding: 0 16px;
+  height: 50px;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  -ms-flex-pack: space-around;
+  -webkit-align-items: center;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+}
+nav .m-menu__header span {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 100%;
+}
+nav .m-menu .m-menu {
+  -moz-transform: translate3d(480px, 0, 0);
+  -o-transform: translate3d(480px, 0, 0);
+  -ms-transform: translate3d(480px, 0, 0);
+  -webkit-transform: translate3d(480px, 0, 0);
+  transform: translate3d(480px, 0, 0);
+}
+nav .m-menu ul {
+  height: 100%;
+  overflow-y: auto;
+}
 
-    nav .m-menu__overlay {
-      background-color: rgba(103, 103, 103, 0.5); /* color outside the menu*/
-      position: absolute;
-      top: 0;
-      width: 100%;
-      bottom: 0;
-      z-index: 1;
-      display: none;
-    }
-    nav .m-menu__header {
-      padding: 0 16px;
-      height: 50px;
-      display: -ms-flexbox;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: flex;
-      -webkit-justify-content: space-around;
-      justify-content: space-around;
-      -ms-flex-pack: space-around;
-      -webkit-align-items: center;
-      align-items: center;
-      border-bottom: 1px solid #e8e8e8;
-    }
-    nav .m-menu__header span {
-      font-size: 1.2rem;
-      font-weight: bold;
-      text-align: center;
-      width: 100%;
-    }
-    nav .m-menu .m-menu {
-      -moz-transform: translate3d(480px, 0, 0);
-      -o-transform: translate3d(480px, 0, 0);
-      -ms-transform: translate3d(480px, 0, 0);
-      -webkit-transform: translate3d(480px, 0, 0);
-      transform: translate3d(480px, 0, 0);
-    }
-    nav .m-menu ul {
-      height: 100%;
-      overflow-y: auto;
-    }
+nav .m-menu ul li a, nav .m-menu ul li label {
+  display: block;
+  text-align: left;
+  padding: 0 15px;
+  line-height: 47px;
+  text-decoration: none;
+  color: #002147;
+  cursor: pointer;
+  font-size: 1rem;
+  border-bottom: 1px solid #e8e8e8;
+  position: relative;
+}
+nav .m-menu ul li label.a-label__chevron::after {
+  content: "";
+  position: absolute;
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  border-color: #002147; /* arrow symbol */
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: 50%;
+  margin-top: -5px;
+  right: 16px;
+}
+nav .m-menu ul li .-invisible {
+  border-bottom: 0;
+}
+nav .m-menu .m-menu label.m-menu__toggle {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  border-bottom: 0;
+  padding: 0;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+nav .m-menu__checkbox:checked ~ .m-menu__overlay {
+  display: block;
+}
+nav .m-menu__checkbox:checked ~ .m-menu {
+  -moz-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
 
-    nav .m-menu ul li a, nav .m-menu ul li label {
-      display: block;
-      text-align: left;
-      padding: 0 15px;
-      line-height: 47px;
-      text-decoration: none;
-      color: #002147;
-      cursor: pointer;
-      font-size: 1rem;
-      border-bottom: 1px solid #e8e8e8;
-      position: relative;
-    }
-    nav .m-menu ul li label.a-label__chevron::after {
-      content: "";
-      position: absolute;
-      display: inline-block;
-      height: 10px;
-      width: 10px;
-      border-color: #002147; /* arrow symbol */
-      border-style: solid;
-      border-width: 1px 1px 0 0;
-      -moz-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-      -webkit-transform: rotate(45deg);
-      transform: rotate(45deg);
-      top: 50%;
-      margin-top: -5px;
-      right: 16px;
-    }
-    nav .m-menu ul li .-invisible {
-      border-bottom: 0;
-    }
-    nav .m-menu .m-menu label.m-menu__toggle {
-      display: -ms-flexbox;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: flex;
-      border-bottom: 0;
-      padding: 0;
-      -webkit-box-sizing: content-box;
-      -moz-box-sizing: content-box;
-      box-sizing: content-box;
-    }
-    nav .m-menu__checkbox:checked ~ .m-menu__overlay {
-      display: block;
-    }
-    nav .m-menu__checkbox:checked ~ .m-menu {
-      -moz-transform: translate3d(0, 0, 0);
-      -o-transform: translate3d(0, 0, 0);
-      -ms-transform: translate3d(0, 0, 0);
-      -webkit-transform: translate3d(0, 0, 0);
-      transform: translate3d(0, 0, 0);
-    }
+.wrapper {
+  width: 100%;
+  height: 40px;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #fff;
+  position: static;
+}
 
-    .wrapper {
-      width: 100%;
-      height: 40px;
-      margin: 0 auto;
-      overflow: hidden;
-      background-color: #fff;
-      position: static;
-    }
+.container {
+    display: flex; /* This will make the direct children of .container align in a row */
+    justify-content: space-between; /* This will put some space between the slideshow and the text block */
+    text-align: center;
+    padding: 20px;
+}
 
-    .container {
-        display: flex; /* This will make the direct children of .container align in a row */
-        justify-content: space-between; /* This will put some space between the slideshow and the text block */
-        text-align: center;
-        padding: 20px;
-    }
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
 
-    @media (max-width: 600px) {
-      .container {
-        flex-direction: column;
-      }
-    }
+/* Main content styles */
+p {
+    font-family: Lato,Helvetica Neue,Helvetica,Arial,Liberation Sans,sans-serif;
+    margin: 0;
+    padding: 10px;
+    font-size: 16px;
+    height: auto;
+    line-height: 1.5;
+    text-align: justify;
+    text-justify: inter-word;
+    position: relative;
 
-    /* Main content styles */
-    p {
-        font-family: Lato,Helvetica Neue,Helvetica,Arial,Liberation Sans,sans-serif;
-        margin: 0;
-        padding: 10px;
-        font-size: 16px;
-        height: auto;
-        line-height: 1.5;
-        text-align: justify;
-        text-justify: inter-word;
-        position: relative;
-
-        a:link {
-            font-weight: bold;
-            text-decoration: none;
-            color: #0d8ba1;
-        }
-        a:visited {
-            font-weight: bold;
-            text-decoration: none;
-            color: #1a5952;
-        }
-        a:hover, a:focus, a:active {
-            text-decoration: underline;
-            color: #9685BA;
-        }
-
-    }
-
-
-    /* Slideshow container the big container containing text block */
-    .slideshow-container {
-      width: 100%;
-      position: relative;
-      margin-left: 0px;
-      height: 520px;
-      min-height: 300px;
-      max-height: 600px;
-      overflow: auto;
-    }
-    .text-block {
-        width: 80%;
-        margin-right: 10px;
-        border-right: 1px solid #ebeef2;
-    }
-    @media (max-width: 600px) {
-      .text-block {
-        width: 100%;
-      }
-    }
-    .slide-img {
-      width: 750px;  /* you can set the width */
-      height: 400px;  /* you can set the height */
-      object-fit: cover;  /* this will make sure that the aspect ratio is preserved */
-    }
-
-    /* Next & previous buttons */
-    .prev, .next {
-      cursor: pointer;
-      position: absolute;
-      top: 50%;
-      width: auto;
-      padding: 16px;
-      margin-top: -22px;
-      color: white;
-      font-weight: bold;
-      font-size: 18px;
-      transition: 0.6s ease;
-      border-radius: 0 3px 3px 0;
-      user-select: none;
-    }
-
-    /* Position the "next button" to the right */
-    .next {
-      right: 30px;
-      border-radius: 3px 0 0 3px;
-    }
-    .prev {
-      left: 30px;
-      border-radius: 3px 0 0 3px;
-    }
-
-    /* On hover, add a black background color with a little bit see-through */
-    .prev:hover, .next:hover {
-      background-color: rgba(0,0,0,0.8);
-    }
-
-    /* Caption text */
-    .text {
-      color: #002147;
-      font-family: Lato,Helvetica Neue,Helvetica,Arial,Liberation Sans,sans-serif;
-      font-size: 15px; /*  background-color: #f9f9f9; */
-      padding: 16px 0 0 0;
-      position: relative;
-      bottom: 10px;
-      width: 100%;
-      text-align: center;
-    }
-
-    /* Number text (1/3 etc) */
-    .numbertext {
-      color: #002147;
-      font-size: 12px;
-      padding: 8px 12px;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-
-    /* The dots/bullets/indicators */
-    .dot {
-      cursor: pointer;
-      height: 15px;
-      width: 15px;
-      margin: 0;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.6s ease;
-    }
-
-    .active, .dot:hover {
-      background-color: #717171;
-    }
-
-    /* Fading animation */
-    .fade {
-      animation-name: fade;
-      animation-duration: 1.5s;
-    }
-
-    @keyframes fade {
-      from {opacity: .4}
-      to {opacity: 1}
-    }
-
-    /* On smaller screens, decrease text size */
-    @media only screen and (max-width: 300px) {
-      .prev, .next,.text {font-size: 11px}
-    }
-
-    .container_pg {
-        display: flex; /* This will make the direct children of .container align in a row */
-        justify-content: space-between; /* This will put some space between the slideshow and the text block */
-        text-align: center;
-        padding: 20px;
-        flex-direction: column;
-        align-items: center;
-        border-bottom: 1px solid #ebeef2;
-        border-left: 1px solid #ebeef2;
-    }
-
-
-    /* Fig selection */
-    .table_pg {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        flex-wrap: nowrap;
-    }
-
-    .table_pg li {
-        margin: 10px;
-    }
-
-    .table_pg li a {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
-
-    .img-responsive {
-        max-width: 100%;
-        height: auto;
-    }
-
-
-    /* CSS for small screens */
-    @media (max-width: 600px) {
-        .table_pg {
-            flex-direction: column;
-        }
-    }
-
-    .feedback {
-        width: 100%;
-        text-align: center;
-    }
-
-    .feedback a {
-        display: inline-block;
-        width: auto; /* adjust as needed */
-        border: 2px solid #002147;
-        padding: 2px 0;
-    }
-    .feedback a:hover {
-        display: inline-block;
-        width: auto; /* adjust as needed */
-        border: 2px solid #002147;
-        padding: 2px 0;
-    }
-
-    /* Footer styles */
-    footer {
-        background-color: #333;
-        color: #fff;
-        text-align: center;
-        padding: 3px 0;
-    }
-
-
-    /* The Modal (background) */
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        padding-top: 100px; /* Location of the box */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    }
-
-    /* Modal Content */
-    .modal-content {
-        position: relative;
-        background-color: #fefefe;
-        margin: auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 50%;
-    }
-
-    /* The Close Button */
-    .close {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        color: #aaaaaa;
-        font-size: 40px;
+    a:link {
         font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: #000;
         text-decoration: none;
-        cursor: pointer;
+        color: #0d8ba1;
+    }
+    a:visited {
+        font-weight: bold;
+        text-decoration: none;
+        color: #1a5952;
+    }
+    a:hover, a:focus, a:active {
+        text-decoration: underline;
+        color: #9685BA;
     }
 
+}
 
-</style>
+
+/* Slideshow container the big container containing text block */
+.slideshow-container {
+  width: 100%;
+  position: relative;
+  margin-left: 0px;
+  height: 520px;
+  min-height: 300px;
+  max-height: 600px;
+  overflow: auto;
+}
+.text-block {
+    width: 80%;
+    margin-right: 10px;
+    border-right: 1px solid #ebeef2;
+}
+@media (max-width: 600px) {
+  .text-block {
+    width: 100%;
+  }
+}
+.slide-img {
+  width: 750px;  /* you can set the width */
+  height: 400px;  /* you can set the height */
+  object-fit: cover;  /* this will make sure that the aspect ratio is preserved */
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 30px;
+  border-radius: 3px 0 0 3px;
+}
+.prev {
+  left: 30px;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #002147;
+  font-family: Lato,Helvetica Neue,Helvetica,Arial,Liberation Sans,sans-serif;
+  font-size: 15px; /*  background-color: #f9f9f9; */
+  padding: 16px 0 0 0;
+  position: relative;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #002147;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+.container_pg {
+    display: flex; /* This will make the direct children of .container align in a row */
+    justify-content: space-between; /* This will put some space between the slideshow and the text block */
+    text-align: center;
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #ebeef2;
+    border-left: 1px solid #ebeef2;
+}
+
+
+/* Fig selection */
+.table_pg {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+.table_pg li {
+    margin: 10px;
+}
+
+.table_pg li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* CSS for small screens */
+@media (max-width: 600px) {
+    .table_pg {
+        flex-direction: column;
+    }
+}
+
+.feedback {
+    width: 100%;
+    text-align: center;
+}
+
+.feedback a {
+    display: inline-block;
+    width: auto; /* adjust as needed */
+    border: 2px solid #002147;
+    padding: 2px 0;
+}
+.feedback a:hover {
+    display: inline-block;
+    width: auto; /* adjust as needed */
+    border: 2px solid #002147;
+    padding: 2px 0;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 3px 0;
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #aaaaaa;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
