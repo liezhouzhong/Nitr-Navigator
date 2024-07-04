@@ -59,6 +59,14 @@ nav {
     align-self: center; /* Center vertically */
 }
 
+#vision{
+    color: #fff; /* Adjust color as needed */
+    align-self: center; /* Center vertically */
+    font-size: 15px;
+    text-align: center;
+    font-family: Playfair Display, Georgia, Times New Roman, serif;
+}
+
 nav .m-menu__checkbox {
   display: none;
 }
@@ -202,11 +210,6 @@ nav .m-menu__checkbox:checked ~ .m-menu {
     padding: 20px;
 }
 
-@media (max-width: 600px) {
-  .container {
-    flex-direction: column;
-  }
-}
 
 /* Main content styles */
 p {
@@ -253,11 +256,7 @@ p {
     margin-right: 10px;
     border-right: 1px solid #ebeef2;
 }
-@media (max-width: 600px) {
-  .text-block {
-    width: 100%;
-  }
-}
+
 .slide-img {
   width: 750px;  /* you can set the width */
   height: 400px;  /* you can set the height */
@@ -345,8 +344,23 @@ p {
 }
 
 /* On smaller screens, decrease text size */
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+  #vision {
+      font-size: 12px; /* Smaller font size for small screens */
+  }
+  .text-block {
+    width: 100%;
+  }
+}
+
 @media only screen and (max-width: 300px) {
   .prev, .next,.text {font-size: 11px}
+  #vision {
+      font-size: 10px; /* Smaller font size for small screens */
+  }
 }
 
 .container_pg {
