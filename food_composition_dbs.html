@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYQG6CPM1L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CYQG6CPM1L');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataInsight</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/site.webmanifest">
+    <link rel="stylesheet" type="text/css" href="nitratexplorer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+          $("#nav-placeholder").load("nav.html");
+        });
+    </script>
+</head>
+
+<body>
+    <header style="padding: 3px;">
+        <h1><span style="font-size: 20px; color: coral">
+            <a href="http://nitr-navigator.com/" style="text-decoration: none; color: coral;">Nitr-Navigator</a>
+        </span>
+            <span style="font-size: 15px;">- A comprehensive Nitrate, Nitrite and Nitrosamine Database</span>
+        </h1>
+    </header>
+
+    <!-- Nav menu -->
+    <div id="nav-placeholder"></div>
+
+    <div style="background-color: #ebeef2;">
+        <h2 style="padding: 20px 0 0 0; text-align: left;">Food Composition Databases</h2>
+        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong (Updating...)</p>
+    </div>
+
+   <table border="2" cellpadding="10" cellspacing="0" style="border-collapse: collapse; width: 100%;">
+        <thead>
+            <tr>
+                <th style="text-align: center;">Region/Country/Organisation</th>
+                <th style="text-align: center;">Food Composition Databases</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>China Food Composition Tables (1 & 2; 2018-2019) 中国食物成分表 标准本 第6版/ 第一&二册</td>
+            <td>
+                <p>The reformatted and translated China Food Composition Tables (Volumes 1 & 2; 2018-2019) are now available for download in CSV format. We used the PDF version of the tables (<a href="https://www.pumpedu.com/home-shop/5514.html">edited by Yuexin Yang, 2018-2019</a>) as described in an open-source GitHub repository called <a href="https://github.com/Sanotsu/china-food-composition-data" target="_blank">china-food-composition-data</a> by Sanotsu. We extracted the data from the PDF files using <a href="https://github.com/PaddlePaddle/PaddleOCR" target="_blank">Paddle OCR (飞桨 OCR)</a>.</p>
+                <h2 style="font-size: 20px; text-align: left;">Disclaimer:</h2>
+                <p>The resources and PDF files used on this website are sourced from GitHub and other online platforms. These resources are intended for non-commercial purposes only, and we encourage users to adhere to the following guidelines:</p>
+                <ol>
+                    <li><strong>Non-Commercial Use:</strong> Strictly for non-commercial purposes. Commercial use may include but is not limited to selling, promoting, or otherwise profiting from them.</li>
+                    <li><strong>Proper Attribution:</strong> Please cite the source correctly. We are utilizing data from <a href="https://www.pumpedu.com/home-shop/5514.html">THE BOOK</a>; please clearly and properly cite the source in your work.</li>
+                    <li><strong>Resource Removal:</strong> If you believe that any of the resources should be removed, please contact us promptly.</li>
+                </ol>
+                <p>The PDF tables used in this project can be downloaded from the following links:</p>
+                <p><a href="https://annas-archive.gs/md5/3e4b78928317365adbeed0a4de7b5559" target="_blank">中国食物成分表 标准版 第6版 第1册</a>.</p>
+                <p><a href="https://annas-archive.gs/md5/b02849f8795c1176a3cb713ad6209039" target="_blank">中国食物成分表 标准版 第6版 第2册</a>.</p>
+                <p>The CSV tables will be generated using JSON files directly from <a href="https://github.com/Sanotsu/china-food-composition-data" target="_blank">china-food-composition-data</a>. Other sections that are not included in the repository, such as Appendix 1: Chinese-English Food Names, will be created by ourselves. The file will be available soon.</p>
+            </td>
+
+        </tr>
+        </tbody>
+   </table>
+
+
+
+</body>
+
+
+<footer>
+    <p style="text-align: center;">© Nutrition and Health Innovation Research Institute. All rights reserved.</p>
+    <p style="font-family: Playfair Display, Georgia, Times New Roman, serif; text-align: center; font-size:12px"><em>This website is developed and
+                maintained in-house by our dedicated team, mainly during after hours.</em></p>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="scripts.js"></script>
+
+</html>
