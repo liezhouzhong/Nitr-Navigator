@@ -111,7 +111,6 @@
       display: flex;
       -webkit-justify-content: space-around;
       justify-content: space-around;
-      -ms-flex-pack: space-around;
       -webkit-align-items: center;
       align-items: center;
       border-bottom: 1px solid #e8e8e8;
@@ -212,7 +211,7 @@
     }
 
     #myInput {
-      background-image: url('');
+      /* background-image: url('');*/
       background-position: 10px 11px;
       background-repeat: no-repeat;
       width: 90%;
@@ -223,6 +222,20 @@
       margin-top: 12px;
       verflow-x: auto;
     }
+
+    #countryInput, #foodInput {
+      /* background-image: url('');*/
+      background-position: 10px 11px;
+      background-repeat: no-repeat;
+      width: 30%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+      margin-top: 12px;
+      verflow-x: auto;
+    }
+
     /* Table styles */
     .tableFixHead {
         font-family: Lato, Helvetica Neue, Helvetica, Arial, Liberation Sans, sans-serif;;
@@ -242,7 +255,17 @@
       width: 98%;
       border-style:groove;
     }
-
+    .pagination {
+        margin-top: 10px;
+        text-align: right; /* Align to the right */
+    }
+    .pagination button {
+        margin: 0 5px;
+        cursor: pointer;
+    }
+    .pagination button:hover {
+        /* background-color: #00c04b;*/
+    }
     th, td {
       border: 1px solid #ddd;
       text-align: left;
@@ -284,7 +307,7 @@
     }
     .h2-sub {
         font-family: Playfair Display, Georgia, Times New Roman,  serif;
-        font-size: 1.5 rem;
+        font-size: 1.5rem;
         line-height: 1.33;
         font-weight: 700;
         display: block;
@@ -297,6 +320,15 @@
         color: #1d3d63;
         margin-bottom: 48px;
     }
+
+    .list-container {
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        width: 98%;
+        height: 100px;
+        position: relative;
+        border-radius: 5px;
+        }
 
     .code-container {
         position: relative;
@@ -377,6 +409,7 @@
         text-align: center;
         padding: 10px;
     }
+
     @media (max-width: 600px) {
       .container {
         flex-direction: column;
@@ -386,8 +419,6 @@
           font-size: 12px; /* Smaller font size for small screens */
       }
     }
-
-
     @media only screen and (max-width: 300px) {
       #vision {
           font-size: 10px; /* Smaller font size for small screens */
