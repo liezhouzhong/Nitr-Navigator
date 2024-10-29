@@ -223,7 +223,7 @@
       verflow-x: auto;
     }
 
-    #countryInput, #foodInput {
+    #countryInput, #foodInput, #excludeInput {
       /* background-image: url('');*/
       background-position: 10px 11px;
       background-repeat: no-repeat;
