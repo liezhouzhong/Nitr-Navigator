@@ -98,7 +98,7 @@
     }
 
     nav label.m-menu__toggle:hover svg line:nth-child(2) {
-        transform: rotate(45deg) translate(2px, 5px);
+        transform: rotate(45deg) translate(2px, 4px);
         transform-origin: 50% 50%;
     }
 
@@ -107,7 +107,7 @@
     }
 
     nav label.m-menu__toggle:hover svg line:nth-child(3) {
-        transform: rotate(-45deg) translate(0px, -4px);
+        transform: rotate(-45deg) translate(0px, -6px);
         transform-origin: 50% 50%;
     }
     /* menu hamburger to cross - end*/
