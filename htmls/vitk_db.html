@@ -54,14 +54,14 @@
         </p>
     </div>
 
-    <input type="text" style="width: 200px" id="countryInput" placeholder="Enter country">
-    <button style= "cursor: pointer;" onclick="filterTableByCountry()">Search Country</button>
+    <input type="text" style="width: 15%" id="countryInput" placeholder="Enter country">
+    <button style= "cursor: pointer;" class="hbtn hb-border-bottom-br4" onclick="filterTableByCountry()">Search Country</button>
     <input type="text" id="foodInput" placeholder="Enter food name, eg 'apple, raw'">
-    <button style= "cursor: pointer;" onclick="filterTableByFood()">Search Food</button>
+    <button style= "cursor: pointer;" class="hbtn hb-border-bottom-br4" onclick="filterTableByFood()">Search Food</button>
     <!-- Exclusion button -->
     <div class="body-regular">
-        <input type="text" id="excludeInput" placeholder="Enter keyword/s to exclude, seperate by , or ;">
-        <button style="cursor: pointer;" onclick="filterTableByExclusion()">Exclude Keywords</button>
+        <input type="text" style="width: 60%; " id="excludeInput" placeholder="Enter keyword/s to exclude, seperate by , or ;">
+        <button style="cursor: pointer;" class="hbtn hb-border-bottom-br4" onclick="filterTableByExclusion()">Exclude Keywords</button>
     </div>
 
     <div style="border: 1px solid #ebeef2;">
@@ -71,7 +71,7 @@
                     <tr>
                         <th><input type="checkbox" id="selectAll" onclick="toggleSelectAll(this)"></th>
                         <th>Food name in source</th>
-                        <th>Country*</th>
+                        <th>Country</th>
                         <th>Compound</th>
                         <th>Source_ID</th>
                     </tr>
@@ -108,7 +108,7 @@
     <div class="code-container" style="width: 98%;">
         <pre class="code">
             <code id="list">
-                More Vitamin K research by NHIRI team please see <a href="www.nhiri.ecu.edu.au" target="_blank">NHIRI website. </a>
+                More Vitamin K research by NHIRI team please see <a href="https://nhiri.ecu.edu" target="_blank">NHIRI website. </a>
             </code>
         </pre>
         <button class="copy-button" onclick="copyList()">Copy</button>
