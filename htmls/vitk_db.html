@@ -54,15 +54,10 @@
         </p>
     </div>
 
-    <input type="text" style="width: 15%" id="countryInput" placeholder="Enter country">
-    <button style= "cursor: pointer;" class="hbtn hb-border-bottom-br4" onclick="filterTableByCountry()">Search Country</button>
-    <input type="text" id="foodInput" placeholder="Enter food name, eg 'apple, raw'">
-    <button style= "cursor: pointer;" class="hbtn hb-border-bottom-br4" onclick="filterTableByFood()">Search Food</button>
-    <!-- Exclusion button -->
-    <div class="body-regular">
-        <input type="text" style="width: 60%; " id="excludeInput" placeholder="Enter keyword/s to exclude, seperate by , or ;">
-        <button style="cursor: pointer;" class="hbtn hb-border-bottom-br4" onclick="filterTableByExclusion()">Exclude Keywords</button>
-    </div>
+    <input type="text" style="width: 15%;" id="countryInput" placeholder="Enter country">
+    <input type="text" style="width: 40%;" id="foodInput" placeholder="Enter food name, eg 'apple, raw'">
+    <input type="text" style="width: 60%;" id="excludeInput" placeholder="Enter keyword/s to exclude, seperate by , or ;">
+    <button style= "cursor: pointer; width: 8%;" class="hbtn hb-border-bottom-br4" onclick="advancedFilterTable()()">Search</button>
 
     <div style="border: 1px solid #ebeef2;">
          <div class="tableFixHead" style="height: 600px; width: 98%;">
@@ -176,49 +171,38 @@
             displayUniqueCountries(filteredFoods);
         }
 
-        function filterTableByCountry() {
+        function advancedFilterTable() {
             const country = document.getElementById('countryInput').value.trim().toLowerCase();
-            const filteredFoods = foods.filter(food => food.country.toLowerCase().includes(country));
-            currentPage = 1;
-            isSearching = true;
-            populateTable(filteredFoods);
-        }
-
-        // Filter by exclude terms if not empty (split by ";")
-        function filterTableByExclusion() {
-            const excludeInput = document.getElementById('excludeInput').value;
-            const excludePhrases = excludeInput ? excludeInput.split(',').map(phrase => phrase.split(';').map(term => normalizeAndSingularize(term.trim()))) : [];
-
-            const filteredFoods = foods.filter(food => {
-                const normalizedFoodName = normalizeAndSingularize(food['food name in source']);
-
-                // Check that no exclusion phrase (with all its terms) matches the food name
-                return !excludePhrases.some(terms =>
-                    terms.some(term => normalizedFoodName.includes(term))
-                );
-            });
-
-            currentPage = 1;
-            isSearching = true;
-            populateTable(filteredFoods);
-        }
-
-
-        // Filter by food name and country with optional exclusion
-        function filterTableByFood() {
             const foodInput = normalizeAndSingularize(document.getElementById('foodInput').value);
-            const country = document.getElementById('countryInput').value.trim().toLowerCase();
-            const excludeInput = document.getElementById('excludeInput').value;
+            const excludeInput = document.getElementById('excludeInput').value.trim().toLowerCase(); // Lowercase and trim once here
 
-            const searchTerms = foodInput.split(',').map(term => term.trim());
-            const excludeTerms = excludeInput ? excludeInput.split(',').map(phrase => phrase.split(';').map(term => normalizeAndSingularize(term.trim()))) : [];
+            // Step 1: Filter by Country
+            let filteredFoods = foods.filter(food => food.country.toLowerCase().includes(country));
 
-            const filteredFoods = foods.filter(food =>
-                food.country.toLowerCase().includes(country) &&
-                searchTerms.every(term => normalizeAndSingularize(food.name).includes(term)) &&
-                (excludeTerms.length === 0 || !excludeTerms.some(terms => terms.some(term => normalizeAndSingularize(food.name).includes(term))))
-            );
+            // Step 2: Filter by Food Name (if specified)
+            if (foodInput) {
+                const searchTerms = foodInput.split(',').map(term => normalizeAndSingularize(term.trim()));
+                filteredFoods = filteredFoods.filter(food =>
+                    searchTerms.every(term => normalizeAndSingularize(food.name).includes(term))
+                );
+            }
 
+            // Step 3: Exclude Keywords (if specified)
+            if (excludeInput) {
+                // Split by comma or semicolon, trim spaces, and normalize terms
+                const excludeTerms = excludeInput.split(/[,;]\s*/).map(term => normalizeAndSingularize(term.trim()));
+
+                filteredFoods = filteredFoods.filter(food =>
+                    !excludeTerms.some(term => normalizeAndSingularize(food.name).includes(term))
+                );
+            }
+
+            // Update the table with the final filtered result
+            updateTable(filteredFoods);
+        }
+
+
+        function updateTable(filteredFoods) {
             currentPage = 1;
             isSearching = true;
             populateTable(filteredFoods);
@@ -272,21 +256,22 @@
         // Add event listeners for Enter key
         document.getElementById('countryInput').addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
-                filterTableByCountry();
+                advancedFilterTable();
             }
         });
 
         document.getElementById('foodInput').addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
-                filterTableByFood();
+                advancedFilterTable();
             }
         });
 
         document.getElementById('excludeInput').addEventListener('keypress', function(event) {
             if (event.key === 'Enter') {
-                filterTableByFood();
+                advancedFilterTable();
             }
         });
+
 
         // Populate the table on page load
         window.onload = () => populateTable();
