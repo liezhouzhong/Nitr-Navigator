@@ -174,7 +174,7 @@
         function advancedFilterTable() {
             const country = document.getElementById('countryInput').value.trim().toLowerCase();
             const foodInput = normalizeAndSingularize(document.getElementById('foodInput').value);
-            const excludeInput = document.getElementById('excludeInput').value.trim().toLowerCase(); // Lowercase and trim once here
+            const excludeInput = document.getElementById('excludeInput').value.trim().toLowerCase();
 
             // Step 1: Filter by Country
             let filteredFoods = foods.filter(food => food.country.toLowerCase().includes(country));
@@ -189,8 +189,10 @@
 
             // Step 3: Exclude Keywords (if specified)
             if (excludeInput) {
-                // Split by comma or semicolon, trim spaces, and normalize terms
-                const excludeTerms = excludeInput.split(/[,;]\s*/).map(term => normalizeAndSingularize(term.trim()));
+                // Split by comma or semicolon, trim spaces, remove trailing punctuation, and discard empty strings
+                const excludeTerms = excludeInput.split(/[,;]\s*/).map(term => {
+                    return normalizeAndSingularize(term.trim().replace(/[;,]+$/, ""));
+                }).filter(term => term !== ""); // Remove any empty strings
 
                 filteredFoods = filteredFoods.filter(food =>
                     !excludeTerms.some(term => normalizeAndSingularize(food.name).includes(term))
@@ -200,7 +202,6 @@
             // Update the table with the final filtered result
             updateTable(filteredFoods);
         }
-
 
         function updateTable(filteredFoods) {
             currentPage = 1;
@@ -272,22 +273,21 @@
             }
         });
 
-
         // Populate the table on page load
         window.onload = () => populateTable();
 
-        // Citation copy
-    (function() {
-        window.copyList = function() {
-            const codeElement = document.getElementById('list');
-            const code = codeElement.textContent || codeElement.innerText;
-            navigator.clipboard.writeText(code).then(function() {
-                alert('List copied successfully!');
-            }, function(err) {
-                console.error('Unable to copy list: ', err);
-            });
-        }
-    })();
+            // Citation copy
+        (function() {
+            window.copyList = function() {
+                const codeElement = document.getElementById('list');
+                const code = codeElement.textContent || codeElement.innerText;
+                navigator.clipboard.writeText(code).then(function() {
+                    alert('List copied successfully!');
+                }, function(err) {
+                    console.error('Unable to copy list: ', err);
+                });
+            }
+        })();
     </script>
 
 </body>
