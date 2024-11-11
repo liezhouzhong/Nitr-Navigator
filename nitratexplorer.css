@@ -245,7 +245,7 @@
       verflow-x: auto;
     }
 
-    #countryInput, #foodInput, #excludeInput {
+    #countryInput, #foodInput, #compoundInput, #excludeInput {
       /* background-image: url('');*/
       background-position: 10px 11px;
       background-repeat: no-repeat;
