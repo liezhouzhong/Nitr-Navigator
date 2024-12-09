@@ -39,7 +39,7 @@
 
     <div style="background-color: #ebeef2;">
         <h2 style="padding: 20px 0 0 0; text-align: left;">Food Table for Vitamin K database (V0.1)</h2>
-        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong; 11 Oct 2024</p>
+        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong; 11 Dec 2024</p>
     </div>
 
     <h2 style="font-size: 20px;">Introduction</h2>
@@ -83260,9 +83260,9 @@
 
             // Step 1: Filter by Country (multiple terms separated by , or ;)
             const countryTerms = countryInput.split(/[,;]\s*/).map(term => term.trim()).filter(term => term !== "");
-            let filteredFoods = foods.filter(food =>
+            let filteredFoods = countryTerms.length > 0 ? foods.filter(food =>
                 countryTerms.some(term => food.country.toLowerCase().includes(term))
-            );
+            ) : foods; // If no country terms, start with all foods
 
             // Step 2: Filter by Food Name (if specified)
             if (foodInput) {
