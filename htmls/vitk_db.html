@@ -39,7 +39,7 @@
 
     <div style="background-color: #ebeef2;">
         <h2 style="padding: 20px 0 0 0; text-align: left;">Food Table for Vitamin K database (V0.1)</h2>
-        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong; 11 Dec 2024</p>
+        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong; 18 Dec 2024</p>
     </div>
 
     <h2 style="font-size: 20px;">Introduction</h2>
@@ -83302,10 +83302,22 @@
         }
 
         function combineSelected() {
-            const checkboxes = document.querySelectorAll('#foodsTable tbody input[type="checkbox"]:checked');
-            const selectedFoods = Array.from(checkboxes).map(checkbox => `"${checkbox.value}"`);
-            document.getElementById('combinedResults').textContent = `[${selectedFoods.join(', ')}]`;
+            const table = document.querySelector('#foodsTable tbody');
+            const rows = table.querySelectorAll('tr');
+            const selectedItems = [];
+
+            rows.forEach(row => {
+                const checkbox = row.querySelector('input[type="checkbox"]');
+                if (checkbox && checkbox.checked) {
+                    const foodName = row.querySelector('td:nth-child(2)').textContent.trim();
+                    const country = row.querySelector('td:nth-child(3)').textContent.trim();
+                    selectedItems.push(`'${foodName}' : '${country}'`);
+                }
+            });
+
+            document.getElementById('combinedResults').textContent = `[${selectedItems.join(', ')}]`;
         }
+
 
         function toggleSelectAll(source) {
             const checkboxes = document.querySelectorAll('#foodsTable tbody input[type="checkbox"]');
