@@ -38,7 +38,7 @@
     <div id="nav-placeholder"></div>
 
     <div style="background-color: #ebeef2;">
-        <h2 style="padding: 20px 0 0 0; text-align: left;">Food Table for Vitamin K database (V0.1)</h2>
+        <h2 style="padding: 20px 0 0 0; text-align: left;">Food Table for Vitamin K Database (V0.1)</h2>
         <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong; 18 Dec 2024</p>
     </div>
 
@@ -46,19 +46,37 @@
 
     <div class="body-regular">
         <p> The table below contains all unique food names ('food name in source') in the VitK food composition database (v0.1_10.2024). This web page can search food by:</p>
-        <p> (1) country (case-insensitive). </p>
-        <p> (2) food names (case-insensitive; eg "beef, raw" will filter rows with both 'beef' and 'raw' in the 'food name in source'.). </p>
-        <p> (3) you can also exclude multiple keys (seperate by , or  ;. eg "juice, dried; jelly) to refine the search. </p>
-        <p> Following the three steps search you can then select the most appropriate food names (checkbox in the table).
-            (4) Thereafter, you can click "Combine Selected" to generate a list of selected food. Please then copy the list and paste it to "food names in database" column in your worksheet. When the checkbox in the header of the first column is checked or unchecked, it will select or deselect all the checkboxes in the table. The NHIRI team has developed an application to automatically assign ViK (total or individuals) content based on multiple criteria, including country/region sequence. The application will generally take less than one minute to generate VitK data for over 10,000 rows of foods. The data will include "country/region of the data source", "mean", "median", "count of data" and "number of unique data source".
-        </p>
+        <p> (1) country (case-insensitive; eg "denmark, netherlands; united kingdom'). </p>
+        <p> (2) food names (case-insensitive; eg "beef, raw" will filter rows with both 'beef' and 'raw' in the 'food name in source'). </p>
+        <p> (3) vitmin K individuals ('pk' or 'mk'). </p>
+        <p> (4) you can also exclude multiple keys (seperate by , or  ;. eg "juice, dried; jelly) to refine the search. </p>
+        <p> (5) Following the three steps search you can then select the most appropriate food names (checkbox in the table). Thereafter, you can click "Combine Selected" to generate a list of selected food. Please then copy the list and paste it to "food names in database" column in your worksheet.</p>
+        <p> When the checkbox in the header of the first column is checked or unchecked, it will select or deselect all the checkboxes in the table. The NHIRI team has developed an application to automatically pre-match food names in the database, as well as assign ViK (total or individuals) content based on multiple criteria, including country/region sequence. The application will generally take less than one minute to generate VitK data for over 10,000 rows of foods. The data will include "country/region of the data source", "mean", "median", "count of data" and "number of unique data source". </p>
     </div>
 
-    <input type="text" style="width: 40%;" id="countryInput" placeholder="Enter country">
-    <input type="text" style="width: 40%;" id="foodInput" placeholder="Enter food name, eg 'apple, raw'">
-    <input type="text" style="width: 20%;" id="compoundInput" placeholder="Enter compound name(s)">
-    <input type="text" style="width: 60%;" id="excludeInput" placeholder="Enter keyword/s to exclude, seperate by , or ;">
-    <button style= "cursor: pointer; width: 8%;" class="hbtn hb-border-bottom-br4" onclick="advancedFilterTable()()">Search</button>
+    <div style="display: flex; margin-bottom: 0px; font-family: Helvetica, arial, sans-ser;">
+        <div style="flex: 1; margin-right: 20px;">
+            <label for="countryInput">Country:</label>
+            <input type="text" style="width: 70%;" id="countryInput" placeholder="Enter country">
+        </div>
+        <div style="flex: 2;">
+            <label for="foodInput">Food Keywords:</label>
+            <input type="text" style="width: 50%;" id="foodInput" placeholder="Enter food name, e.g., 'apple, raw'">
+        </div>
+    </div>
+    <div style="display: flex; align-items: center;font-family: Helvetica, arial, sans-ser;">
+        <div style="flex: 1;">
+            <label for="compoundInput">Compound:</label>
+            <input type="text" style="width: 70%;" id="compoundInput" placeholder="Enter compound name(s)">
+        </div>
+        <div style="flex: 2;">
+            <label for="excludeInput">Exclude Keywords:</label>
+            <input type="text" style="width: 55%;" id="excludeInput" placeholder="Enter keyword(s) to exclude, separated by , or ;">
+        </div>
+        <div style="flex: 0 0 auto; margin-right: 5%;">
+            <button style="cursor: pointer; width: 100%;" class="hbtn hb-border-bottom-br4" onclick="advancedFilterTable()">Search</button>
+        </div>
+    </div>
 
     <div style="border: 1px solid #ebeef2;">
          <div class="tableFixHead" style="height: 600px; width: 98%;">
