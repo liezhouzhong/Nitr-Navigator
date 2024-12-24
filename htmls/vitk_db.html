@@ -46,35 +46,37 @@
 
     <div class="body-regular">
         <p> The table below contains all unique food names ('food name in source') in the VitK food composition database (v0.1_10.2024). This web page can search food by:</p>
-        <p> (1) country (case-insensitive; eg "denmark, netherlands; united kingdom'). </p>
-        <p> (2) food names (case-insensitive; eg "beef, raw" will filter rows with both 'beef' and 'raw' in the 'food name in source'). </p>
-        <p> (3) vitmin K individuals ('pk' or 'mk'). </p>
-        <p> (4) you can also exclude multiple keys (seperate by , or  ;. eg "juice, dried; jelly) to refine the search. </p>
-        <p> (5) Following the three steps search you can then select the most appropriate food names (checkbox in the table). Thereafter, you can click "Combine Selected" to generate a list of selected food. Please then copy the list and paste it to "food names in database" column in your worksheet.</p>
+        <p> (1) <code class="inline-code">country</code> (case-insensitive; eg "denmark, netherlands; united kingdom'). </p>
+        <p> (2) <code class="inline-code">food keywords</code> food names (case-insensitive; eg "beef, raw" will filter rows with both 'beef' and 'raw' in the 'food name in source'). </p>
+        <p> (3) <code class="inline-code">compound</code> vitmin K individuals (eg 'pk', 'dk1', 'mk-4' or 'mk'). </p>
+        <p> (4) <code class="inline-code">Excluding keywords</code> (seperate by , or  ;. eg "juice, dried; jelly) to refine/narrow down the search results. </p>
+        <p> (5) Following the three steps search you can then select the most appropriate food names (checkbox in the table). Thereafter, you can click <code class="inline-code">Combine Selected</code> to generate a list of selected food. Please then <code class="inline-code">Copy List</code> the list and paste it to "food names in database" column in your worksheet.</p>
         <p> When the checkbox in the header of the first column is checked or unchecked, it will select or deselect all the checkboxes in the table. The NHIRI team has developed an application to automatically pre-match food names in the database, as well as assign ViK (total or individuals) content based on multiple criteria, including country/region sequence. The application will generally take less than one minute to generate VitK data for over 10,000 rows of foods. The data will include "country/region of the data source", "mean", "median", "count of data" and "number of unique data source". </p>
     </div>
 
-    <div style="display: flex; margin-bottom: 0px; font-family: Helvetica, arial, sans-ser;">
-        <div style="flex: 1; margin-right: 20px;">
-            <label for="countryInput">Country:</label>
-            <input type="text" style="width: 70%;" id="countryInput" placeholder="Enter country">
+    <div class="input-container">
+        <div class="row">
+            <div class="input-group narrow">
+                <label for="countryInput">Country:</label>
+                <input type="text" id="countryInput" placeholder="Enter country, eg denmark, netherlands">
+            </div>
+            <div class="input-group">
+                <label for="foodInput">Food Keywords:</label>
+                <input type="text" id="foodInput" placeholder="Enter food name, e.g., 'apple, raw'">
+            </div>
         </div>
-        <div style="flex: 2;">
-            <label for="foodInput">Food Keywords:</label>
-            <input type="text" style="width: 50%;" id="foodInput" placeholder="Enter food name, e.g., 'apple, raw'">
-        </div>
-    </div>
-    <div style="display: flex; align-items: center;font-family: Helvetica, arial, sans-ser;">
-        <div style="flex: 1;">
-            <label for="compoundInput">Compound:</label>
-            <input type="text" style="width: 70%;" id="compoundInput" placeholder="Enter compound name(s)">
-        </div>
-        <div style="flex: 2;">
-            <label for="excludeInput">Exclude Keywords:</label>
-            <input type="text" style="width: 55%;" id="excludeInput" placeholder="Enter keyword(s) to exclude, separated by , or ;">
-        </div>
-        <div style="flex: 0 0 auto; margin-right: 5%;">
-            <button style="cursor: pointer; width: 100%;" class="hbtn hb-border-bottom-br4" onclick="advancedFilterTable()">Search</button>
+        <div class="row">
+            <div class="input-group narrow">
+                <label for="compoundInput">Compound:</label>
+                <input type="text" id="compoundInput" placeholder="Enter compound name(s)">
+            </div>
+            <div class="input-group">
+                <label for="excludeInput">Exclude Keywords:</label>
+                <input type="text" id="excludeInput" placeholder="Enter keyword(s) to exclude, separated by , or ;">
+            </div>
+            <div class="input-group">
+                <button class="hbtn hb-border-bottom-br4" onclick="advancedFilterTable()">Search</button>
+            </div>
         </div>
     </div>
 
@@ -122,7 +124,7 @@
     <div class="code-container" style="width: 98%;">
         <pre class="code">
             <code id="list">
-                More Vitamin K research by NHIRI team please see <a href="https://nhiri.ecu.edu.au" target="_blank">NHIRI website. </a>
+            Zhong L, Sim M,  Bondonno N, Pokharel P, Dupuy M, Bondonno C, Lewis JR,  Hodgson J, et al. (2024). A comprehensive phylloquinone, menaquinones and dihydrophylloquinone food composition database (v0.1). https://nitr-navigator.com
             </code>
         </pre>
         <button class="copy-button" onclick="copyList()">Copy</button>

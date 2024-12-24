@@ -499,4 +499,66 @@
       }
     }
 
+    .input-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-family: Helvetica, Arial, sans-serif;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .input-group {
+        flex: 1 1 45%; /* Two inputs per row on larger screens */
+        display: flex;
+        align-items: center;
+    }
+
+    .input-group.narrow {
+        flex: 1 1 25%; /* Narrower width for country and compound inputs */
+    }
+
+    .input-group label {
+        flex: 0 0 10%;
+        margin-right: 10px;
+    }
+
+    .input-group input {
+        flex: 1;
+        width: 100%;
+    }
+
+    .input-group button {
+        width: 100%;
+        max-width: 150px;
+    }
+
+    @media (max-width: 768px) {
+        .row {
+            flex-direction: column;
+        }
+
+        .input-group {
+            flex: 1 1 100%; /* Stack inputs on smaller screens */
+        }
+
+        .input-group button {
+            width: 100%;
+        }
+    }
+
+    .inline-code {
+        background-color: #f5f5f5; /* Light grey background */
+        border: 1px solid #ddd;    /* Thin border for clarity */
+        border-radius: 3px;        /* Slightly rounded corners */
+        padding: 2px 4px;          /* Small padding for spacing */
+        font-family: "Courier New", Courier, monospace; /* Monospace font */
+        font-size: 90%;            /* Slightly smaller than regular text */
+        color: #333;               /* Darker text for visibility */
+        white-space: nowrap;       /* Prevent wrapping of inline code */
+    }
 </style>
