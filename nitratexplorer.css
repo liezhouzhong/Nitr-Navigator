@@ -502,7 +502,7 @@
     .input-container {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 2px;
         font-family: Helvetica, Arial, sans-serif;
     }
 
