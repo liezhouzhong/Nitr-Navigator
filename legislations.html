@@ -207,6 +207,17 @@
         </tbody>
     </table>
     <p></p>
+
+    <h2 style="background-color: #ebeef2; padding: 5px; text-align: left; font-size: 16px">Cite this page </h2>
+
+    <div class="code-container" style="width: 98%;">
+        <pre class="code">
+            <code id="list">
+                Zhong L, Bondonno C, Bondonno N, Lewis JR,  Hodgson J, (2024). Global legislation on ntrates and nitrites. https://nitr-navigator.com
+            </code>
+        </pre>
+        <button class="copy-button" onclick="copyList()">Copy</button>
+    </div>
 </body>
 
 
@@ -218,5 +229,19 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="scripts.js"></script>
+<script>
+    // Citation copy
+    (function () {
+        window.copyList = function () {
+            const codeElement = document.getElementById('list');
+            const code = codeElement.textContent || codeElement.innerText;
+            navigator.clipboard.writeText(code).then(function () {
+                alert('List copied successfully!');
+            }, function (err) {
+                console.error('Unable to copy list: ', err);
+            });
+        }
+    })();
+</script>
 
 </html>

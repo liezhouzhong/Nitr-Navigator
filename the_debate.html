@@ -13,7 +13,7 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>no-history</title>
+    <title>the_debate</title>
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
@@ -40,7 +40,7 @@
     <div id="nav-placeholder"></div>
 
     <div style="background-color: #ebeef2;">
-        <h2 style="padding: 20px 0 0 0; text-align: left;">Nitrate: The Dr. Jekyll and Mr. Hyde of human health?</h2>
+        <h2 style="padding: 20px 0 0 0; text-align: left;">The Great Debate Around Dietary Nitrate</h2>
         <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong, Nicky Bondonno; Updating...</p>
     </div>
 
@@ -57,16 +57,39 @@
     </div>
     <p style="font-size: 12px;">Source: The Nobel Prize in Physiology or Medicine 1998. NobelPrize.org. Nobel Prize Outreach AB 2024. Sat. 20 Apr 2024. www.nobelprize.org/prizes/medicine/1998/summary/</p>
 
+    <h2 style="background-color: #ebeef2; padding: 5px; text-align: left; font-size: 16px">Cite this page </h2>
+
+    <div class="code-container" style="width: 98%;">
+        <pre class="code">
+            <code id="list">
+                Zhong L, Bondonno C, Bondonno N, Lewis JR,  Hodgson J, (2024). The great debate around dietary nitrate. https://nitr-navigator.com
+            </code>
+        </pre>
+        <button class="copy-button" onclick="copyList()">Copy</button>
+    </div>
+
 </body>
 
 
 <footer>
     <p style="text-align: center;">© Nutrition and Health Innovation Research Institute. All rights reserved.</p>
-    <p style="font-family: Playfair Display, Georgia, Times New Roman, serif; text-align: center; font-size:12px"><em>This website is developed and
-                maintained in-house by our dedicated team, mainly during after hours.</em></p>
+    <p style="font-family: Playfair Display, Georgia, Times New Roman, serif; text-align: center; font-size:12px"><em>This website is developed and maintained in-house by our dedicated team, mainly during after hours.</em></p>
 </footer>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="scripts.js"></script>
-
+<script>
+    // Citation copy
+    (function () {
+        window.copyList = function () {
+            const codeElement = document.getElementById('list');
+            const code = codeElement.textContent || codeElement.innerText;
+            navigator.clipboard.writeText(code).then(function () {
+                alert('List copied successfully!');
+            }, function (err) {
+                console.error('Unable to copy list: ', err);
+            });
+        }
+    })();
+</script>
 </html>
