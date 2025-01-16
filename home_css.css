@@ -64,6 +64,7 @@ nav {
     align-self: center; /* Center vertically */
 }
 
+
 #vision{
     color: #fff; /* Adjust color as needed */
     align-self: center; /* Center vertically */
@@ -71,6 +72,7 @@ nav {
     text-align: center;
     font-family: Playfair Display, Georgia, Times New Roman, serif;
 }
+
 
 nav .m-menu__checkbox {
   display: none;
@@ -102,7 +104,25 @@ nav .m-menu {
 nav .m-menu a:hover {
     text-decoration: underline;
 }
+/* menu hamburger to cross*/
+nav label.m-menu__toggle svg line {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
+nav label.m-menu__toggle:hover svg line:nth-child(2) {
+    transform: rotate(45deg) translate(2px, 5px);
+    transform-origin: 50% 50%;
+}
+
+nav label.m-menu__toggle:hover svg line:nth-child(1) {
+    opacity: 0;
+}
+
+nav label.m-menu__toggle:hover svg line:nth-child(3) {
+    transform: rotate(-45deg) translate(0px, -4px);
+    transform-origin: 50% 50%;
+}
+/* menu hamburger to cross - end*/
 nav .m-menu__overlay {
   background-color: rgba(103, 103, 103, 0.5); /* color outside the menu*/
   position: absolute;
@@ -112,6 +132,7 @@ nav .m-menu__overlay {
   z-index: 1;
   display: none;
 }
+
 nav .m-menu__header {
   padding: 0 16px;
   height: 50px;
@@ -121,17 +142,18 @@ nav .m-menu__header {
   display: flex;
   -webkit-justify-content: space-around;
   justify-content: space-around;
-  -ms-flex-pack: space-around;
   -webkit-align-items: center;
   align-items: center;
   border-bottom: 1px solid #e8e8e8;
 }
+
 nav .m-menu__header span {
   font-size: 1.2rem;
   font-weight: bold;
   text-align: center;
   width: 100%;
 }
+
 nav .m-menu .m-menu {
   -moz-transform: translate3d(480px, 0, 0);
   -o-transform: translate3d(480px, 0, 0);
@@ -139,6 +161,7 @@ nav .m-menu .m-menu {
   -webkit-transform: translate3d(480px, 0, 0);
   transform: translate3d(480px, 0, 0);
 }
+
 nav .m-menu ul {
   height: 100%;
   overflow-y: auto;
@@ -403,8 +426,12 @@ p {
 .img-responsive {
     max-width: 100%;
     height: auto;
+    transition: transform 0.3s ease-in-out;
 }
 
+.img-responsive:hover {
+    transform: scale(1.1); /* Increases size by 10% */
+}
 
 /* CSS for small screens */
 @media (max-width: 600px) {
