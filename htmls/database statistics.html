@@ -17,8 +17,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
     <link rel="manifest" href="assets/img/site.webmanifest">
-    <link rel="stylesheet" type="text/css" href="style css/team_css.css">
+    <link rel="stylesheet" type="text/css" href="../home_css.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         $(function(){
           $("#nav-placeholder").load("../nav.html");
@@ -26,7 +29,54 @@
     </script>
 
     <style>
+       /* Ensure full interactivity on the polygons */
+        .leaflet-interactive {
+            pointer-events: auto;
+        }
 
+        /* Map container */
+        #map {
+            height: 60vh;
+            width: 60vw;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+        /* Legend container */
+        .legend {
+            line-height: 18px;
+            color: #555;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            top: 10px;
+            right: 0px;
+            z-index: 1000;
+            width: 65px
+        }
+
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+
+    /* Dropdown container */
+    .dropdown-container {
+        position: absolute;
+        top: 10px;
+        left: 40px;
+        z-index: 1000;
+        background: white;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
     </style>
 </head>
 
@@ -64,15 +114,254 @@
         and a <a href="nitrixplorer.html">Nitr-Navigator data portal (NitriXplorer)</a> that can filter and visualize data. <a href="">Read more</a>
     </p>
 
-    <div class="container">
-        <p><img class="img" src="/assets/img/data_distribution.png" style="width: 60%; height: 90%"></p>
+    <h2 style="font-size: 24px;">Data Distributions</h2>
+    <h2 style="font-size: 18px;">Nitrate data points</h2>
+    <div id="map">
+        <div class="legend" id="legend"></div>
+        <!-- Dropdown for selecting dataset -->
+        <div class="dropdown-container">
+            <label for="dataset-select">Select Dataset:</label>
+            <select id="dataset-select">
+                <option value="plant">Plant Nitrate</option>
+                <option value="animal">Animal Nitrate</option>
+            </select>
+        </div>
     </div>
 
-    <h2 style="font-size: 24px;">Data Distributions</h2>
-    <p> <img class="img" src="/assets/img/pie.png">
-    </p>
-    <p>The regional distributions of data records for each food category (A), number of eligible references (B) and regions of included references (C).</p>
+    <h2 style="font-size: 18px;">Nitrite data points...(Coming soon)</h2>
 
+
+
+    <script>
+        // Initialize map
+        const map = L.map('map', {
+            minZoom: 2,
+            maxZoom: 8,
+            maxBounds: [[-90, -180], [90, 360]]
+        }).setView([30, 0], 2);
+
+        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap, CARTO',
+            subdomains: 'abcd',
+            noWrap: true
+        }).addTo(map);
+
+        // Country data with ISO3 codes
+        const plantNitrateData = {
+            "ALB": 25, "AUS": 94, "AUT": 726, "BGD": 15,
+            "BEL": 538, "BRA": 107, "BGR": 1605, "CAN": 20,
+            "CHL": 3, "CHN": 192, "HRV": 462, "CYP": 350,
+            "CZE": 2453, "DNK": 721, "ECU": 1, "EGY": 42,
+            "EST": 298, "FJI": 69, "FIN": 693, "FRA": 983,
+            "DEU": 4825, "GRC": 84, "HKG": 210, "HUN": 457,
+            "ISL": 3, "IND": 213, "IRN": 552, "IRQ": 52,
+            "IRL": 1555, "ISR": 2, "ITA": 1026, "JPN": 262,
+            "JOR": 35, "KAZ": 2, "LVA": 33, "LTU": 55,
+            "LUX": 430, "MYS": 17, "MLT": 73, "MNE": 48,
+            "NAM": 5, "NLD": 8498, "NZL": 11, "NGA": 47,
+            "MKD": 29, "PAK": 1, "POL": 1137, "PRT": 247,
+            "ROU": 1229, "RUS": 40, "SRB": 8, "SGP": 68,
+            "SVK": 2421, "SVN": 312, "ZAF": 1, "KOR": 53,
+            "ESP": 3705, "SWE": 161, "CHE": 7, "SYR": 8,
+            "TWN": 46, "THA": 34, "TUN": 23, "TUR": 222,
+            "GBR": 1224, "USA": 250, "VNM": 42
+        };
+
+        const animalNitrateData = {
+            "AUS": 68, "AUT": 21, "BEL": 297, "BRA": 62, "BRN": 5, "BGR": 2, "CAN": 9,
+            "CHN": 11, "CUB": 6, "CZE": 999, "DNK": 3981, "EGY": 18, "EST": 23, "FJI": 12,
+            "FIN": 28, "FRA": 99, "DEU": 7776, "GRC": 27, "HKG": 9, "HUN": 4, "IND": 7,
+            "IDN": 7, "IRN": 33, "IRL": 657, "ISR": 1, "ITA": 855, "JPN": 27, "KAZ": 7,
+            "LTU": 2, "LUX": 177, "MYS": 1, "MLT": 21, "MNE": 4, "NLD": 8, "NZL": 23,
+            "NGA": 11, "POL": 22, "PRT": 328, "ROU": 4, "RUS": 2, "SAU": 17, "SRB": 6,
+            "SGP": 13, "SVK": 126, "ESP": 909, "LKA": 4, "SWE": 9, "TUR": 113,
+            "GBR": 222, "USA": 327, "TWN": 9
+        };
+
+        // Function to determine color based on number of data points
+        function getColor(value) {
+            if (value === undefined || value === -1) return '#d3d3d3'; // Default gray for no data
+            return value > 5000 ? '#00441b' :  // Dark green
+                   value > 2000 ? '#006d2c' :
+                   value > 1000 ? '#238b45' :
+                   value > 500  ? '#41ae76' :
+                   value > 100  ? '#66c2a4' :
+                   value > 50   ? '#99d8c9' :
+                   value > 10   ? '#ccece6' :
+                                  '#E0F2EE';  // Lightest green
+        }
+
+    // Load and style GeoJSON data
+        fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
+            .then(response => response.json())
+            .then(geojsonData => {
+                geojson = L.geoJson(geojsonData, {
+                    style: (feature) => {
+                        const isoCode = feature.id;
+                        const value = plantNitrateData[isoCode] ?? -1;
+
+                        return {
+                            fillColor: getColor(value),
+                            weight: 1.5,
+                            opacity: 1,
+                            color: '#ffffff',
+                            fillOpacity: 0.85,
+                            interactive: true
+                        };
+                    },
+                    onEachFeature: (feature, layer) => {
+                        const isoCode = feature.id;
+                        const nitrate = plantNitrateData[isoCode];
+
+                        // Store the original style for resetting on mouseout
+                        layer.originalStyle = {
+                            fillColor: getColor(nitrate ?? -1),
+                            weight: 1.5,
+                            opacity: 1,
+                            color: '#ffffff',
+                            fillOpacity: 0.85
+                        };
+
+                        // Popup content
+                        const popupContent = nitrate !== undefined
+                            ? `<div class="custom-popup">
+                                <div class="popup-header">${feature.properties.name}</div>
+                                <div class="popup-content">
+                                    <strong>${Number(nitrate).toLocaleString()}</strong>
+                                </div>
+                            </div>`
+                            : `<div class="custom-popup">
+                                <div class="popup-header">${feature.properties.name}</div>
+                                <div class="popup-content">
+                                    No data available
+                                </div>
+                            </div>`;
+
+                        const popup = L.popup({ closeButton: false, autoPan: false });
+
+                        layer.on({
+                            mouseover: (e) => {
+                                const targetLayer = e.target;
+
+                                // Increase lightness on hover by slightly changing the fillOpacity
+                                targetLayer.setStyle({
+                                    weight: 2.5,  // Highlight thickness
+                                    fillOpacity: 0.95  // Slightly increase opacity for a "lighten" effect
+                                });
+
+                                targetLayer.bringToFront();
+                                popup.setLatLng(e.latlng).setContent(popupContent).openOn(map);
+                            },
+                            mousemove: (e) => { popup.setLatLng(e.latlng); },
+                            mouseout: (e) => {
+                                const targetLayer = e.target;
+                                targetLayer.setStyle(layer.originalStyle); // Reset the style back
+
+                                // Close popup when leaving country
+                                map.closePopup(popup);
+                            }
+                        });
+
+                        layer.options.bubblingMouseEvents = false;
+                    }
+                }).addTo(map);
+            })
+            .catch(error => console.error("Error loading GeoJSON:", error));
+
+        // Add legend to map
+        const legend = L.control({ position: 'topright' });
+
+        legend.onAdd = function (map) {
+            const div = L.DomUtil.create('div', 'legend');
+            const grades = [10, 50, 100, 500, 1000, 2000, 5000];
+            const labels = [];
+
+            for (let i = 0; i < grades.length; i++) {
+                div.innerHTML +=
+                    '<i style="background:' + getColor(grades[i]) + '"></i> ' +
+                    `< ${grades[i]}` + '<br>';
+            }
+
+            return div;
+        };
+
+        legend.addTo(map);
+
+    // Function to update the map and popup based on selected dataset
+    function updateMap(data) {
+        geojson.eachLayer(function (layer) {
+            const isoCode = layer.feature.id;
+            const value = data[isoCode] ?? -1;
+            const newStyle = {
+                fillColor: getColor(value),
+                weight: 1.5,
+                opacity: 1,
+                color: '#ffffff',
+                fillOpacity: 0.85
+            };
+
+            layer.setStyle(newStyle);
+
+            // Update the original style to the new style
+            layer.originalStyle = newStyle;
+
+            // Update popup content
+            const nitrate = data[isoCode];
+            const popupContent = nitrate !== undefined
+                ? `<div class="custom-popup">
+                    <div class="popup-header">${layer.feature.properties.name}</div>
+                    <div class="popup-content">
+                        <strong>${Number(nitrate).toLocaleString()}</strong>
+                    </div>
+                </div>`
+                : `<div class="custom-popup">
+                    <div class="popup-header">${layer.feature.properties.name}</div>
+                    <div class="popup-content">
+                        No data available
+                    </div>
+                </div>`;
+
+            layer.on({
+                mouseover: (e) => {
+                    const targetLayer = e.target;
+
+                    // Increase lightness on hover by slightly changing the fillOpacity
+                    targetLayer.setStyle({
+                        weight: 2.5,  // Highlight thickness
+                        fillOpacity: 0.95  // Slightly increase opacity for a "lighten" effect
+                    });
+
+                    targetLayer.bringToFront();
+                    L.popup({ closeButton: false, autoPan: false })
+                        .setLatLng(e.latlng)
+                        .setContent(popupContent)
+                        .openOn(map);
+                },
+                mousemove: (e) => { L.popup().setLatLng(e.latlng); },
+                mouseout: (e) => {
+                    const targetLayer = e.target;
+                    targetLayer.setStyle(layer.originalStyle); // Reset the style back
+
+                    // Close popup when leaving country
+                    map.closePopup();
+                }
+            });
+        });
+    }
+
+    // Event listener for dropdown change
+    document.getElementById('dataset-select').addEventListener('change', function (e) {
+        const selectedDataset = e.target.value;
+        if (selectedDataset === 'plant') {
+            updateMap(plantNitrateData);
+        } else if (selectedDataset === 'animal') {
+            updateMap(animalNitrateData);
+        }
+    });
+
+    // Initialize map with plant nitrate data
+    updateMap(plantNitrateData);
+    </script>
 
 </body>
 
