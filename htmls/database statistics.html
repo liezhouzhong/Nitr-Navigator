@@ -29,21 +29,47 @@
     </script>
 
     <style>
-       /* Ensure full interactivity on the polygons */
-        .leaflet-interactive {
-            pointer-events: auto;
-        }
 
         /* Map container */
-        #map {
-            height: 60vh;
-            width: 60vw;
-            position: relative;
-            top: 0;
-            left: 0;
+        .map-container {
+            display: flex;
+            flex-wrap: nowrap; /* Keep elements side by side */
+            justify-content: flex-start; /* Align to the left */
+            align-items: flex-start;
+            position: relative; /* Allow absolute positioning inside */
+            gap: 10px; /* Space between map and legend */
+            width: 100%; /* Consider using percentage instead of vh for width */
+            height: 90vh; /* This is fine if you want it based on viewport height */
+            left:1%;
         }
 
-        /* Legend container */
+        .map-container-2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            position: relative;
+            gap: 10px;
+            height: 90vh;
+            width: 18%;
+        }
+        .map-container-2 .note {
+            position: absolute;
+            bottom: 10px; /* Position 10px from the bottom */
+            left: 0; /* Align to the left of the container */
+            font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, 'Liberation Sans', sans-serif;
+            font-size: 13px;
+        }
+
+        /* Map styling */
+        #map {
+            height: 100%;
+            width: 80%;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        /* Legend - manually positioned next to the map */
         .legend {
             line-height: 18px;
             color: #555;
@@ -51,36 +77,68 @@
             padding: 15px;
             border-radius: 5px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            position: absolute;
-            top: 10px;
-            right: 0px;
-            z-index: 1000;
-            width: 65px
+            width: 70px;
+            flex-shrink: 0;
+            position: relative;
         }
 
+        /* Legend color boxes */
         .legend i {
             width: 18px;
             height: 18px;
             float: left;
             margin-right: 8px;
             opacity: 0.7;
+            background: white;
+            border-radius: 0px;
+        }
+        /* Responsive layout for small screens */
+        /* For screens with max-width of 1100px */
+
+        @media (max-width: 767px) {
+            #map {
+                width: 80%;
+            }
+            .map-container {
+                flex-direction: column;
+                width: 100%;
+                height: 70vh;
+            }
+            /* Adjust map-container-2 (legend) layout for small screens */
+            .map-container-2 {
+                width: 100%; /* Full width for map-container-2 */
+                height: 100%; /* Allow height to adjust based on content */
+            }
+        }
+        @media (max-width: 530px) {
+            #map {
+                width: 100%;
+            }
+            .map-container {
+                flex-direction: column;
+                width: 100%;
+                height: 60vh;
+            }
+            .map-container-2 {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            .map-container-2 .note {
+                top: 30px;
+            }
+            .dropdown-container {
+                width: 100%; /* Ensure dropdown takes full width */
+                height: auto;
+                z-index: 1;
+                margin-bottom: 40px; /* Add margin to separate from other content */
+            }
         }
 
-    /* Dropdown container */
-    .dropdown-container {
-        position: absolute;
-        top: 10px;
-        left: 40px;
-        z-index: 1000;
-        background: white;
-        padding: 10px;
-        border-radius: 5px;
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    }
     </style>
 </head>
 
-<body>
+<body style="left: 1%;">
     <header style="padding: 3px;">
         <h1><span style="font-size: 20px; color: coral">
             <a href="http://nitr-navigator.com/" style="text-decoration: none; color: coral;">Nitr-Navigator</a>
@@ -90,11 +148,11 @@
     </header>
 
     <!-- Nav menu -->
-    <div id="nav-placeholder" style="font-family: Playfair Display, Georgia, Times New Roman, serif; "></div>
+    <div id="nav-placeholder" style="font-family: Playfair Display, Georgia, Times New Roman, serif;"></div>
 
     <div style="background-color: #ebeef2;">
         <h2 style="padding: 20px 0 0 0; text-align: left;">Nitr-Navigator Statistics</h2>
-        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong (Updated on 7 May 2024)</p>
+        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong (Updated on 1 Feb 2025)</p>
     </div>
 
     <h2 style="font-size: 24px;">Overview</h2>
@@ -109,30 +167,40 @@
         As such, it has the capability to filter data and extract nitrate/nitrite content based on established protocols.
     </p>
     <p>
-        Our team has devseloped a nitrate/nitrite calculator (as Jupyter Notebook, access through team)
+        Our team has developed a nitrate/nitrite calculator (as Jupyter Notebook, access through team)
         that can automatically and efficiently assign content values to food records while applying multiple protocols,
         and a <a href="nitrixplorer.html">Nitr-Navigator data portal (NitriXplorer)</a> that can filter and visualize data. <a href="">Read more</a>
     </p>
 
-    <h2 style="font-size: 24px;">Data Distributions</h2>
-    <h2 style="font-size: 18px;">Nitrate data points</h2>
-    <div id="map">
-        <div class="legend" id="legend"></div>
-        <!-- Dropdown for selecting dataset -->
-        <div class="dropdown-container">
-            <label for="dataset-select">Select Dataset:</label>
-            <select id="dataset-select">
-                <option value="plant">Plant Nitrate</option>
-                <option value="animal">Animal Nitrate</option>
-            </select>
+    <h2 style="font-size: 18px;">Nitrate Data Points</h2>
+    <div class="map-container">
+        <div id="map"></div>
+        <div class="map-container-2">
+            <div class="dropdown-container">
+                <label for="dataset-select" style="font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, 'Liberation Sans', sans-serif;">Select Dataset:</label>
+                <select id="dataset-select">
+                    <option value="plant">Plant Nitrate</option>
+                    <option value="animal">Animal Nitrate</option>
+                </select>
+            </div>
+            <div class="note">
+                Note: Entries have been aggregated to "Month of Sampling". Details please refer to AJCN paper.
+            </div>
         </div>
     </div>
-
+    <p></p><p></p><p></p><p></p><p></p>
     <h2 style="font-size: 18px;">Nitrite data points...(Coming soon)</h2>
 
 
 
-    <script>
+</body>
+
+<footer>
+    <p style="text-align: center;">© Nutrition and Health Innovation Research Institute. All rights reserved.</p>
+    <p style="font-family: Playfair Display, Georgia, Times New Roman, serif; text-align: center; font-size:12px"><em>This website is developed and
+                maintained in-house by our dedicated team, mainly during after hours.</em></p>
+</footer>
+<script>
         // Initialize map
         const map = L.map('map', {
             minZoom: 2,
@@ -269,7 +337,7 @@
             .catch(error => console.error("Error loading GeoJSON:", error));
 
         // Add legend to map
-        const legend = L.control({ position: 'topright' });
+        const legend = L.control({position: 'bottomleft' });
 
         legend.onAdd = function (map) {
             const div = L.DomUtil.create('div', 'legend');
@@ -362,13 +430,4 @@
     // Initialize map with plant nitrate data
     updateMap(plantNitrateData);
     </script>
-
-</body>
-
-<footer>
-    <p style="text-align: center;">© Nutrition and Health Innovation Research Institute. All rights reserved.</p>
-    <p style="font-family: Playfair Display, Georgia, Times New Roman, serif; text-align: center; font-size:12px"><em>This website is developed and
-                maintained in-house by our dedicated team, mainly during after hours.</em></p>
-</footer>
-
 </html>
