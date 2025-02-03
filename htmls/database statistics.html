@@ -17,7 +17,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
     <link rel="manifest" href="assets/img/site.webmanifest">
-    <link rel="stylesheet" type="text/css" href="../home_css.css">
+    <link rel="stylesheet" type="text/css" href="../nitratexplorer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -41,6 +41,7 @@
             width: 100%; /* Consider using percentage instead of vh for width */
             height: 90vh; /* This is fine if you want it based on viewport height */
             left:1%;
+            border-bottom: 1px solid #ebeef2;
         }
 
         .map-container-2 {
@@ -138,7 +139,7 @@
     </style>
 </head>
 
-<body style="left: 1%;">
+<body class="body-regular">
     <header style="padding: 3px;">
         <h1><span style="font-size: 20px; color: coral">
             <a href="http://nitr-navigator.com/" style="text-decoration: none; color: coral;">Nitr-Navigator</a>
@@ -254,7 +255,7 @@
                    value > 1000 ? '#238b45' :
                    value > 500  ? '#41ae76' :
                    value > 100  ? '#66c2a4' :
-                   value > 50   ? '#99d8c9' :
+                   value > 20   ? '#99d8c9' :
                    value > 10   ? '#ccece6' :
                                   '#E0F2EE';  // Lightest green
         }
