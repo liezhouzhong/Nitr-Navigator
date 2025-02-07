@@ -61,6 +61,12 @@
                 <input type="text" id="countryInput" placeholder="Enter country, eg denmark, netherlands">
             </div>
             <div class="input-group">
+                <label for="excludesourceidInput">Exclude Countries:</label>
+                <input type="text" id="excludesourceidInput" value="usda_5102024" placeholder="Enter Source_ID to exclude; usda by dafault">
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-group narrow">
                 <label for="foodInput">Food Keywords:</label>
                 <input type="text" id="foodInput" placeholder="Enter food name, e.g., 'apple, raw'">
             </div>
@@ -83277,14 +83283,25 @@
             const foodInput = normalizeAndSingularize(document.getElementById('foodInput').value);
             const excludeInput = document.getElementById('excludeInput').value.trim().toLowerCase();
             const compoundInput = document.getElementById('compoundInput').value.trim().toLowerCase();
+            const excludeSourceIdInput = document.getElementById('excludesourceidInput').value.trim().toLowerCase();
 
-            // Step 1: Filter by Country (multiple terms separated by , or ;)
+            // Step 1: Filter by Country (if specified)
             const countryTerms = countryInput.split(/[,;]\s*/).map(term => term.trim()).filter(term => term !== "");
             let filteredFoods = countryTerms.length > 0 ? foods.filter(food =>
                 countryTerms.some(term => food.country.toLowerCase().includes(term))
-            ) : foods; // If no country terms, start with all foods
+            ) : foods;
 
-            // Step 2: Filter by Food Name (if specified)
+            // Step 2: Exclude Source_ID (if specified)
+            const excludeSourceIdTerms = excludeSourceIdInput.split(/[,;]\s*/).map(term => term.trim()).filter(term => term !== "");
+            if (excludeSourceIdTerms.length > 0) {
+                filteredFoods = filteredFoods.filter(food =>
+                    !excludeSourceIdTerms.some(term =>
+                        String(food.source_id).toLowerCase().includes(term) // Ensure it's a string before checking
+                    )
+                );
+            }
+
+            // Step 3: Filter by Food Name (if specified)
             if (foodInput) {
                 const searchTerms = foodInput.split(',').map(term => normalizeAndSingularize(term.trim()));
                 filteredFoods = filteredFoods.filter(food =>
@@ -83292,7 +83309,7 @@
                 );
             }
 
-            // Step 3: Filter by Compound (if specified)
+            // Step 4: Filter by Compound (if specified)
             if (compoundInput) {
                 const compoundTerms = compoundInput.split(/[,;]\s*/).map(term => term.trim()).filter(term => term !== "");
                 filteredFoods = filteredFoods.filter(food =>
@@ -83300,11 +83317,11 @@
                 );
             }
 
-            // Step 4: Exclude Keywords (if specified)
+            // Step 5: Exclude Keywords (if specified)
             if (excludeInput) {
-                const excludeTerms = excludeInput.split(/[,;]\s*/).map(term => {
-                    return normalizeAndSingularize(term.trim().replace(/[;,]+$/, ""));
-                }).filter(term => term !== ""); // Remove any empty strings
+                const excludeTerms = excludeInput.split(/[,;]\s*/).map(term =>
+                    normalizeAndSingularize(term.trim().replace(/[;,]+$/, ""))
+                ).filter(term => term !== "");
 
                 filteredFoods = filteredFoods.filter(food =>
                     !excludeTerms.some(term => normalizeAndSingularize(food.name).includes(term))
@@ -83314,6 +83331,7 @@
             // Update the table with the final filtered result
             updateTable(filteredFoods);
         }
+
 
         function updateTable(filteredFoods) {
             currentPage = 1;
@@ -83398,6 +83416,12 @@
 
         // Add event listeners for Enter key
         document.getElementById('countryInput').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                advancedFilterTable();
+            }
+        });
+
+        document.getElementById('excludesourceidInput').addEventListener('keypress', function (event) {
             if (event.key === 'Enter') {
                 advancedFilterTable();
             }
