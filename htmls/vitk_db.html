@@ -39,7 +39,7 @@
 
     <div style="background-color: #ebeef2;">
         <h2 style="padding: 20px 0 0 0; text-align: left;">Food Table for Vitamin K Database (V0.1)</h2>
-        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong; 18 Dec 2024</p>
+        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong; 1 Feb 2025</p>
     </div>
 
     <h2 style="font-size: 20px;">Introduction</h2>
@@ -47,10 +47,11 @@
     <div class="body-regular">
         <p> The table below contains all unique food names ('food name in source') in the VitK food composition database (v0.1_10.2024). This web page can search food by:</p>
         <p> (1) <code class="inline-code">country</code> (case-insensitive; eg "denmark, netherlands; united kingdom'). </p>
-        <p> (2) <code class="inline-code">food keywords</code> food names (case-insensitive; eg "beef, raw" will filter rows with both 'beef' and 'raw' in the 'food name in source'). </p>
-        <p> (3) <code class="inline-code">compound</code> vitmin K individuals (eg 'pk', 'dk1', 'mk-4' or 'mk'). </p>
-        <p> (4) <code class="inline-code">Excluding keywords</code> (seperate by , or  ;. eg "juice, dried; jelly) to refine/narrow down the search results. </p>
-        <p> (5) Following the three steps search you can then select the most appropriate food names (checkbox in the table). Thereafter, you can click <code class="inline-code">Combine Selected</code> to generate a list of selected food. Please then <code class="inline-code">Copy List</code> the list and paste it to "food names in database" column in your worksheet.</p>
+        <p> (2) <code class="inline-code">Exclude Source_ID</code> (case-insensitive; "usda_5102024" by default). </p>
+        <p> (3) <code class="inline-code">food keywords</code> food names (case-insensitive; eg "beef, raw" will filter rows with both 'beef' and 'raw' in the 'food name in source'). </p>
+        <p> (4) <code class="inline-code">compound</code> vitmin K individuals (eg 'pk', 'dk1', 'mk-4' or 'mk'). </p>
+        <p> (5) <code class="inline-code">Excluding keywords</code> (seperate by , or  ;. eg "juice, dried; jelly) to refine/narrow down the search results. </p>
+        <p> (6) Following the three steps search you can then select the most appropriate food names (checkbox in the table). Thereafter, you can click <code class="inline-code">Combine Selected</code> to generate a list of selected food. Please then <code class="inline-code">Copy List</code> the list and paste it to "food names in database" column in your worksheet.</p>
         <p> When the checkbox in the header of the first column is checked or unchecked, it will select or deselect all the checkboxes in the table. The NHIRI team has developed an application to automatically pre-match food names in the database, as well as assign ViK (total or individuals) content based on multiple criteria, including country/region sequence. The application will generally take less than one minute to generate VitK data for over 10,000 rows of foods. The data will include "country/region of the data source", "mean", "median", "count of data" and "number of unique data source". </p>
     </div>
 

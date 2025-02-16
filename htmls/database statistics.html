@@ -153,7 +153,7 @@
 
     <div style="background-color: #ebeef2;">
         <h2 style="padding: 20px 0 0 0; text-align: left;">Nitr-Navigator Statistics</h2>
-        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong (Updated on 1 Feb 2025)</p>
+        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong (Updated on 16 Feb 2025)</p>
     </div>
 
     <h2 style="font-size: 24px;">Overview</h2>
@@ -173,15 +173,17 @@
         and a <a href="nitrixplorer.html">Nitr-Navigator data portal (NitriXplorer)</a> that can filter and visualize data. <a href="">Read more</a>
     </p>
 
-    <h2 style="font-size: 18px;">Nitrate Data Points</h2>
+    <h2 style="font-size: 18px;">Nitrate/Nitrite Data Points (as of 2023v0.07)</h2>
     <div class="map-container">
         <div id="map"></div>
         <div class="map-container-2">
             <div class="dropdown-container">
                 <label for="dataset-select" style="font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, 'Liberation Sans', sans-serif;">Select Dataset:</label>
                 <select id="dataset-select">
-                    <option value="plant">Plant Nitrate</option>
-                    <option value="animal">Animal Nitrate</option>
+                    <option value="plantNitrate">Plant Nitrate</option>
+                    <option value="animalNitrate">Animal Nitrate</option>
+                    <option value="plantNitrite">Plant Nitrite</option>
+                    <option value="animalNitrite">Animal Nitrite</option>
                 </select>
             </div>
             <div class="note">
@@ -189,10 +191,7 @@
             </div>
         </div>
     </div>
-    <p></p><p></p><p></p><p></p><p></p>
-    <h2 style="font-size: 18px;">Nitrite data points...(Coming soon)</h2>
-
-
+    <p></p>
 
 </body>
 
@@ -247,6 +246,24 @@
             "GBR": 222, "USA": 327, "TWN": 9
         };
 
+        const animalNitriteData = {
+            "AUS": 59, "BEL": 265, "BRA": 67, "CAN": 38, "CHN": 59, "CZE": 958, "DNK": 3957,
+            "EGY": 21, "EST": 29, "FJI": 12, "FIN": 42, "FRA": 89, "DEU": 532, "GRC": 30,
+            "HKG": 19, "HUN": 11, "IRN": 53, "IRL": 336, "ISR": 1, "ITA": 851, "JPN": 24,
+            "KAZ": 6, "LUX": 187, "MYS": 1, "MLT": 21, "NLD": 24, "NZL": 35, "NGA": 10,
+            "POL": 22, "PRT": 279, "ROU": 41, "RUS": 2, "SRB": 22, "SVK": 61, "ZAF": 4,
+            "KOR": 23, "ESP": 700, "SWE": 9, "TWN": 9, "TUR": 159, "GBR": 219, "USA": 223
+        };
+
+        const plantNitriteData = {
+            "AUS": 38, "AUT": 3, "BEL": 2, "BGR": 1, "CAN": 16, "CHN": 100, "HRV": 10,
+            "CYP": 4, "CZE": 57, "DNK": 325, "EGY": 28, "EST": 17, "FRA": 24, "DEU": 559,
+            "GRC": 2, "HUN": 236, "IND": 60, "IRN": 211, "IRQ": 51, "IRL": 14, "ITA": 19,
+            "JPN": 77, "JOR": 14, "KAZ": 1, "MLT": 55, "NLD": 3, "NZL": 11, "NGA": 24,
+            "POL": 305, "PRT": 17, "ROU": 49, "SRB": 8, "SVK": 97, "SVN": 32, "KOR": 53,
+            "ESP": 33, "SYR": 8, "TUR": 100, "GBR": 17, "USA": 107
+        };
+
         // Function to determine color based on number of data points
         function getColor(value) {
             if (value === undefined || value === -1) return '#d3d3d3'; // Default gray for no data
@@ -260,7 +277,7 @@
                                   '#E0F2EE';  // Lightest green
         }
 
-    // Load and style GeoJSON data
+        // Load and style GeoJSON data
         fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
             .then(response => response.json())
             .then(geojsonData => {
@@ -302,7 +319,7 @@
                             : `<div class="custom-popup">
                                 <div class="popup-header">${feature.properties.name}</div>
                                 <div class="popup-content">
-                                    No data available
+                                    No data
                                 </div>
                             </div>`;
 
@@ -338,7 +355,7 @@
             .catch(error => console.error("Error loading GeoJSON:", error));
 
         // Add legend to map
-        const legend = L.control({position: 'bottomleft' });
+        const legend = L.control({ position: 'bottomleft' });
 
         legend.onAdd = function (map) {
             const div = L.DomUtil.create('div', 'legend');
@@ -356,79 +373,83 @@
 
         legend.addTo(map);
 
-    // Function to update the map and popup based on selected dataset
-    function updateMap(data) {
-        geojson.eachLayer(function (layer) {
-            const isoCode = layer.feature.id;
-            const value = data[isoCode] ?? -1;
-            const newStyle = {
-                fillColor: getColor(value),
-                weight: 1.5,
-                opacity: 1,
-                color: '#ffffff',
-                fillOpacity: 0.85
-            };
+        // Function to update the map and popup based on selected dataset
+        function updateMap(data) {
+            geojson.eachLayer(function (layer) {
+                const isoCode = layer.feature.id;
+                const value = data[isoCode] ?? -1;
+                const newStyle = {
+                    fillColor: getColor(value),
+                    weight: 1.5,
+                    opacity: 1,
+                    color: '#ffffff',
+                    fillOpacity: 0.85
+                };
 
-            layer.setStyle(newStyle);
+                layer.setStyle(newStyle);
 
-            // Update the original style to the new style
-            layer.originalStyle = newStyle;
+                // Update the original style to the new style
+                layer.originalStyle = newStyle;
 
-            // Update popup content
-            const nitrate = data[isoCode];
-            const popupContent = nitrate !== undefined
-                ? `<div class="custom-popup">
-                    <div class="popup-header">${layer.feature.properties.name}</div>
-                    <div class="popup-content">
-                        <strong>${Number(nitrate).toLocaleString()}</strong>
-                    </div>
-                </div>`
-                : `<div class="custom-popup">
-                    <div class="popup-header">${layer.feature.properties.name}</div>
-                    <div class="popup-content">
-                        No data available
-                    </div>
-                </div>`;
+                // Update popup content
+                const nitrate = data[isoCode];
+                const popupContent = nitrate !== undefined
+                    ? `<div class="custom-popup">
+                        <div class="popup-header">${layer.feature.properties.name}</div>
+                        <div class="popup-content">
+                            <strong>${Number(nitrate).toLocaleString()}</strong>
+                        </div>
+                    </div>`
+                    : `<div class="custom-popup">
+                        <div class="popup-header">${layer.feature.properties.name}</div>
+                        <div class="popup-content">
+                            No data
+                        </div>
+                    </div>`;
 
-            layer.on({
-                mouseover: (e) => {
-                    const targetLayer = e.target;
+                layer.on({
+                    mouseover: (e) => {
+                        const targetLayer = e.target;
 
-                    // Increase lightness on hover by slightly changing the fillOpacity
-                    targetLayer.setStyle({
-                        weight: 2.5,  // Highlight thickness
-                        fillOpacity: 0.95  // Slightly increase opacity for a "lighten" effect
-                    });
+                        // Increase lightness on hover by slightly changing the fillOpacity
+                        targetLayer.setStyle({
+                            weight: 2.5,  // Highlight thickness
+                            fillOpacity: 0.95  // Slightly increase opacity for a "lighten" effect
+                        });
 
-                    targetLayer.bringToFront();
-                    L.popup({ closeButton: false, autoPan: false })
-                        .setLatLng(e.latlng)
-                        .setContent(popupContent)
-                        .openOn(map);
-                },
-                mousemove: (e) => { L.popup().setLatLng(e.latlng); },
-                mouseout: (e) => {
-                    const targetLayer = e.target;
-                    targetLayer.setStyle(layer.originalStyle); // Reset the style back
+                        targetLayer.bringToFront();
+                        L.popup({ closeButton: false, autoPan: false })
+                            .setLatLng(e.latlng)
+                            .setContent(popupContent)
+                            .openOn(map);
+                    },
+                    mousemove: (e) => { L.popup().setLatLng(e.latlng); },
+                    mouseout: (e) => {
+                        const targetLayer = e.target;
+                        targetLayer.setStyle(layer.originalStyle); // Reset the style back
 
-                    // Close popup when leaving country
-                    map.closePopup();
-                }
+                        // Close popup when leaving country
+                        map.closePopup();
+                    }
+                });
             });
-        });
-    }
-
-    // Event listener for dropdown change
-    document.getElementById('dataset-select').addEventListener('change', function (e) {
-        const selectedDataset = e.target.value;
-        if (selectedDataset === 'plant') {
-            updateMap(plantNitrateData);
-        } else if (selectedDataset === 'animal') {
-            updateMap(animalNitrateData);
         }
-    });
 
-    // Initialize map with plant nitrate data
-    updateMap(plantNitrateData);
+        // Event listener for dropdown change
+        document.getElementById('dataset-select').addEventListener('change', function (e) {
+            const selectedDataset = e.target.value;
+            if (selectedDataset === 'plantNitrate') {
+                updateMap(plantNitrateData);
+            } else if (selectedDataset === 'animalNitrate') {
+                updateMap(animalNitrateData);
+            } else if (selectedDataset === 'plantNitrite') {
+                updateMap(plantNitriteData);
+            } else if (selectedDataset === 'animalNitrite') {
+                updateMap(animalNitriteData);
+            }
+        });
+
+        // Initialize map with plant nitrate data
+        updateMap(plantNitrateData);
     </script>
 </html>
