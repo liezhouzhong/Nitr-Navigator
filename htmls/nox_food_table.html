@@ -13,16 +13,16 @@
     </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NitrateXplorer</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
-    <link rel="manifest" href="assets/img/site.webmanifest">
-    <link rel="stylesheet" type="text/css" href="nitratexplorer.css">
+    <title>noxfoods</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png">
+    <link rel="manifest" href="../assets/img/site.webmanifest">
+    <link rel="stylesheet" type="text/css" href="../nitratexplorer.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(function(){
-          $("#nav-placeholder").load("nav.html");
+          $("#nav-placeholder").load("../nav.html");
         });
     </script>
 </head>
@@ -36,9 +36,12 @@
         </h1>
     </header>
 
+    <!-- Nav menu -->
+    <div id="nav-placeholder"></div>
+
     <div style="background-color: #ebeef2;">
         <h2 style="padding: 20px 0 0 0; text-align: left;">Combined food table for nitrate and nitrite content databases (V2.1)</h2>
-        <p style="font-family: Helvetica, Arial, sans-serif; padding: 5px;">By Liezhou Zhong; 11 May 2024</p>
+        <p style="font-family: Helvetica, Arial, sans-serif; padding: 5px;">By Liezhou Zhong; 26 March 2025</p>
     </div>
 
     <h2 style="font-size: 20px;">Introduction</h2>
@@ -145,7 +148,7 @@
             }
         }
 
-        readTextFile('assets/nox_food_table.txt');
+        readTextFile('../assets/nox_food_table.txt');
 
         // Function to populate the table
         function populateTable() {
