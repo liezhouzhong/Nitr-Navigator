@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CYQG6CPM1L"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-CYQG6CPM1L');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NitrateXplorer</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
+    <link rel="manifest" href="assets/img/site.webmanifest">
+    <link rel="stylesheet" type="text/css" href="nitratexplorer.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+          $("#nav-placeholder").load("nav.html");
+        });
+    </script>
+</head>
+<body>
+    <header style="padding: 3px;">
+        <h1>
+            <span style="font-size: 20px; color: coral">
+                <a href="http://nitr-navigator.com/" style="text-decoration: none; color: coral;">Nitr-Navigator</a>
+            </span>
+            <span style="font-size: 15px;">- A comprehensive Nitrate, Nitrite and Nitrosamine Database</span>
+        </h1>
+    </header>
+
+    <div style="background-color: #ebeef2;">
+        <h2 style="padding: 20px 0 0 0; text-align: left;">Combined food table for nitrate and nitrite content databases (V2.1)</h2>
+        <p style="font-family: Helvetica, Arial, sans-serif; padding: 5px;">By Liezhou Zhong; 11 May 2024</p>
+    </div>
+
+    <h2 style="font-size: 20px;">Introduction</h2>
+    <div class="body-regular">
+        <p>The whole Nitrate, Nitrite and Nitrosamine Database (Nitr-Navigator) food table contains all unique food items in the database. The "common food name" column are
+            cleaned food names as described in the
+            <a href="https://doi.org/10.1016/j.foodchem.2022.133411" target="_blank">
+                plant-based nitrate database paper </a> (2022, foodchem), while animal foods, particularly sausages,
+            are grouped based on their processing and preservation methods (See
+            <a href="https://doi.org/10.1002/mnfr.202100272" target="_blank">
+                animal food nitrate nitrite database paper</a>; mnfr, 2022).</p>
+
+        <p> The search function enables wildcard search across the entire table (e.g., 'lett' for all lettuce) and is case-insensitive.
+        However, many composite food names are not modified and being presented as in data sources.</p>
+    </div>
+
+    <input type="text" id="myInput" onkeyup="mySearch()" placeholder="Search for food names.." title="Type in a name">
+
+    <div style="border: 1px solid #ebeef2;">
+        <div class="tableFixHead" style="height: 600px; width: 98%;">
+            <table id="foodsTable">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAll" onclick="toggleSelectAll(this)"></th>
+                        <th>Common food name</th>
+                        <th>Botanic family</th>
+                        <th>Botanic family common name</th>
+                        <th>Latin name or full name</th>
+                        <th>Other names or food examples</th>
+                        <th>Food category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Rows will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        <div class="pagination" id="paginationControls">
+            <button class="pagination button" onclick="prevPage()">Previous</button>
+            <span id="pageInfo"></span>
+            <button onclick="nextPage()">Next</button>
+        </div>
+    </div>
+
+     <p class="body-regular" style="font-size: 14px;"> Note: <Br>
+            We harmonised plant-based food names with based on FoodEx2 (revision 2) and information in CatalogueBrowser EFSA, Wikipedia, USDA Plants Database and other botanic databases.<br>
+            This table will be updated and cleaned regularly.</p>
+
+    <div class="body-regular">
+        <button style="cursor: pointer;" onclick="combineSelected()">Combine Selected</button>
+        <div class="list-container">
+            <pre class="code" style="margin: 5px;">
+                <code id="combinedResults"></code>
+            </pre>
+            <button class="copy-button" onclick="copyCode()">Copy List</button>
+        </div>
+    </div>
+
+    <div class="body-regular">
+        <h2 style="background-color: #ebeef2; padding: 5px; text-align: left; font-size: 16px">Main References: </h2>
+
+        <p class="body-regular" style="font-size: 14px;">
+            1. Food Standards Australia New Zealand (FSANZ). AUSNUT 2011–13 food and dietary supplement classification system. 2020
+            [cited 2020 16 October].<br>
+            2. International Agency for Research on Cancer (IARC). (2003). Fruit and Vegetables. IARC Handbooks of Cancer Prevention (Vol. 8). Lyon, France: IARC.<br>
+            3. Ioannidou, S. (2019). EFSA Catalogue Browser User Guide. EFSA Supporting Publications, 16(11). https://doi.org/10.2903/sp.efsa.2019.en-1726.<br>
+            4. Blekkenhorst, L. C., Prince, R. L., Ward, N. C., Croft, K. D., Lewis, J. R., Devine, A., . . . Bondonno, C. P. (2017). Development of a reference database for assessing dietary nitrate in vegetables. Mol Nutr Food Res, 61(8). https://doi.org/10.1002/mnfr.201600982. .
+    </div>
+
+    <footer>
+        <p style="text-align: center;">© Nutrition and Health Innovation Research Institute. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let foods = [];
+        let filteredFoods = [];
+        let currentPage = 1;
+        const rowsPerPage = 100;
+        let isSearching = false;
+
+        // Function to fetch and parse the text file
+        async function readTextFile(file) {
+            try {
+                const response = await fetch(file);
+                if (!response.ok) throw new Error(`Failed to fetch ${file}`);
+
+                const text = await response.text();
+                foods = JSON.parse(text); // Parse JSON directly
+
+                // Ensure compatibility with your table structure
+                foods = foods.map(food => ({
+                    "Common food name": food["Common food name"] || '',
+                    "Botanic family": food["Botanic family"] || '',
+                    "Botanic family common name": food["Botanic family common name"] || '',
+                    "Latin name or full name": food["Latin name or full name"] || '',
+                    "Other names or food examples": food["Other names or food examples"] || '',
+                    "Food category": food["Food category_old"] || '' // Adjusting for field name
+                }));
+
+                filteredFoods = foods; // Ensure search works
+                populateTable();
+            } catch (error) {
+                console.error("Error loading file:", error);
+            }
+        }
+
+        readTextFile('assets/nox_food_table.txt');
+
+        // Function to populate the table
+        function populateTable() {
+            const tableBody = document.querySelector('#foodsTable tbody');
+            tableBody.innerHTML = '';
+
+            const dataset = isSearching ? filteredFoods : foods;
+            const start = (currentPage - 1) * rowsPerPage;
+            const end = start + rowsPerPage;
+            const pageFoods = dataset.slice(start, end);
+
+            pageFoods.forEach(food => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><input type="checkbox" value="${food["Common food name"]}"></td>
+                    <td>${food['Common food name']}</td>
+                    <td>${food['Botanic family']}</td>
+                    <td>${food['Botanic family common name']}</td>
+                    <td>${food['Latin name or full name']}</td>
+                    <td>${food['Other names or food examples']}</td>
+                    <td>${food['Food category']}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+
+            updatePaginationControls(dataset.length);
+        }
+
+        // Search Function
+        function mySearch() {
+            const input = document.getElementById('myInput').value.toLowerCase();
+            filteredFoods = foods.filter(food =>
+                Object.values(food).some(value => value.toLowerCase().includes(input))
+            );
+
+            isSearching = true;
+            currentPage = 1;
+            populateTable();
+        }
+
+        // Pagination Controls
+        function updatePaginationControls(totalItems) {
+            const totalPages = Math.ceil(totalItems / rowsPerPage);
+            document.getElementById('pageInfo').textContent = `Page ${currentPage} of ${totalPages}`;
+            document.getElementById('paginationControls').style.display = totalPages > 1 ? 'block' : 'none';
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                populateTable();
+            }
+        }
+
+        function nextPage() {
+            if (currentPage < Math.ceil((isSearching ? filteredFoods : foods).length / rowsPerPage)) {
+                currentPage++;
+                populateTable();
+            }
+        }
+
+        // Select All Checkbox
+        function toggleSelectAll(source) {
+            document.querySelectorAll('#foodsTable tbody input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = source.checked;
+            });
+        }
+
+        // Combine Selected Items
+        function combineSelected() {
+            const selectedItems = [...document.querySelectorAll('#foodsTable tbody input[type="checkbox"]:checked')]
+                .map(checkbox => `'${checkbox.closest('tr').cells[1].textContent.trim()}'`);
+
+            document.getElementById('combinedResults').textContent = `{${selectedItems.join(', ')}}`;
+        }
+
+        // Copy Combined List
+        function copyCode() {
+            const combinedResults = document.getElementById('combinedResults').textContent;
+            navigator.clipboard.writeText(combinedResults).then(() => {
+                alert("Combined list copied to clipboard!");
+            }).catch(err => console.error('Copy failed:', err));
+        }
+
+        // Populate table on page load
+        window.onload = () => populateTable();
+    </script>
+</body>
+
+
+</html>
