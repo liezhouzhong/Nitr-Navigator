@@ -18,7 +18,15 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/favicon-16x16.png">
     <link rel="manifest" href="../assets/img/site.webmanifest">
     <link rel="stylesheet" type="text/css" href="../nitratexplorer.css">
+    <!-- jQuery (you already have this) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Add Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Add Leaflet JS (this defines the "L" variable) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
     <script>
         $(function(){
           $("#nav-placeholder").load("../nav.html");
@@ -30,33 +38,17 @@
         /* Map container */
         .map-container {
             display: flex;
-            flex-wrap: nowrap; /* Keep elements side by side */
-            justify-content: flex-start; /* Align to the left */
-            align-items: flex-start;
-            position: relative; /* Allow absolute positioning inside */
-            gap: 10px; /* Space between map and legend */
-            width: 100%; /* Consider using percentage instead of vh for width */
-            height: 90vh; /* This is fine if you want it based on viewport height */
-            left:1%;
-            border-bottom: 1px solid #ebeef2;
-        }
-
-        .map-container-2 {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+            align-items: stretch;
             position: relative;
-            gap: 10px;
+            width: 100%;
             height: 90vh;
-            width: 18%;
-        }
-        .map-container-2 .note {
-            position: absolute;
-            bottom: 10px; /* Position 10px from the bottom */
-            left: 0; /* Align to the left of the container */
-            font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, 'Liberation Sans', sans-serif;
-            font-size: 13px;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 1px solid #ebeef2;
         }
 
         /* Map styling */
@@ -65,71 +57,199 @@
             width: 80%;
             position: relative;
             flex-shrink: 0;
+            transition: width 0.3s ease;
         }
 
-        /* Legend - manually positioned next to the map */
-        .legend {
-            line-height: 18px;
-            color: #555;
-            background: white;
-            padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            width: 70px;
-            flex-shrink: 0;
+        /* Legend container */
+        .map-container-2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
             position: relative;
+            padding: 15px;
+            width: 20%;
+            background-color: #f8f9fa;
+            border-left: 1px solid #ebeef2;
         }
 
-        /* Legend color boxes */
+        /* Dropdown styling */
+        .dropdown-container {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .dropdown-container label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+
+        #dataset-select {
+            width: 100%;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: all 0.2s ease;
+        }
+
+        #dataset-select:hover {
+            border-color: #999;
+        }
+
+        #dataset-select:focus {
+            outline: none;
+            border-color: coral;
+            box-shadow: 0 0 0 2px rgba(255, 127, 80, 0.2);
+        }
+
+        /* Legend */
+        .legend {
+            width: 100%;
+            padding: 15px;
+            border-radius: 6px;
+            background-color: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .legend h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #333;
+        }
+
         .legend i {
             width: 18px;
             height: 18px;
             float: left;
             margin-right: 8px;
-            opacity: 0.7;
-            background: white;
-            border-radius: 0px;
+            opacity: 0.8;
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
-        /* Responsive layout for small screens */
-        /* For screens with max-width of 1100px */
 
-        @media (max-width: 767px) {
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Note styling */
+        .map-container-2 .note {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            color: #666;
+            line-height: 1.4;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 4px;
+            border-left: 3px solid coral;
+        }
+
+        /* Responsive layout for tablets */
+        @media (max-width: 992px) {
             #map {
-                width: 80%;
+                width: 75%;
             }
+
+            .map-container-2 {
+                width: 25%;
+            }
+        }
+
+        /* Responsive layout for smaller tablets */
+        @media (max-width: 768px) {
             .map-container {
                 flex-direction: column;
+                height: auto;
+            }
+
+            #map {
                 width: 100%;
                 height: 70vh;
             }
-            /* Adjust map-container-2 (legend) layout for small screens */
+
             .map-container-2 {
-                width: 100%; /* Full width for map-container-2 */
-                height: 100%; /* Allow height to adjust based on content */
+                width: 100%;
+                border-left: none;
+                border-top: 1px solid #ebeef2;
+                padding: 15px;
+            }
+
+            .map-container-2 .note {
+                position: relative;
+                bottom: auto;
+                left: auto;
+                right: auto;
+                margin-top: 20px;
+            }
+
+            .dropdown-container {
+                max-width: 300px;
             }
         }
+
+        /* Responsive layout for mobile */
         @media (max-width: 530px) {
             #map {
-                width: 100%;
-            }
-            .map-container {
-                flex-direction: column;
-                width: 100%;
                 height: 60vh;
             }
-            .map-container-2 {
-                position: relative;
-                width: 100%;
-                height: auto;
+
+            header {
+                padding: 10px 15px;
             }
-            .map-container-2 .note {
-                top: 30px;
+
+            header h1 {
+                font-size: 18px;
             }
+
+            h2 {
+                font-size: 20px !important;
+                padding: 15px 0 !important;
+            }
+
             .dropdown-container {
-                width: 100%; /* Ensure dropdown takes full width */
-                height: auto;
-                z-index: 1;
-                margin-bottom: 40px; /* Add margin to separate from other content */
+                max-width: 100%;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            .map-container {
+                border-color: #333;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            }
+
+            .map-container-2 {
+                background-color: #222;
+                border-color: #333;
+            }
+
+            .legend, #dataset-select {
+                background-color: #333;
+                color: #eee;
+            }
+
+            .dropdown-container label, .legend h4 {
+                color: #eee;
+            }
+
+            .map-container-2 .note {
+                background-color: rgba(34, 34, 34, 0.9);
+                color: #ddd;
             }
         }
 
@@ -171,6 +291,9 @@
     </p>
 
     <h2 style="font-size: 18px;">Nitrate/Nitrite Data Points (as of 2023v0.07)</h2>
+    <div class="title-display">
+        <!-- Title will be dynamically inserted here -->
+    </div>
     <div class="map-container">
         <div id="map"></div>
         <div class="map-container-2">
@@ -197,256 +320,390 @@
     <p style="font-family: Playfair Display, Georgia, Times New Roman, serif; text-align: center; font-size:12px"><em>This website is developed and
                 maintained in-house by our dedicated team, mainly during after hours.</em></p>
 </footer>
+
 <script>
-        // Initialize map
-        const map = L.map('map', {
-            minZoom: 2,
-            maxZoom: 8,
-            maxBounds: [[-90, -180], [90, 360]]
-        }).setView([30, 0], 2);
+    // Initialize map with proper controls and bounds
+    const map = L.map('map', {
+        minZoom: 2,
+        maxZoom: 8,
+        maxBounds: [[-90, -180], [90, 360]],
+        zoomControl: true,
+        attributionControl: true
+    }).setView([30, 0], 2);
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap, CARTO',
-            subdomains: 'abcd',
-            noWrap: true
-        }).addTo(map);
+    // Add tile layer with proper error handling
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>, <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        noWrap: true,
+        maxZoom: 19
+    }).addTo(map);
 
-        // Country data with ISO3 codes
-        const plantNitrateData = {
-            "ALB": 25, "AUS": 94, "AUT": 726, "BGD": 15,
-            "BEL": 538, "BRA": 107, "BGR": 1605, "CAN": 20,
-            "CHL": 3, "CHN": 192, "HRV": 462, "CYP": 350,
-            "CZE": 2453, "DNK": 721, "ECU": 1, "EGY": 42,
-            "EST": 298, "FJI": 69, "FIN": 693, "FRA": 983,
-            "DEU": 4825, "GRC": 84, "HKG": 210, "HUN": 457,
-            "ISL": 3, "IND": 213, "IRN": 552, "IRQ": 52,
-            "IRL": 1555, "ISR": 2, "ITA": 1026, "JPN": 262,
-            "JOR": 35, "KAZ": 2, "LVA": 33, "LTU": 55,
-            "LUX": 430, "MYS": 17, "MLT": 73, "MNE": 48,
-            "NAM": 5, "NLD": 8498, "NZL": 11, "NGA": 47,
-            "MKD": 29, "PAK": 1, "POL": 1137, "PRT": 247,
-            "ROU": 1229, "RUS": 40, "SRB": 8, "SGP": 68,
-            "SVK": 2421, "SVN": 312, "ZAF": 1, "KOR": 53,
-            "ESP": 3705, "SWE": 161, "CHE": 7, "SYR": 8,
-            "TWN": 46, "THA": 34, "TUN": 23, "TUR": 222,
-            "GBR": 1224, "USA": 250, "VNM": 42
-        };
+    // Country data with ISO3 codes
+    const plantNitrateData = {
+        "ALB": 25, "AUS": 94, "AUT": 726, "BGD": 15,
+        "BEL": 538, "BRA": 107, "BGR": 1605, "CAN": 20,
+        "CHL": 3, "CHN": 192, "HRV": 462, "CYP": 350,
+        "CZE": 2453, "DNK": 721, "ECU": 1, "EGY": 42,
+        "EST": 298, "FJI": 69, "FIN": 693, "FRA": 983,
+        "DEU": 4825, "GRC": 84, "HKG": 210, "HUN": 457,
+        "ISL": 3, "IND": 213, "IRN": 552, "IRQ": 52,
+        "IRL": 1555, "ISR": 2, "ITA": 1026, "JPN": 262,
+        "JOR": 35, "KAZ": 2, "LVA": 33, "LTU": 55,
+        "LUX": 430, "MYS": 17, "MLT": 73, "MNE": 48,
+        "NAM": 5, "NLD": 8498, "NZL": 11, "NGA": 47,
+        "MKD": 29, "PAK": 1, "POL": 1137, "PRT": 247,
+        "ROU": 1229, "RUS": 40, "SRB": 8, "SGP": 68,
+        "SVK": 2421, "SVN": 312, "ZAF": 1, "KOR": 53,
+        "ESP": 3705, "SWE": 161, "CHE": 7, "SYR": 8,
+        "TWN": 46, "THA": 34, "TUN": 23, "TUR": 222,
+        "GBR": 1224, "USA": 250, "VNM": 42
+    };
 
-        const animalNitrateData = {
-            "AUS": 68, "AUT": 21, "BEL": 297, "BRA": 62, "BRN": 5, "BGR": 2, "CAN": 9,
-            "CHN": 11, "CUB": 6, "CZE": 999, "DNK": 3981, "EGY": 18, "EST": 23, "FJI": 12,
-            "FIN": 28, "FRA": 99, "DEU": 7776, "GRC": 27, "HKG": 9, "HUN": 4, "IND": 7,
-            "IDN": 7, "IRN": 33, "IRL": 657, "ISR": 1, "ITA": 855, "JPN": 27, "KAZ": 7,
-            "LTU": 2, "LUX": 177, "MYS": 1, "MLT": 21, "MNE": 4, "NLD": 8, "NZL": 23,
-            "NGA": 11, "POL": 22, "PRT": 328, "ROU": 4, "RUS": 2, "SAU": 17, "SRB": 6,
-            "SGP": 13, "SVK": 126, "ESP": 909, "LKA": 4, "SWE": 9, "TUR": 113,
-            "GBR": 222, "USA": 327, "TWN": 9
-        };
+    const animalNitrateData = {
+        "AUS": 68, "AUT": 21, "BEL": 297, "BRA": 62, "BRN": 5, "BGR": 2, "CAN": 9,
+        "CHN": 11, "CUB": 6, "CZE": 999, "DNK": 3981, "EGY": 18, "EST": 23, "FJI": 12,
+        "FIN": 28, "FRA": 99, "DEU": 7776, "GRC": 27, "HKG": 9, "HUN": 4, "IND": 7,
+        "IDN": 7, "IRN": 33, "IRL": 657, "ISR": 1, "ITA": 855, "JPN": 27, "KAZ": 7,
+        "LTU": 2, "LUX": 177, "MYS": 1, "MLT": 21, "MNE": 4, "NLD": 8, "NZL": 23,
+        "NGA": 11, "POL": 22, "PRT": 328, "ROU": 4, "RUS": 2, "SAU": 17, "SRB": 6,
+        "SGP": 13, "SVK": 126, "ESP": 909, "LKA": 4, "SWE": 9, "TUR": 113,
+        "GBR": 222, "USA": 327, "TWN": 9
+    };
 
-        const animalNitriteData = {
-            "AUS": 59, "BEL": 265, "BRA": 67, "CAN": 38, "CHN": 59, "CZE": 958, "DNK": 3957,
-            "EGY": 21, "EST": 29, "FJI": 12, "FIN": 42, "FRA": 89, "DEU": 532, "GRC": 30,
-            "HKG": 19, "HUN": 11, "IRN": 53, "IRL": 336, "ISR": 1, "ITA": 851, "JPN": 24,
-            "KAZ": 6, "LUX": 187, "MYS": 1, "MLT": 21, "NLD": 24, "NZL": 35, "NGA": 10,
-            "POL": 22, "PRT": 279, "ROU": 41, "RUS": 2, "SRB": 22, "SVK": 61, "ZAF": 4,
-            "KOR": 23, "ESP": 700, "SWE": 9, "TWN": 9, "TUR": 159, "GBR": 219, "USA": 223
-        };
+    const animalNitriteData = {
+        "AUS": 59, "BEL": 265, "BRA": 67, "CAN": 38, "CHN": 59, "CZE": 958, "DNK": 3957,
+        "EGY": 21, "EST": 29, "FJI": 12, "FIN": 42, "FRA": 89, "DEU": 532, "GRC": 30,
+        "HKG": 19, "HUN": 11, "IRN": 53, "IRL": 336, "ISR": 1, "ITA": 851, "JPN": 24,
+        "KAZ": 6, "LUX": 187, "MYS": 1, "MLT": 21, "NLD": 24, "NZL": 35, "NGA": 10,
+        "POL": 22, "PRT": 279, "ROU": 41, "RUS": 2, "SRB": 22, "SVK": 61, "ZAF": 4,
+        "KOR": 23, "ESP": 700, "SWE": 9, "TWN": 9, "TUR": 159, "GBR": 219, "USA": 223
+    };
 
-        const plantNitriteData = {
-            "AUS": 38, "AUT": 3, "BEL": 2, "BGR": 1, "CAN": 16, "CHN": 100, "HRV": 10,
-            "CYP": 4, "CZE": 57, "DNK": 325, "EGY": 28, "EST": 17, "FRA": 24, "DEU": 559,
-            "GRC": 2, "HUN": 236, "IND": 60, "IRN": 211, "IRQ": 51, "IRL": 14, "ITA": 19,
-            "JPN": 77, "JOR": 14, "KAZ": 1, "MLT": 55, "NLD": 3, "NZL": 11, "NGA": 24,
-            "POL": 305, "PRT": 17, "ROU": 49, "SRB": 8, "SVK": 97, "SVN": 32, "KOR": 53,
-            "ESP": 33, "SYR": 8, "TUR": 100, "GBR": 17, "USA": 107
-        };
+    const plantNitriteData = {
+        "AUS": 38, "AUT": 3, "BEL": 2, "BGR": 1, "CAN": 16, "CHN": 100, "HRV": 10,
+        "CYP": 4, "CZE": 57, "DNK": 325, "EGY": 28, "EST": 17, "FRA": 24, "DEU": 559,
+        "GRC": 2, "HUN": 236, "IND": 60, "IRN": 211, "IRQ": 51, "IRL": 14, "ITA": 19,
+        "JPN": 77, "JOR": 14, "KAZ": 1, "MLT": 55, "NLD": 3, "NZL": 11, "NGA": 24,
+        "POL": 305, "PRT": 17, "ROU": 49, "SRB": 8, "SVK": 97, "SVN": 32, "KOR": 53,
+        "ESP": 33, "SYR": 8, "TUR": 100, "GBR": 17, "USA": 107
+    };
 
-        // Function to determine color based on number of data points
-        function getColor(value) {
-            if (value === undefined || value === -1) return '#d3d3d3'; // Default gray for no data
-            return value > 5000 ? '#00441b' :  // Dark green
-                   value > 2000 ? '#006d2c' :
-                   value > 1000 ? '#238b45' :
-                   value > 500  ? '#41ae76' :
-                   value > 100  ? '#66c2a4' :
-                   value > 20   ? '#99d8c9' :
-                   value > 10   ? '#ccece6' :
-                                  '#E0F2EE';  // Lightest green
+    // Dataset metadata for dynamic display
+    const datasetInfo = {
+        'plantNitrate': {
+            title: 'Plant Nitrate Data Points',
+            description: 'Number of nitrate data points collected from plant sources'
+        },
+        'animalNitrate': {
+            title: 'Animal Nitrate Data Points',
+            description: 'Number of nitrate data points collected from animal sources'
+        },
+        'plantNitrite': {
+            title: 'Plant Nitrite Data Points',
+            description: 'Number of nitrite data points collected from plant sources'
+        },
+        'animalNitrite': {
+            title: 'Animal Nitrite Data Points',
+            description: 'Number of nitrite data points collected from animal sources'
         }
+    };
 
-        // Load and style GeoJSON data
-        fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
-            .then(response => response.json())
-            .then(geojsonData => {
-                geojson = L.geoJson(geojsonData, {
-                    style: (feature) => {
-                        const isoCode = feature.id;
-                        const value = plantNitrateData[isoCode] ?? -1;
+    // Function to determine color based on number of data points
+    function getColor(value) {
+        if (value === undefined || value === null || value === -1) return '#d3d3d3'; // Default gray for no data
+        return value > 5000 ? '#00441b' :  // Dark green
+               value > 2000 ? '#006d2c' :
+               value > 1000 ? '#238b45' :
+               value > 500  ? '#41ae76' :
+               value > 100  ? '#66c2a4' :
+               value > 20   ? '#99d8c9' :
+               value > 10   ? '#ccece6' :
+                             '#E0F2EE';  // Lightest green
+    }
 
-                        return {
-                            fillColor: getColor(value),
-                            weight: 1.5,
-                            opacity: 1,
-                            color: '#ffffff',
-                            fillOpacity: 0.85,
-                            interactive: true
-                        };
-                    },
-                    onEachFeature: (feature, layer) => {
-                        const isoCode = feature.id;
-                        const nitrate = plantNitrateData[isoCode];
+    // Global geojson variable
+    let geojson;
+    let currentDataset = 'plantNitrate';
 
-                        // Store the original style for resetting on mouseout
-                        layer.originalStyle = {
-                            fillColor: getColor(nitrate ?? -1),
-                            weight: 1.5,
-                            opacity: 1,
-                            color: '#ffffff',
-                            fillOpacity: 0.85
-                        };
+    // Popup styling
+    const customPopupStyle = `
+    .custom-popup {
+        font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+        padding: 5px;
+    }
+    .popup-header {
+        font-weight: bold;
+        margin-bottom: 5px;
+        font-size: 14px;
+        color: #333;
+    }
+    .popup-content {
+        font-size: 13px;
+    }
+    .popup-content strong {
+        color: #238b45;
+    }
+    `;
 
-                        // Popup content
-                        const popupContent = nitrate !== undefined
-                            ? `<div class="custom-popup">
-                                <div class="popup-header">${feature.properties.name}</div>
-                                <div class="popup-content">
-                                    <strong>${Number(nitrate).toLocaleString()}</strong>
-                                </div>
-                            </div>`
-                            : `<div class="custom-popup">
-                                <div class="popup-header">${feature.properties.name}</div>
-                                <div class="popup-content">
-                                    No data
-                                </div>
-                            </div>`;
+    // Add styles to document
+    const styleElement = document.createElement('style');
+    styleElement.textContent = customPopupStyle;
+    document.head.appendChild(styleElement);
 
-                        const popup = L.popup({ closeButton: false, autoPan: false });
+    // Load and style GeoJSON data with error handling
+    fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Network response was not ok: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(geojsonData => {
+            geojson = L.geoJson(geojsonData, {
+                style: feature => styleCountry(feature, plantNitrateData),
+                onEachFeature: (feature, layer) => addInteraction(feature, layer, plantNitrateData)
+            }).addTo(map);
 
-                        layer.on({
-                            mouseover: (e) => {
-                                const targetLayer = e.target;
+            // Add legend after map is loaded
+            createLegend();
 
-                                // Increase lightness on hover by slightly changing the fillOpacity
-                                targetLayer.setStyle({
-                                    weight: 2.5,  // Highlight thickness
-                                    fillOpacity: 0.95  // Slightly increase opacity for a "lighten" effect
-                                });
+            // Update title based on initial dataset
+            updateDatasetTitle(currentDataset);
+        })
+        .catch(error => {
+            console.error("Error loading or processing GeoJSON:", error);
+            // Show user-friendly error message on the page
+            const mapElement = document.getElementById('map');
+            if (mapElement) {
+                mapElement.innerHTML = `
+                    <div style="text-align: center; padding: 20px; color: #d32f2f;">
+                        <h3>Map loading error</h3>
+                        <p>Sorry, we couldn't load the map data. Please try refreshing the page.</p>
+                    </div>
+                `;
+            }
+        });
 
-                                targetLayer.bringToFront();
-                                popup.setLatLng(e.latlng).setContent(popupContent).openOn(map);
-                            },
-                            mousemove: (e) => { popup.setLatLng(e.latlng); },
-                            mouseout: (e) => {
-                                const targetLayer = e.target;
-                                targetLayer.setStyle(layer.originalStyle); // Reset the style back
+    // Function to style countries
+    function styleCountry(feature, dataset) {
+        const isoCode = feature.id;
+        const value = dataset[isoCode] ?? -1;
 
-                                // Close popup when leaving country
-                                map.closePopup(popup);
-                            }
-                        });
+        return {
+            fillColor: getColor(value),
+            weight: 1.5,
+            opacity: 1,
+            color: '#ffffff',
+            fillOpacity: 0.85,
+            interactive: true
+        };
+    }
 
-                        layer.options.bubblingMouseEvents = false;
-                    }
-                }).addTo(map);
-            })
-            .catch(error => console.error("Error loading GeoJSON:", error));
+    // Function to add interactivity to each country
+    function addInteraction(feature, layer, dataset) {
+        const isoCode = feature.id;
+        const dataValue = dataset[isoCode];
 
-        // Add legend to map
+        // Store the original style for resetting on mouseout
+        layer.originalStyle = styleCountry(feature, dataset);
+
+        // Create the popup content
+        const popupContent = createPopupContent(feature.properties.name, dataValue);
+
+        // Create a popup but don't open it yet
+        const popup = L.popup({
+            closeButton: false,
+            autoPan: false,
+            className: 'custom-popup-wrapper'
+        });
+
+        // Add event listeners
+        layer.on({
+            mouseover: function(e) {
+                const targetLayer = e.target;
+
+                // Highlight style
+                targetLayer.setStyle({
+                    weight: 2.5,
+                    color: '#666',
+                    fillOpacity: 0.95
+                });
+
+                targetLayer.bringToFront();
+                popup.setLatLng(e.latlng).setContent(popupContent).openOn(map);
+            },
+            mousemove: function(e) {
+                popup.setLatLng(e.latlng);
+            },
+            mouseout: function(e) {
+                const targetLayer = e.target;
+                targetLayer.setStyle(targetLayer.originalStyle);
+                map.closePopup();
+            },
+            click: function(e) {
+                // Optional: You could add a specific action when clicking on a country
+                // For example, showing more detailed info in a sidebar
+            }
+        });
+    }
+
+    // Function to create popup content
+    function createPopupContent(countryName, value) {
+        return value !== undefined
+            ? `<div class="custom-popup">
+                <div class="popup-header">${countryName}</div>
+                <div class="popup-content">
+                    Data points: <strong>${Number(value).toLocaleString()}</strong>
+                </div>
+              </div>`
+            : `<div class="custom-popup">
+                <div class="popup-header">${countryName}</div>
+                <div class="popup-content">
+                    No data available
+                </div>
+              </div>`;
+    }
+
+    // Function to create the legend
+    function createLegend() {
         const legend = L.control({ position: 'bottomleft' });
 
-        legend.onAdd = function (map) {
+        legend.onAdd = function(map) {
             const div = L.DomUtil.create('div', 'legend');
-            const grades = [10, 50, 100, 500, 1000, 2000, 5000];
-            const labels = [];
+            div.innerHTML = '<h4>Data Points</h4>';
 
-            for (let i = 0; i < grades.length; i++) {
+            // Define the ranges for the legend
+            const grades = [5000, 2000, 1000, 500, 100, 20, 10, 0];
+
+            // Loop through the ranges and generate a label with a colored square for each range
+            for (let i = 0; i < grades.length - 1; i++) {
                 div.innerHTML +=
+                    '<div class="legend-item">' +
                     '<i style="background:' + getColor(grades[i]) + '"></i> ' +
-                    `< ${grades[i]}` + '<br>';
+                    grades[i + 1] + (grades[i + 1] === 0 ? '' : ' - ' + grades[i]) +
+                    '</div>';
             }
+
+            // Add a category for no data
+            div.innerHTML +=
+                '<div class="legend-item">' +
+                '<i style="background:' + getColor(-1) + '"></i> ' +
+                'No data' +
+                '</div>';
 
             return div;
         };
 
         legend.addTo(map);
+    }
 
-        // Function to update the map and popup based on selected dataset
-        function updateMap(data) {
-            geojson.eachLayer(function (layer) {
-                const isoCode = layer.feature.id;
-                const value = data[isoCode] ?? -1;
-                const newStyle = {
-                    fillColor: getColor(value),
-                    weight: 1.5,
-                    opacity: 1,
-                    color: '#ffffff',
-                    fillOpacity: 0.85
-                };
+    // Function to update the map dataset title
+    function updateDatasetTitle(datasetKey) {
+        const titleElement = document.querySelector('.map-container-2 .title-display');
 
-                layer.setStyle(newStyle);
+        if (titleElement && datasetInfo[datasetKey]) {
+            titleElement.innerHTML = `
+                <h3>${datasetInfo[datasetKey].title}</h3>
+                <p>${datasetInfo[datasetKey].description}</p>
+            `;
+        } else if (!titleElement) {
+            // Create the title element if it doesn't exist
+            const containerElement = document.querySelector('.map-container-2');
+            if (containerElement) {
+                const newTitleElement = document.createElement('div');
+                newTitleElement.className = 'title-display';
+                newTitleElement.innerHTML = `
+                    <h3>${datasetInfo[datasetKey].title}</h3>
+                    <p>${datasetInfo[datasetKey].description}</p>
+                `;
 
-                // Update the original style to the new style
-                layer.originalStyle = newStyle;
-
-                // Update popup content
-                const nitrate = data[isoCode];
-                const popupContent = nitrate !== undefined
-                    ? `<div class="custom-popup">
-                        <div class="popup-header">${layer.feature.properties.name}</div>
-                        <div class="popup-content">
-                            <strong>${Number(nitrate).toLocaleString()}</strong>
-                        </div>
-                    </div>`
-                    : `<div class="custom-popup">
-                        <div class="popup-header">${layer.feature.properties.name}</div>
-                        <div class="popup-content">
-                            No data
-                        </div>
-                    </div>`;
-
-                layer.on({
-                    mouseover: (e) => {
-                        const targetLayer = e.target;
-
-                        // Increase lightness on hover by slightly changing the fillOpacity
-                        targetLayer.setStyle({
-                            weight: 2.5,  // Highlight thickness
-                            fillOpacity: 0.95  // Slightly increase opacity for a "lighten" effect
-                        });
-
-                        targetLayer.bringToFront();
-                        L.popup({ closeButton: false, autoPan: false })
-                            .setLatLng(e.latlng)
-                            .setContent(popupContent)
-                            .openOn(map);
-                    },
-                    mousemove: (e) => { L.popup().setLatLng(e.latlng); },
-                    mouseout: (e) => {
-                        const targetLayer = e.target;
-                        targetLayer.setStyle(layer.originalStyle); // Reset the style back
-
-                        // Close popup when leaving country
-                        map.closePopup();
-                    }
-                });
-            });
-        }
-
-        // Event listener for dropdown change
-        document.getElementById('dataset-select').addEventListener('change', function (e) {
-            const selectedDataset = e.target.value;
-            if (selectedDataset === 'plantNitrate') {
-                updateMap(plantNitrateData);
-            } else if (selectedDataset === 'animalNitrate') {
-                updateMap(animalNitrateData);
-            } else if (selectedDataset === 'plantNitrite') {
-                updateMap(plantNitriteData);
-            } else if (selectedDataset === 'animalNitrite') {
-                updateMap(animalNitriteData);
+                // Insert after the dropdown
+                const dropdownContainer = document.querySelector('.dropdown-container');
+                if (dropdownContainer) {
+                    dropdownContainer.insertAdjacentElement('afterend', newTitleElement);
+                } else {
+                    // If dropdown not found, insert at the beginning
+                    containerElement.prepend(newTitleElement);
+                }
             }
+        }
+    }
+
+    // Function to update the map with new dataset
+    function updateMap(dataset, datasetKey) {
+        if (!geojson) return;
+
+        currentDataset = datasetKey;
+
+        geojson.eachLayer(function(layer) {
+            const feature = layer.feature;
+
+            // Update the style
+            const newStyle = styleCountry(feature, dataset);
+            layer.setStyle(newStyle);
+
+            // Update the original style reference
+            layer.originalStyle = newStyle;
+
+            // Update popup content and interaction
+            const isoCode = feature.id;
+            const dataValue = dataset[isoCode];
+
+            // Remove old listeners to prevent duplicates
+            layer.off('mouseover mouseout mousemove click');
+
+            // Add new listeners with updated data
+            addInteraction(feature, layer, dataset);
         });
 
-        // Initialize map with plant nitrate data
-        updateMap(plantNitrateData);
-    </script>
+        // Update the title
+        updateDatasetTitle(datasetKey);
+    }
+
+    // Add event listener for dropdown change
+    document.addEventListener('DOMContentLoaded', function() {
+        const dropdown = document.getElementById('dataset-select');
+
+        if (dropdown) {
+            dropdown.addEventListener('change', function(e) {
+                const selectedDataset = e.target.value;
+
+                // Map the dataset value to the data object
+                const datasetMap = {
+                    'plantNitrate': plantNitrateData,
+                    'animalNitrate': animalNitrateData,
+                    'plantNitrite': plantNitriteData,
+                    'animalNitrite': animalNitriteData
+                };
+
+                // Update the map with the selected dataset
+                if (datasetMap[selectedDataset]) {
+                    updateMap(datasetMap[selectedDataset], selectedDataset);
+                }
+            });
+        } else {
+            console.error("Dropdown element not found!");
+        }
+
+        // Make sure the map is fully responsive
+        window.addEventListener('resize', function() {
+            if (map) {
+                map.invalidateSize();
+            }
+        });
+    });
+
+    // For browsers where DOMContentLoaded has already fired
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            // Update map with initial dataset (plant nitrate)
+            updateMap(plantNitrateData, 'plantNitrate');
+        });
+    } else {
+        // DOMContentLoaded has already fired
+        updateMap(plantNitrateData, 'plantNitrate');
+    }
+</script>
+
 </html>
