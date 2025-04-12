@@ -24,6 +24,126 @@
           $("#nav-placeholder").load("../nav.html");
         });
     </script>
+  <style>
+    /* General Reset & Fonts */
+      .outer-container {
+        padding: 40px 20px;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .section-head-text {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #2e3c5d;
+        margin-bottom: 10px;
+      }
+
+      .section-subhead-text {
+        text-align: center;
+        font-size: 1.25rem;
+        color: #697a90;
+        margin-bottom: 40px;
+      }
+
+      .responsive-container-block {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+      }
+
+      /* Team Card */
+      .team-card-container {
+        flex: 1 1 250px;
+        max-width: 300px;
+      }
+
+      .team-card {
+        background-color: #fff;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .team-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+      }
+
+      .img-wrapper {
+        width: 100%;
+        height: 280px;
+        overflow: hidden;
+      }
+
+      .team-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .name {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 15px 0 5px;
+        color: #2e3c5d;
+      }
+
+      .social-media-links {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 10px 0 20px;
+      }
+
+      .social-media-links img {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .social-media-links img:hover {
+        transform: scale(1.2);
+      }
+
+      /* Responsive Breakpoints */
+      @media (max-width: 992px) {
+        .section-head-text {
+          font-size: 2rem;
+        }
+
+        .team-card-container {
+          flex: 1 1 45%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .team-card-container {
+          flex: 1 1 100%;
+        }
+
+        .img-wrapper {
+          height: 240px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .section-head-text {
+          font-size: 1.75rem;
+        }
+
+        .section-subhead-text {
+          font-size: 1rem;
+        }
+
+        .img-wrapper {
+          height: 200px;
+        }
+      }
+  </style>
 </head>
 
 <body>
@@ -40,7 +160,7 @@
 
     <div style="background-color: #ebeef2;">
         <h2 style="padding: 20px 0 0 0; text-align: left;">About the Nitr-Navigator Project</h2>
-        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong; 3 May 2024</p>
+        <p style="font-family: Helvetica, arial, sans-ser; padding: 5px;">By Liezhou Zhong; 12 April 2025</p>
     </div>
 
     <h2 style="font-size: 24px;">The Story</h2>
