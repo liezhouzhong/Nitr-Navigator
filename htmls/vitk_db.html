@@ -271,7 +271,7 @@
                 if (checkbox && checkbox.checked) {
                     const foodName = row.querySelector('td:nth-child(2)').textContent.trim();
                     const country = row.querySelector('td:nth-child(3)').textContent.trim();
-                    selectedItems.push(`'${foodName}': '${country}'`);
+                    selectedItems.push(`"${foodName}": "${country}"`);
                 }
             });
 
