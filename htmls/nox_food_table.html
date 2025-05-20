@@ -55,7 +55,7 @@
                 animal food nitrate nitrite database paper</a>; mnfr, 2022).</p>
 
         <p> The search function enables wildcard search across the entire table (e.g., 'lett' for all lettuce) and is case-insensitive.
-        However, many composite food names are not modified and being presented as in data sources.</p>
+        However, many composite food names are not modified and being presented as in data sources. The search function to handle multiple search terms separated by semicolons.</p>
     </div>
 
     <input type="text" id="myInput" onkeyup="mySearch()" placeholder="Search for food names.." title="Type in a name">
@@ -94,7 +94,7 @@
         <button style="cursor: pointer;" onclick="combineSelected()">Combine Selected</button>
         <div class="list-container">
             <pre class="code" style="margin: 5px;">
-                <code id="combinedResults"></code>
+                <code id="combinedResults" style="font-size:12px;"></code>
             </pre>
             <button class="copy-button" onclick="copyCode()">Copy List</button>
         </div>
@@ -177,17 +177,31 @@
             updatePaginationControls(dataset.length);
         }
 
-        // Search Function
-        function mySearch() {
-            const input = document.getElementById('myInput').value.toLowerCase();
-            filteredFoods = foods.filter(food =>
-                Object.values(food).some(value => value.toLowerCase().includes(input))
-            );
+    // Search Function
+    function mySearch() {
+        const input = document.getElementById('myInput').value.toLowerCase();
 
-            isSearching = true;
-            currentPage = 1;
-            populateTable();
+        // Split input by semicolons and trim whitespace from each term
+        const searchTerms = input.split(';').map(term => term.trim()).filter(term => term.length > 0);
+
+        if (searchTerms.length === 0) {
+            // If no valid search terms, show all results
+            filteredFoods = [...foods];
+        } else {
+            // Filter foods that match ANY of the search terms
+            filteredFoods = foods.filter(food =>
+                searchTerms.some(term =>
+                    Object.values(food).some(value =>
+                        value.toLowerCase().includes(term)
+                    )
+                )
+            );
         }
+
+        isSearching = true;
+        currentPage = 1;
+        populateTable();
+    }
 
         // Pagination Controls
         function updatePaginationControls(totalItems) {
@@ -222,16 +236,41 @@
             const selectedItems = [...document.querySelectorAll('#foodsTable tbody input[type="checkbox"]:checked')]
                 .map(checkbox => `'${checkbox.closest('tr').cells[1].textContent.trim()}'`);
 
-            document.getElementById('combinedResults').textContent = `{${selectedItems.join(', ')}}`;
+            document.getElementById('combinedResults').textContent = `{${selectedItems.join('; ')}}`;
         }
 
-        // Copy Combined List
-        function copyCode() {
-            const combinedResults = document.getElementById('combinedResults').textContent;
-            navigator.clipboard.writeText(combinedResults).then(() => {
-                alert("Combined list copied to clipboard!");
-            }).catch(err => console.error('Copy failed:', err));
-        }
+    // Copy Combined List
+    function copyCode() {
+        const combinedResults = document.getElementById('combinedResults').textContent;
+        navigator.clipboard.writeText(combinedResults).then(() => {
+            // Create a custom notification instead of alert
+            const notification = document.createElement('div');
+            notification.textContent = "Combined list copied to clipboard!";
+            notification.style.position = 'fixed';
+            notification.style.top = '20px'; // Changed from bottom to top
+            notification.style.right = '20px';
+            notification.style.backgroundColor = '#4CAF50';
+            notification.style.color = 'white';
+            notification.style.padding = '10px 20px';
+            notification.style.borderRadius = '5px';
+            notification.style.zIndex = '9999';
+            notification.style.boxShadow = '0 2px 5px rgba(0,0,0,0.2)';
+
+            // Add notification to the document
+            document.body.appendChild(notification);
+
+            // Remove notification after 5 seconds
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transition = 'opacity 0.5s ease';
+
+                // Remove from DOM after fade out
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 500);
+            }, 5000);
+        }).catch(err => console.error('Copy failed:', err));
+    }
 
         // Populate table on page load
         window.onload = () => populateTable();
