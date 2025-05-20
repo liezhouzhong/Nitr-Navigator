@@ -94,11 +94,16 @@
     }
     /* menu hamburger to cross*/
     nav label.m-menu__toggle svg line {
-        transition: transform 0.3s ease, opacity 0.3s ease;
+        transition: transform 0.3s ease, opacity 0.1s ease;
     }
 
     nav label.m-menu__toggle:hover svg line:nth-child(2) {
-        transform: rotate(45deg) translate(2px, 5px);
+        transform: rotate(45deg) translate(0px, 0px);
+        transform-origin: 50% 50%;
+    }
+
+    nav label.m-menu__toggle:hover svg line:nth-child(3) {
+        transform: rotate(-45deg) translate(0px, 0px);
         transform-origin: 50% 50%;
     }
 
@@ -106,9 +111,8 @@
         opacity: 0;
     }
 
-    nav label.m-menu__toggle:hover svg line:nth-child(3) {
-        transform: rotate(-45deg) translate(0px, -4px);
-        transform-origin: 50% 50%;
+    nav label.m-menu__toggle:hover svg line:nth-child(4) {
+        opacity: 0;
     }
     /* menu hamburger to cross - end*/
     nav .m-menu__overlay {
